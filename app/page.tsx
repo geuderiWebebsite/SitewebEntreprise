@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import {
   Phone,
   Clock,
@@ -25,32 +25,38 @@ import {
   ChevronRight,
   Lock,
   DoorOpen,
-  Wrench
-} from 'lucide-react';
+  Wrench,
+} from "lucide-react";
 
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import AnimatedCounter from './components/AnimatedCounter';
-import TestimonialsCarousel from './components/TestimonialsCarousel';
-import ServicesShowcase from './components/ServicesShowcase';
-import InteractiveMap from './components/InteractiveMap';
-import FloatingActions from './components/FloatingActions';
-import HeroSection from './components/HeroSection';
-import Link from 'next/link';
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import AnimatedCounter from "./components/AnimatedCounter";
+import TestimonialsCarousel from "./components/TestimonialsCarousel";
+import ServicesShowcase from "./components/ServicesShowcase";
+import InteractiveMap from "./components/InteractiveMap";
+import FloatingActions from "./components/FloatingActions";
+import HeroSection from "./components/HeroSection";
+import Link from "next/link";
 
 export default function Home() {
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    message: ''
+    name: "",
+    phone: "",
+    message: "",
   });
-  
+
   const [isVisible, setIsVisible] = useState(false);
-const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [activeBanner, setActiveBanner] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [count1, setCount1] = useState(0);
@@ -60,16 +66,16 @@ const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   useEffect(() => {
     const timer1 = setInterval(() => {
-      setCount1(prev => prev < 2500 ? prev + 50 : 2500);
+      setCount1((prev) => (prev < 2500 ? prev + 50 : 2500));
     }, 20);
     const timer2 = setInterval(() => {
-      setCount2(prev => prev < 15 ? prev + 1 : 15);
+      setCount2((prev) => (prev < 15 ? prev + 1 : 15));
     }, 100);
     const timer3 = setInterval(() => {
-      setCount3(prev => prev < 98 ? prev + 2 : 98);
+      setCount3((prev) => (prev < 98 ? prev + 2 : 98));
     }, 30);
     const timer4 = setInterval(() => {
-      setCount4(prev => prev < 24 ? prev + 1 : 24);
+      setCount4((prev) => (prev < 24 ? prev + 1 : 24));
     }, 50);
 
     return () => {
@@ -99,75 +105,92 @@ const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Formulaire soumis:', formData);
+    console.log("Formulaire soumis:", formData);
     // Animation de succès
     const button = e.target as HTMLFormElement;
-    button.classList.add('animate-pulse');
+    button.classList.add("animate-pulse");
     setTimeout(() => {
-      button.classList.remove('animate-pulse');
+      button.classList.remove("animate-pulse");
     }, 2000);
   };
 
   const stats = [
-    { number: 2500, suffix: '+', label: 'Interventions réalisées' },
-    { number: 15, suffix: ' ans', label: 'D\'expérience' },
-    { number: 98, suffix: '%', label: 'Clients satisfaits' },
-    { number: 24, suffix: 'h/24', label: 'Disponibilité' }
+    { number: 2500, suffix: "+", label: "Interventions réalisées" },
+    { number: 15, suffix: " ans", label: "D'expérience" },
+    { number: 98, suffix: "%", label: "Clients satisfaits" },
+    { number: 24, suffix: "h/24", label: "Disponibilité" },
   ];
- const promotions = [
+  const promotions = [
     {
       icon: BadgePercent,
       title: "-20% sur votre première intervention",
       description: "Offre valable 24h/24",
-      color: "from-orange-500 to-red-600"
+      color: "from-orange-500 to-red-600",
     },
     {
       icon: Gift,
       title: "Diagnostic gratuit",
       description: "Évaluation sans engagement",
-      color: "from-purple-500 to-pink-600"
+      color: "from-purple-500 to-pink-600",
     },
     {
       icon: Sparkles,
       title: "Changement de serrure offert",
       description: "Pour toute installation complète",
-      color: "from-blue-500 to-cyan-600"
-    }
+      color: "from-blue-500 to-cyan-600",
+    },
   ];
-const zones = [
-    { name: "Paris 1er-8ème", time: "15-20 min", image: "https://images.pexels.com/photos/1461974/pexels-photo-1461974.jpeg?auto=compress&cs=tinysrgb&w=600" },
-    { name: "Paris 9ème-16ème", time: "20-25 min", image: "https://images.pexels.com/photos/2363/france-landmark-lights-night.jpg?auto=compress&cs=tinysrgb&w=600" },
-    { name: "Paris 17ème-20ème", time: "20-30 min", image: "https://images.pexels.com/photos/1461974/pexels-photo-1461974.jpeg?auto=compress&cs=tinysrgb&w=600" },
-    { name: "Banlieue proche", time: "30-40 min", image: "https://images.pexels.com/photos/2363/france-landmark-lights-night.jpg?auto=compress&cs=tinysrgb&w=600" }
+  const zones = [
+    {
+      name: "Paris 1er-8ème",
+      time: "15-20 min",
+      image:
+        "https://images.pexels.com/photos/1461974/pexels-photo-1461974.jpeg?auto=compress&cs=tinysrgb&w=600",
+    },
+    {
+      name: "Paris 9ème-16ème",
+      time: "20-25 min",
+      image:
+        "https://images.pexels.com/photos/2363/france-landmark-lights-night.jpg?auto=compress&cs=tinysrgb&w=600",
+    },
+    {
+      name: "Paris 17ème-20ème",
+      time: "20-30 min",
+      image:
+        "https://images.pexels.com/photos/1461974/pexels-photo-1461974.jpeg?auto=compress&cs=tinysrgb&w=600",
+    },
+    {
+      name: "Banlieue proche",
+      time: "30-40 min",
+      image:
+        "https://images.pexels.com/photos/2363/france-landmark-lights-night.jpg?auto=compress&cs=tinysrgb&w=600",
+    },
   ];
   const urgencyFeatures = [
     {
       icon: Zap,
-      title: 'Intervention Express',
-      description: 'Arrivée garantie en moins de 30 minutes',
-      color: 'text-yellow-500'
+      title: "Intervention Express",
+      description: "Arrivée garantie en moins de 30 minutes",
+      color: "text-yellow-500",
     },
     {
       icon: Shield,
-      title: 'Sans Casse',
-      description: 'Ouverture sans dégâts dans 95% des cas',
-      color: 'text-green-500'
+      title: "Sans Casse",
+      description: "Ouverture sans dégâts dans 95% des cas",
+      color: "text-green-500",
     },
     {
       icon: Heart,
-      title: 'Tarif Transparent',
-      description: 'Prix fixe annoncé au téléphone',
-      color: 'text-red-500'
-    }
+      title: "Tarif Transparent",
+      description: "Prix fixe annoncé au téléphone",
+      color: "text-red-500",
+    },
   ];
 
   return (
     <div className="min-h-screen bg-cream-100">
-    
       <Header />
-  
       <HeroSection />
-  
       {/* Bannière Promotionnelle Rotative */}
       <section className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 py-6 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4">
@@ -178,7 +201,9 @@ const zones = [
                 <div
                   key={index}
                   className={`absolute inset-0 flex items-center justify-center transition-all duration-1000 ${
-                    index === activeBanner ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                    index === activeBanner
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-10"
                   }`}
                 >
                   <div className="flex items-center space-x-4 text-white">
@@ -201,12 +226,15 @@ const zones = [
             {urgencyFeatures.map((feature, index) => {
               const IconComponent = feature.icon;
               const backgroundImages = [
-                'https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg?auto=compress&cs=tinysrgb&w=800',
-                'https://images.pexels.com/photos/5691604/pexels-photo-5691604.jpeg?auto=compress&cs=tinysrgb&w=800',
-                'https://images.pexels.com/photos/4246096/pexels-photo-4246096.jpeg?auto=compress&cs=tinysrgb&w=800'
+                "https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg?auto=compress&cs=tinysrgb&w=800",
+                "https://images.pexels.com/photos/5691604/pexels-photo-5691604.jpeg?auto=compress&cs=tinysrgb&w=800",
+                "https://images.pexels.com/photos/4246096/pexels-photo-4246096.jpeg?auto=compress&cs=tinysrgb&w=800",
               ];
               return (
-                <div key={index} className="relative h-80 overflow-hidden rounded-2xl group cursor-pointer">
+                <div
+                  key={index}
+                  className="relative h-80 overflow-hidden rounded-2xl group cursor-pointer"
+                >
                   <img
                     src={backgroundImages[index]}
                     alt={feature.title}
@@ -231,14 +259,19 @@ const zones = [
       <section
         className="relative py-20 bg-cover bg-center bg-fixed"
         style={{
-          backgroundImage: 'url(https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1920)',
+          backgroundImage:
+            "url(https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1920)",
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-red-900/80 to-black/85"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Nos Chiffres Parlent d'Eux-Mêmes</h2>
-            <p className="text-xl text-gray-200">La confiance de milliers de Parisiens</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Nos Chiffres Parlent D&apos;Eux-Mêmes
+            </h2>
+            <p className="text-xl text-gray-200">
+              La confiance de milliers de Parisiens
+            </p>
           </div>
 
           <div className="grid md:grid-cols-4 gap-8">
@@ -248,7 +281,9 @@ const zones = [
                   <div className="text-6xl font-bold text-orange-400 mb-2 group-hover:scale-110 transition-transform duration-300">
                     <AnimatedCounter end={stat.number} suffix={stat.suffix} />
                   </div>
-                  <p className="text-white text-lg font-semibold">{stat.label}</p>
+                  <p className="text-white text-lg font-semibold">
+                    {stat.label}
+                  </p>
                 </div>
               </div>
             ))}
@@ -259,14 +294,25 @@ const zones = [
       <section id="zones" className="py-20 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Zones d'Intervention</h2>
-            <p className="text-xl text-gray-600">Tout Paris et proche banlieue</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Zones d&apos;Intervention
+            </h2>
+            <p className="text-xl text-gray-600">
+              Tout Paris et proche banlieue
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {zones.map((zone, index) => (
-              <div key={index} className="relative group overflow-hidden rounded-2xl shadow-xl h-64 cursor-pointer">
-                <img src={zone.image} alt={zone.name} className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" />
+              <div
+                key={index}
+                className="relative group overflow-hidden rounded-2xl shadow-xl h-64 cursor-pointer"
+              >
+                <img
+                  src={zone.image}
+                  alt={zone.name}
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent group-hover:from-red-900/90 transition duration-500"></div>
                 <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
                   <h3 className="text-2xl font-bold mb-2">{zone.name}</h3>
@@ -300,18 +346,21 @@ const zones = [
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                Demande d'Intervention Rapide
+                Demande d&apos;Intervention Rapide
               </h2>
               <p className="text-xl text-gray-600 mb-8">
-                Décrivez votre situation et nous vous rappelons dans les 5 minutes
+                Décrivez votre situation et nous vous rappelons dans les 5
+                minutes
               </p>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="group">
                   <Input
                     placeholder="Votre nom complet"
                     value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                     className="transition-all duration-300 focus:ring-4 focus:ring-red-500/20 group-hover:shadow-lg"
                     required
                   />
@@ -321,7 +370,9 @@ const zones = [
                     type="tel"
                     placeholder="Votre numéro de téléphone"
                     value={formData.phone}
-                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
                     className="transition-all duration-300 focus:ring-4 focus:ring-red-500/20 group-hover:shadow-lg"
                     required
                   />
@@ -331,14 +382,16 @@ const zones = [
                     placeholder="Décrivez votre problème (porte claquée, serrure cassée, etc.)"
                     rows={4}
                     value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
                     className="transition-all duration-300 focus:ring-4 focus:ring-red-500/20 group-hover:shadow-lg"
                     required
                   />
                 </div>
-                <Button 
-                  type="submit" 
-                  size="lg" 
+                <Button
+                  type="submit"
+                  size="lg"
                   className="w-full transform hover:scale-105 transition-all duration-300 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 shadow-xl hover:shadow-2xl"
                 >
                   <Phone className="h-5 w-5 mr-2" />
@@ -353,12 +406,18 @@ const zones = [
                   <div className="w-20 h-20 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
                     <Phone className="h-10 w-10 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Urgence Immédiate ?</h3>
-                  <p className="text-gray-600">Appelez directement notre ligne d'urgence</p>
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    Urgence Immédiate ?
+                  </h3>
+                  <p className="text-gray-600">
+                    Appelez directement notre ligne d&apos;urgence
+                  </p>
                 </div>
-                
+
                 <div className="text-center">
-                  <p className="text-4xl font-bold text-red-700 mb-4">01 85 49 07 07</p>
+                  <p className="text-4xl font-bold text-red-700 mb-4">
+                    01 85 49 07 07
+                  </p>
                   <div className="flex items-center justify-center space-x-4 text-sm text-gray-600">
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
@@ -371,7 +430,7 @@ const zones = [
                   </div>
                 </div>
               </div>
-              
+
               {/* Floating elements */}
               <div className="absolute -top-4 -right-4 w-8 h-8 bg-orange-400 rounded-full animate-ping"></div>
               <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-red-400 rounded-full animate-bounce delay-1000"></div>
