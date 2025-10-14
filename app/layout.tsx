@@ -2,25 +2,32 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
+import {
+  generateSEOMetadata,
+  generateOrganizationSchema,
+  generateWebSiteSchema,
+  generateStructuredDataScript,
+  getDefaultSEO,
+} from "@/app/seo/seoConfig";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+  variable: "--font-inter",
+});
 
-export const metadata: Metadata = {
-  title: "Serrurier Paris - Dépannage 24h/24 - Intervention Rapide",
-  description:
-    "Serrurier professionnel à Paris. Dépannage serrurerie 24h/24, ouverture de porte, installation serrures. Intervention rapide et tarifs transparents.",
-  keywords:
-    "serrurier, Paris, dépannage, serrure, porte, urgence, 24h, ouverture, installation, sécurité",
-  authors: [{ name: "Serrurerie Expert Paris" }],
-  openGraph: {
-    title: "Serrurier Paris - Dépannage 24h/24",
-    description:
-      "Votre serrurier de confiance à Paris. Intervention rapide pour tous vos problèmes de serrurerie.",
-    type: "website",
-    locale: "fr_FR",
-  },
-  robots: "index, follow",
-  viewport: "width=device-width, initial-scale=1",
+export const metadata: Metadata = generateSEOMetadata(getDefaultSEO());
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+  ],
 };
 
 export default function RootLayout({
@@ -28,35 +35,21 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const organizationSchema = generateOrganizationSchema();
+  const websiteSchema = generateWebSiteSchema();
+  const schemas = [organizationSchema, websiteSchema];
+
   return (
-    <html lang="fr">
+    <html lang="fr" className={inter.variable}>
       <head>
-        {/* --- Balise JSON-LD --- */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.clarity.ms" />
+
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocksmithService",
-              name: "Serrurerie Expert Paris",
-              description: "Serrurier professionnel à Paris, dépannage 24h/24",
-              url: "https://votre-site-serrurier.fr",
-              telephone: "+33 1 23 45 67 89",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "123 Rue de la Paix",
-                addressLocality: "Paris",
-                postalCode: "75001",
-                addressCountry: "FR",
-              },
-              areaServed: {
-                "@type": "City",
-                name: "Paris",
-              },
-              openingHours: "24/7",
-              priceRange: "€€",
-            }),
-          }}
+          dangerouslySetInnerHTML={generateStructuredDataScript(schemas)}
         />
 
         {/* --- Google Tag Manager --- */}
