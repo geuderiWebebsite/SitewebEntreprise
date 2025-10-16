@@ -102,68 +102,120 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+// Section Nos Valeurs avec fond clair
+<section className="py-16 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
+      Nos Valeurs
+    </h2>
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {values.map((value, index) => {
+        const IconComponent = value.icon;
+        const backgroundImages = [
+          'https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg?auto=compress&cs=tinysrgb&w=800',
+          'https://images.pexels.com/photos/5691604/pexels-photo-5691604.jpeg?auto=compress&cs=tinysrgb&w=800',
+          'https://images.pexels.com/photos/4246096/pexels-photo-4246096.jpeg?auto=compress&cs=tinysrgb&w=800',
+          'https://images.pexels.com/photos/5691641/pexels-photo-5691641.jpeg?auto=compress&cs=tinysrgb&w=800'
+        ];
 
-        <section className="py-16 bg-gray-900">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-center text-white mb-12">
-              Nos Valeurs
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {values.map((value, index) => {
-                const IconComponent = value.icon;
-                const backgroundImages = [
-                  'https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg?auto=compress&cs=tinysrgb&w=800',
-                  'https://images.pexels.com/photos/5691604/pexels-photo-5691604.jpeg?auto=compress&cs=tinysrgb&w=800',
-                  'https://images.pexels.com/photos/4246096/pexels-photo-4246096.jpeg?auto=compress&cs=tinysrgb&w=800',
-                  'https://images.pexels.com/photos/5691641/pexels-photo-5691641.jpeg?auto=compress&cs=tinysrgb&w=800'
-                ];
-
-                return (
-                  <div key={index} className="relative h-80 overflow-hidden rounded-xl group cursor-pointer">
-                    <img
-                      src={backgroundImages[index]}
-                      alt={value.title}
-                      loading="lazy"
-                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-red-900/95 via-red-800/85 to-black/50 group-hover:from-red-900/85 group-hover:via-red-800/75 group-hover:to-black/40 transition-all duration-500"></div>
-                    <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
-                      <div className="bg-orange-500 w-14 h-14 rounded-full flex items-center justify-center mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                        <IconComponent className="h-7 w-7" />
-                      </div>
-                      <h3 className="text-2xl font-bold mb-3">{value.title}</h3>
-                      <p className="text-gray-200">{value.description}</p>
-                    </div>
-                  </div>
-                );
-              })}
+        return (
+          <div key={index} className="relative h-80 overflow-hidden rounded-xl group cursor-pointer shadow-lg">
+            <img
+              src={backgroundImages[index]}
+              alt={value.title}
+              loading="lazy"
+              className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-red-900/95 via-red-800/85 to-black/50 group-hover:from-red-900/85 group-hover:via-red-800/75 group-hover:to-black/40 transition-all duration-500"></div>
+            <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
+              <div className="bg-orange-500 w-14 h-14 rounded-full flex items-center justify-center mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                <IconComponent className="h-7 w-7" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3">{value.title}</h3>
+              <p className="text-gray-200">{value.description}</p>
             </div>
           </div>
-        </section>
+        );
+      })}
+    </div>
+  </div>
+</section>
 
-        <section
-          className="relative py-20 bg-cover bg-center bg-fixed"
-          style={{
-            backgroundImage: 'url(https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1920)',
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-red-900/75 to-black/80"></div>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-16">
-              Nos Chiffres Clés
-            </h2>
-            <div className="grid md:grid-cols-4 gap-8">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center group">
-                  <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 border border-white/20">
-                    <div className="text-6xl font-bold text-orange-400 mb-4 group-hover:scale-110 transition-transform duration-300">{stat.value}</div>
-                    <div className="text-xl text-white font-semibold">{stat.label}</div>
-                  </div>
-                </div>
-              ))}
+// Section Nos Chiffres Clés avec fond clair
+<section
+  className="relative py-20 bg-cover bg-center bg-fixed"
+  style={{
+    backgroundImage: 'url(https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1920)',
+  }}
+>
+  <div className="absolute inset-0 bg-white/90"></div>
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16">
+      Nos Chiffres Clés
+    </h2>
+    <div className="grid md:grid-cols-4 gap-8">
+      {stats.map((stat, index) => (
+        <div key={index} className="text-center group">
+          <div className="bg-white/90 backdrop-blur-md rounded-2xl p-8 hover:bg-white transition-all duration-300 transform hover:scale-105 border border-gray-200 shadow-lg">
+            <div className="text-6xl font-bold text-red-600 mb-4 group-hover:scale-110 transition-transform duration-300">{stat.value}</div>
+            <div className="text-xl text-gray-900 font-semibold">{stat.label}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+// Section Pourquoi Nous Choisir - reste inchangée (déjà avec fond blanc)
+<section className="py-16 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div className="relative h-96 rounded-lg overflow-hidden shadow-2xl order-2 md:order-1">
+        <img
+          src="https://images.pexels.com/photos/4246096/pexels-photo-4246096.jpeg?auto=compress&cs=tinysrgb&w=800"
+          alt="Serrurier professionnel"
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="order-1 md:order-2">
+        <h2 className="text-4xl font-bold text-gray-900 mb-6">
+          Pourquoi Nous Choisir ?
+        </h2>
+        <div className="space-y-4">
+          <div className="flex items-start space-x-3">
+            <CheckCircle className="h-6 w-6 text-red-600 flex-shrink-0 mt-1" />
+            <div>
+              <h3 className="font-bold text-lg text-gray-900">Intervention Rapide</h3>
+              <p className="text-gray-600">Disponibles 24h/24, nous intervenons en moyenne sous 30 minutes.</p>
             </div>
           </div>
-        </section>
+          <div className="flex items-start space-x-3">
+            <CheckCircle className="h-6 w-6 text-red-600 flex-shrink-0 mt-1" />
+            <div>
+              <h3 className="font-bold text-lg text-gray-900">Tarifs Transparents</h3>
+              <p className="text-gray-600">Devis gratuit et détaillé avant toute intervention. Aucune mauvaise surprise.</p>
+            </div>
+          </div>
+          <div className="flex items-start space-x-3">
+            <CheckCircle className="h-6 w-6 text-red-600 flex-shrink-0 mt-1" />
+            <div>
+              <h3 className="font-bold text-lg text-gray-900">Professionnels Certifiés</h3>
+              <p className="text-gray-600">Tous nos serruriers sont formés, certifiés et assurés.</p>
+            </div>
+          </div>
+          <div className="flex items-start space-x-3">
+            <CheckCircle className="h-6 w-6 text-red-600 flex-shrink-0 mt-1" />
+            <div>
+              <h3 className="font-bold text-lg text-gray-900">Matériel de Qualité</h3>
+              <p className="text-gray-600">Nous utilisons uniquement des serrures et équipements certifiés A2P.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
