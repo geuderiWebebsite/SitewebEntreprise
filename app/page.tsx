@@ -192,7 +192,7 @@ export default function Home() {
       <Header />
       <HeroSection />
       {/* Bannière Promotionnelle Rotative */}
-      <section className="bg-gradient-to-r from-gray-800 via-gray-900 to-black py-6 overflow-hidden">
+      <section className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 py-6 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4">
           <div className="relative h-20 flex items-center justify-center">
             {promotions.map((promo, index) => {
@@ -220,7 +220,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-900">
+      <section className="py-20 bg-cream-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6">
             {urgencyFeatures.map((feature, index) => {
@@ -241,13 +241,13 @@ export default function Home() {
                     loading="lazy"
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/95 via-gray-800/85 to-black/60 group-hover:from-gray-900/90 group-hover:via-gray-800/75 group-hover:to-black/50 transition-all duration-500"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-red-900/95 via-red-800/80 to-black/40 group-hover:from-red-900/85 group-hover:via-red-800/70 group-hover:to-black/30 transition-all duration-500"></div>
                   <div className="absolute inset-0 p-8 flex flex-col justify-end text-white text-center">
-                    <div className="bg-red-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <div className="bg-orange-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transform group-hover:scale-110 transition-transform duration-300">
                       <IconComponent className="w-10 h-10" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-3 drop-shadow-lg">{feature.title}</h3>
-                    <p className="text-gray-100 drop-shadow-md">{feature.description}</p>
+                    <h3 className="text-2xl font-bold mb-3">{feature.title}</h3>
+                    <p className="text-gray-200">{feature.description}</p>
                   </div>
                 </div>
               );
