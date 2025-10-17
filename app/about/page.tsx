@@ -236,25 +236,27 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section
-          className="relative py-20 bg-cover bg-center"
-          style={{
-            backgroundImage: 'linear-gradient(rgba(220, 38, 38, 0.9), rgba(220, 38, 38, 0.9)), url(https://images.pexels.com/photos/5691641/pexels-photo-5691641.jpeg?auto=compress&cs=tinysrgb&w=1920)',
-          }}
-        >
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-            <Target className="h-16 w-16 mx-auto mb-6" />
-            <h2 className="text-4xl font-bold mb-6">
-              Notre Engagement
-            </h2>
-            <p className="text-xl leading-relaxed">
-              Chez D'Clik Serrure, nous nous engageons à vous fournir un service de qualité supérieure,
-              dans le respect de votre budget et de vos délais. Votre satisfaction et votre sécurité
-              sont au cœur de nos préoccupations. Chaque intervention est réalisée avec soin,
-              professionnalisme et dans le respect des normes en vigueur.
-            </p>
-          </div>
-        </section>
+       <section
+  className="relative py-20 bg-cover bg-center"
+  style={{
+    backgroundImage: 'url(https://images.pexels.com/photos/8092403/pexels-photo-8092403.jpeg?auto=compress&cs=tinysrgb&w=1920)',
+  }}
+>
+  <div className="absolute inset-0 bg-white/92"></div>
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
+      Certifications & Agréments
+    </h2>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {certifications.map((cert, index) => (
+        <div key={index} className="bg-white/95 backdrop-blur-md border border-gray-200 rounded-xl p-6 flex items-center space-x-4 hover:bg-white hover:shadow-lg transition-all duration-300 transform hover:scale-105 group">
+          <Award className="h-8 w-8 text-red-600 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+          <p className="font-medium text-gray-900">{cert}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
       </main>
 
       <Footer />
