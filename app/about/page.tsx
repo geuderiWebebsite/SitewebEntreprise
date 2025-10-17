@@ -140,8 +140,6 @@ export default function AboutPage() {
     </div>
   </div>
 </section>
-
-// Section Nos Chiffres Clés avec fond clair
 <section
   className="relative py-20 bg-cover bg-center bg-fixed"
   style={{
