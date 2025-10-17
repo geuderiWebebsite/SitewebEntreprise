@@ -84,13 +84,13 @@ export default function BlogPage() {
             backgroundImage: 'url(https://images.pexels.com/photos/5691604/pexels-photo-5691604.jpeg?auto=compress&cs=tinysrgb&w=1920)',
           }}
         >
-          <div className="absolute inset-0 bg-black/60"></div>
+          <div className="absolute inset-0 bg-overlay-light"></div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
             <div className="text-center max-w-3xl mx-auto">
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+              <h1 className="text-5xl md:text-6xl font-bold text-anthracite mb-6">
                 Blog & Actualités
               </h1>
-              <p className="text-xl text-white/90">
+              <p className="text-xl text-anthracite-light">
                 Conseils d'experts, actualités et guides pratiques pour la sécurité de votre domicile
               </p>
             </div>
@@ -111,7 +111,7 @@ export default function BlogPage() {
                     loading="lazy"
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all duration-500"></div>
+                  <div className="absolute inset-0 bg-overlay-lighter group-hover:bg-overlay-light transition-all duration-500"></div>
 
                   <div className="absolute top-4 left-4">
                     <span className="inline-block px-3 py-1 bg-anthracite text-white text-sm font-semibold rounded-full">
