@@ -70,7 +70,10 @@ export default function Footer() {
         
         <div className="border-t border-gray-700 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400">© 2026 D'Clik Serrure. Tous droits réservés.</p>
+           <p className="text-gray-400">
+      © 2026 D'Clik Serrure. Tous droits réservés. <br className="md:hidden" />
+      <span className="text-sm text-gray-500">Développé par Achraf Briki</span>
+    </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link href="/mentions-legales" className="text-gray-400 hover:text-white transition-colors">Mentions légales</Link>
               <Link href="/politique-confidentialite" className="text-gray-400 hover:text-white transition-colors">Politique de confidentialité</Link>
