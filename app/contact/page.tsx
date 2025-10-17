@@ -7,7 +7,10 @@ import {
   MapPin,
   Clock,
   Send,
-  CircleCheck as CheckCircle,
+  CheckCircle,
+  Shield,
+  Award,
+  Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -74,24 +77,85 @@ export default function Contact() {
     <div className="min-h-screen bg-white">
       <Header />
 
-      {/* === Bannière avec image et overlay dégradé === */}
+      {/* === Bannière Hero avec image réelle === */}
       <section
-        className="relative bg-cover bg-center bg-no-repeat text-white pt-20"
+        className="relative bg-cover bg-center bg-no-repeat text-white pt-16"
         style={{
-          backgroundImage: "url('/images/contact-bg.jpg')",
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2070&auto=format&fit=crop')",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-red-900/90 via-black/70 to-red-700/80"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-          <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-            <span className="text-red-400">Contactez-</span>Nous
-          </h1>
-          <p className="text-xl text-red-100 max-w-3xl mx-auto">
-            Une question ? Un devis ? Une urgence ?{" "}
-            <span className="text-red-400 font-semibold">
-              Nous sommes là pour vous aider 24h/24.
-            </span>
-          </p>
+        {/* Overlay avec dégradé sophistiqué */}
+        <div className="absolute inset-0 bg-gradient-to-br from-red-950/95 via-black/85 to-red-900/90"></div>
+
+        {/* Motif de texture subtile */}
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage:
+              'url(\'data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\')',
+          }}
+        ></div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div className="text-center mb-12">
+            <div className="inline-block mb-6">
+              <div className="flex items-center space-x-2 bg-red-600/30 backdrop-blur-sm px-6 py-2 rounded-full border border-red-400/30">
+                <Shield className="h-5 w-5 text-red-300" />
+                <span className="text-red-100 font-medium">
+                  Service Premium 24/7
+                </span>
+              </div>
+            </div>
+
+            <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+              <span className="text-white">Contactez-</span>
+              <span className="text-red-400">Nous</span>
+            </h1>
+
+            <p className="text-xl lg:text-2xl text-red-50 max-w-3xl mx-auto mb-8 leading-relaxed">
+              Une question ? Un devis ? Une urgence ?<br />
+              <span className="text-red-300 font-semibold">
+                Nous sommes là pour vous aider 24h/24, 7j/7
+              </span>
+            </p>
+
+            {/* Stats en bannière */}
+            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-12">
+              <div className="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white/20 hover:bg-white/15 transition-all">
+                <Award className="h-10 w-10 text-red-300 mx-auto mb-3" />
+                <div className="text-3xl font-bold text-white mb-1">15 ans</div>
+                <div className="text-red-200 text-sm">D'expérience</div>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white/20 hover:bg-white/15 transition-all">
+                <Users className="h-10 w-10 text-red-300 mx-auto mb-3" />
+                <div className="text-3xl font-bold text-white mb-1">5000+</div>
+                <div className="text-red-200 text-sm">Clients Satisfaits</div>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white/20 hover:bg-white/15 transition-all">
+                <Clock className="h-10 w-10 text-red-300 mx-auto mb-3" />
+                <div className="text-3xl font-bold text-white mb-1">20 min</div>
+                <div className="text-red-200 text-sm">Temps d'intervention</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Vague décorative en bas */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 120"
+            className="w-full h-auto"
+          >
+            <path
+              fill="#ffffff"
+              fillOpacity="1"
+              d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,58.7C960,64,1056,64,1152,58.7C1248,53,1344,43,1392,37.3L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"
+            ></path>
+          </svg>
         </div>
       </section>
 
