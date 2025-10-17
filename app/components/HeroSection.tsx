@@ -7,11 +7,11 @@ import Link from 'next/link';
 
 const heroSlides = [
   {
-    image: 'https://images.pexels.com/photos/4246096/pexels-photo-4246096.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    image: 'https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg?auto=compress&cs=tinysrgb&w=1920',
     title: 'Serrurier Expert à Paris',
     subtitle: 'Intervention rapide 24h/24 et 7j/7',
     cta: 'Appeler Maintenant',
-    ctaLink: 'tel:0185490707'
+    ctaLink: 'tel:0123456789'
   },
   {
     image: 'https://images.pexels.com/photos/5691604/pexels-photo-5691604.jpeg?auto=compress&cs=tinysrgb&w=1920',
@@ -21,7 +21,7 @@ const heroSlides = [
     ctaLink: '/devis'
   },
   {
-    image: 'https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    image: 'https://images.pexels.com/photos/4246096/pexels-photo-4246096.jpeg?auto=compress&cs=tinysrgb&w=1920',
     title: 'Dépannage Sans Casse',
     subtitle: 'Ouverture de porte en moins de 30 minutes',
     cta: 'Urgence 24/7',
@@ -53,7 +53,7 @@ export default function HeroSection() {
             index === currentSlide ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/85 to-gray-900/70 z-10"></div>
+          <div className="absolute inset-0 bg-overlay-light z-10"></div>
 
           <img
             src={slide.image}
@@ -65,10 +65,10 @@ export default function HeroSection() {
           <div className="absolute inset-0 z-20 flex items-center">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
               <div className="max-w-2xl">
-                <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-2xl">
+                <h1 className="text-5xl md:text-7xl font-bold text-anthracite mb-6 leading-tight">
                   {slide.title}
                 </h1>
-                <p className="text-xl md:text-2xl text-gray-100 mb-8 leading-relaxed drop-shadow-lg">
+                <p className="text-xl md:text-2xl text-anthracite-light mb-8 leading-relaxed">
                   {slide.subtitle}
                 </p>
 
@@ -76,7 +76,7 @@ export default function HeroSection() {
                   <Link href={slide.ctaLink}>
                     <Button
                       size="lg"
-                      className="bg-red-600 hover:bg-red-700 text-white text-lg px-8 py-6 rounded-lg transform hover:scale-105 transition-all duration-300 shadow-2xl"
+                      className="bg-anthracite hover:bg-anthracite-light text-white text-lg px-8 py-6 rounded-full transform hover:scale-105 transition-all duration-300 shadow-lg"
                     >
                       {slide.cta}
                       <ArrowRight className="ml-2 h-5 w-5" />
@@ -87,20 +87,20 @@ export default function HeroSection() {
                     <Button
                       size="lg"
                       variant="outline"
-                      className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white border-2 border-white/30 text-lg px-8 py-6 rounded-lg transform hover:scale-105 transition-all duration-300"
+                      className="bg-white/90 backdrop-blur-sm hover:bg-white text-anthracite border-2 border-anthracite-light text-lg px-8 py-6 rounded-full transform hover:scale-105 transition-all duration-300"
                     >
                       Nous Contacter
                     </Button>
                   </Link>
                 </div>
 
-                <div className="mt-12 flex items-center gap-8 text-white">
-                  <div className="flex items-center gap-2 bg-red-600/20 backdrop-blur-sm px-4 py-2 rounded-lg">
-                    <Phone className="h-5 w-5 text-red-400" />
-                    <span className="text-lg font-medium">01 85 49 07 07</span>
+                <div className="mt-12 flex items-center gap-8 text-anthracite">
+                  <div className="flex items-center gap-2">
+                    <Phone className="h-5 w-5 text-red-600" />
+                    <span className="text-lg font-medium">01 23 45 67 89</span>
                   </div>
-                  <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
-                    <Clock className="h-5 w-5 text-red-400" />
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-5 w-5 text-red-600" />
                     <span className="text-lg">24h/24 - 7j/7</span>
                   </div>
                 </div>
@@ -117,8 +117,8 @@ export default function HeroSection() {
             onClick={() => goToSlide(index)}
             className={`h-3 rounded-full transition-all duration-300 ${
               index === currentSlide
-                ? 'bg-white w-8'
-                : 'bg-white/50 hover:bg-white/70 w-3'
+                ? 'bg-anthracite w-8'
+                : 'bg-anthracite-lighter/50 hover:bg-anthracite-lighter w-3'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
@@ -126,8 +126,8 @@ export default function HeroSection() {
       </div>
 
       <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-30 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+        <div className="w-6 h-10 border-2 border-anthracite-light rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-anthracite-light rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>
