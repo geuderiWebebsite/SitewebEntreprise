@@ -53,7 +53,7 @@ export default function HeroSection() {
             index === currentSlide ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <div className="absolute inset-0 bg-overlay-light z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent z-10"></div>
 
           <img
             src={slide.image}
@@ -65,10 +65,10 @@ export default function HeroSection() {
           <div className="absolute inset-0 z-20 flex items-center">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
               <div className="max-w-2xl">
-                <h1 className="text-5xl md:text-7xl font-bold text-anthracite mb-6 leading-tight">
+                <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
                   {slide.title}
                 </h1>
-                <p className="text-xl md:text-2xl text-anthracite-light mb-8 leading-relaxed">
+                <p className="text-xl md:text-2xl text-white/95 mb-8 leading-relaxed drop-shadow-md">
                   {slide.subtitle}
                 </p>
 
@@ -76,7 +76,7 @@ export default function HeroSection() {
                   <Link href={slide.ctaLink}>
                     <Button
                       size="lg"
-                      className="bg-anthracite hover:bg-anthracite-light text-white text-lg px-8 py-6 rounded-full transform hover:scale-105 transition-all duration-300 shadow-lg"
+                      className="bg-red-600 hover:bg-red-700 text-white text-lg px-8 py-6 rounded-full transform hover:scale-105 transition-all duration-300 shadow-lg"
                     >
                       {slide.cta}
                       <ArrowRight className="ml-2 h-5 w-5" />
@@ -87,20 +87,20 @@ export default function HeroSection() {
                     <Button
                       size="lg"
                       variant="outline"
-                      className="bg-white/90 backdrop-blur-sm hover:bg-white text-anthracite border-2 border-anthracite-light text-lg px-8 py-6 rounded-full transform hover:scale-105 transition-all duration-300"
+                      className="bg-white/90 backdrop-blur-sm hover:bg-white text-gray-900 border-2 border-white text-lg px-8 py-6 rounded-full transform hover:scale-105 transition-all duration-300"
                     >
                       Nous Contacter
                     </Button>
                   </Link>
                 </div>
 
-                <div className="mt-12 flex items-center gap-8 text-anthracite">
-                  <div className="flex items-center gap-2">
-                    <Phone className="h-5 w-5 text-red-600" />
+                <div className="mt-12 flex items-center gap-8 text-white">
+                  <div className="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
+                    <Phone className="h-5 w-5 text-red-500" />
                     <span className="text-lg font-medium">01 23 45 67 89</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Clock className="h-5 w-5 text-red-600" />
+                  <div className="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
+                    <Clock className="h-5 w-5 text-red-500" />
                     <span className="text-lg">24h/24 - 7j/7</span>
                   </div>
                 </div>
@@ -117,8 +117,8 @@ export default function HeroSection() {
             onClick={() => goToSlide(index)}
             className={`h-3 rounded-full transition-all duration-300 ${
               index === currentSlide
-                ? 'bg-anthracite w-8'
-                : 'bg-anthracite-lighter/50 hover:bg-anthracite-lighter w-3'
+                ? 'bg-white w-8'
+                : 'bg-white/50 hover:bg-white/80 w-3'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
@@ -126,8 +126,8 @@ export default function HeroSection() {
       </div>
 
       <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-30 animate-bounce">
-        <div className="w-6 h-10 border-2 border-anthracite-light rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-anthracite-light rounded-full mt-2 animate-pulse"></div>
+        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>
