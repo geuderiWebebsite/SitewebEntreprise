@@ -213,29 +213,6 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
-
-        <section
-          className="relative py-20 bg-cover bg-center"
-          style={{
-            backgroundImage: 'url(https://images.pexels.com/photos/8092403/pexels-photo-8092403.jpeg?auto=compress&cs=tinysrgb&w=1920)',
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/95 via-red-900/90 to-gray-900/95"></div>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-center text-white mb-12">
-              Certifications & Agréments
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {certifications.map((cert, index) => (
-                <div key={index} className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 flex items-center space-x-4 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 group">
-                  <Award className="h-8 w-8 text-orange-400 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                  <p className="font-medium text-white">{cert}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
        <section
   className="relative py-20 bg-cover bg-center"
   style={{
