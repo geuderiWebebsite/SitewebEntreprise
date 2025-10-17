@@ -1,15 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Phone, Clock, MapPin, Shield, Key, Menu, X } from "lucide-react";
+import { Phone, Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "public/image/logo.jpg";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [openMobileSubmenu, setOpenMobileSubmenu] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,7 +31,14 @@ export default function Header() {
     };
   }, [isMenuOpen]);
 
-  const closeMenu = () => setIsMenuOpen(false);
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    setOpenMobileSubmenu(null);
+  };
+
+  const toggleMobileSubmenu = (menu: string) => {
+    setOpenMobileSubmenu(openMobileSubmenu === menu ? null : menu);
+  };
 
   return (
     <>
@@ -70,13 +78,83 @@ export default function Header() {
                 Accueil
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <Link
-                href="/services"
-                className="text-charcoal hover:text-red-600 transition-colors relative group font-medium"
+
+              {/* Services Dropdown */}
+              <div
+                className="relative group"
+                onMouseEnter={() => setOpenDropdown("services")}
+                onMouseLeave={() => setOpenDropdown(null)}
               >
-                Services
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
-              </Link>
+                <button className="text-charcoal hover:text-red-600 transition-colors font-medium flex items-center gap-1">
+                  Services
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+                <div
+                  className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 transition-all duration-200 ${
+                    openDropdown === "services"
+                      ? "opacity-100 visible translate-y-0"
+                      : "opacity-0 invisible -translate-y-2"
+                  }`}
+                >
+                  <Link
+                    href="/services"
+                    className="block px-4 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors whitespace-nowrap"
+                  >
+                    Tous nos services
+                  </Link>
+                  <Link
+                    href="/services/depannage"
+                    className="block px-4 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors whitespace-nowrap"
+                  >
+                    Dépannage d'urgence
+                  </Link>
+                  <Link
+                    href="/services/installation"
+                    className="block px-4 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors whitespace-nowrap"
+                  >
+                    Installation serrures
+                  </Link>
+                  <Link
+                    href="/services/blindage"
+                    className="block px-4 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors whitespace-nowrap"
+                  >
+                    Blindage de porte
+                  </Link>
+                </div>
+              </div>
+
+              {/* Outils Dropdown */}
+              <div
+                className="relative group"
+                onMouseEnter={() => setOpenDropdown("outils")}
+                onMouseLeave={() => setOpenDropdown(null)}
+              >
+                <button className="text-charcoal hover:text-red-600 transition-colors font-medium flex items-center gap-1 whitespace-nowrap">
+                  Outils & Devis
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+                <div
+                  className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 transition-all duration-200 ${
+                    openDropdown === "outils"
+                      ? "opacity-100 visible translate-y-0"
+                      : "opacity-0 invisible -translate-y-2"
+                  }`}
+                >
+                  <Link
+                    href="/devis"
+                    className="block px-4 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors whitespace-nowrap"
+                  >
+                    Devis Instantané
+                  </Link>
+                  <Link
+                    href="/test-securite"
+                    className="block px-4 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors whitespace-nowrap"
+                  >
+                    Test Sécurité
+                  </Link>
+                </div>
+              </div>
+
               <Link
                 href="/gallery"
                 className="text-charcoal hover:text-red-600 transition-colors relative group font-medium"
@@ -84,6 +162,7 @@ export default function Header() {
                 Galerie
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
               </Link>
+
               <Link
                 href="/blog"
                 className="text-charcoal hover:text-red-600 transition-colors relative group font-medium"
@@ -91,27 +170,45 @@ export default function Header() {
                 Blog
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <Link
-                href="/test-securite"
-                className="text-charcoal hover:text-red-600 transition-colors relative group font-medium whitespace-nowrap"
+
+              {/* À Propos Dropdown */}
+              <div
+                className="relative group"
+                onMouseEnter={() => setOpenDropdown("about")}
+                onMouseLeave={() => setOpenDropdown(null)}
               >
-                Test Sécurité
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-              <Link
-                href="/about"
-                className="text-charcoal hover:text-red-600 transition-colors relative group font-medium"
-              >
-                À Propos
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-              <Link
-                href="/devis"
-                className="text-charcoal hover:text-red-600 transition-colors relative group font-medium whitespace-nowrap"
-              >
-                Devis Instantané
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
-              </Link>
+                <button className="text-charcoal hover:text-red-600 transition-colors font-medium flex items-center gap-1 whitespace-nowrap">
+                  À Propos
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+                <div
+                  className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 transition-all duration-200 ${
+                    openDropdown === "about"
+                      ? "opacity-100 visible translate-y-0"
+                      : "opacity-0 invisible -translate-y-2"
+                  }`}
+                >
+                  <Link
+                    href="/about"
+                    className="block px-4 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors whitespace-nowrap"
+                  >
+                    Notre entreprise
+                  </Link>
+                  <Link
+                    href="/about/equipe"
+                    className="block px-4 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors whitespace-nowrap"
+                  >
+                    Notre équipe
+                  </Link>
+                  <Link
+                    href="/about/certifications"
+                    className="block px-4 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors whitespace-nowrap"
+                  >
+                    Certifications
+                  </Link>
+                </div>
+              </div>
+
               <Link
                 href="/contact"
                 className="text-charcoal hover:text-red-600 transition-colors relative group font-medium"
@@ -191,7 +288,7 @@ export default function Header() {
 
           {/* Navigation */}
           <nav className="flex-1 overflow-y-auto py-6 px-4">
-            <div className="flex flex-col space-y-2">
+            <div className="flex flex-col space-y-1">
               <Link
                 href="/"
                 onClick={closeMenu}
@@ -199,13 +296,95 @@ export default function Header() {
               >
                 Accueil
               </Link>
-              <Link
-                href="/services"
-                onClick={closeMenu}
-                className="text-gray-900 hover:text-red-600 hover:bg-red-50 transition-all font-medium py-3 px-4 rounded-lg whitespace-nowrap"
-              >
-                Services
-              </Link>
+
+              {/* Services Mobile Submenu */}
+              <div>
+                <button
+                  onClick={() => toggleMobileSubmenu("services")}
+                  className="w-full text-left text-gray-900 hover:text-red-600 hover:bg-red-50 transition-all font-medium py-3 px-4 rounded-lg whitespace-nowrap flex items-center justify-between"
+                >
+                  Services
+                  <ChevronRight
+                    className={`h-4 w-4 transition-transform duration-200 ${
+                      openMobileSubmenu === "services" ? "rotate-90" : ""
+                    }`}
+                  />
+                </button>
+                <div
+                  className={`overflow-hidden transition-all duration-200 ${
+                    openMobileSubmenu === "services" ? "max-h-64" : "max-h-0"
+                  }`}
+                >
+                  <div className="pl-4 space-y-1">
+                    <Link
+                      href="/services"
+                      onClick={closeMenu}
+                      className="block text-gray-700 hover:text-red-600 hover:bg-red-50 transition-all py-2 px-4 rounded-lg text-sm whitespace-nowrap"
+                    >
+                      Tous nos services
+                    </Link>
+                    <Link
+                      href="/services/depannage"
+                      onClick={closeMenu}
+                      className="block text-gray-700 hover:text-red-600 hover:bg-red-50 transition-all py-2 px-4 rounded-lg text-sm whitespace-nowrap"
+                    >
+                      Dépannage d'urgence
+                    </Link>
+                    <Link
+                      href="/services/installation"
+                      onClick={closeMenu}
+                      className="block text-gray-700 hover:text-red-600 hover:bg-red-50 transition-all py-2 px-4 rounded-lg text-sm whitespace-nowrap"
+                    >
+                      Installation serrures
+                    </Link>
+                    <Link
+                      href="/services/blindage"
+                      onClick={closeMenu}
+                      className="block text-gray-700 hover:text-red-600 hover:bg-red-50 transition-all py-2 px-4 rounded-lg text-sm whitespace-nowrap"
+                    >
+                      Blindage de porte
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              {/* Outils & Devis Mobile Submenu */}
+              <div>
+                <button
+                  onClick={() => toggleMobileSubmenu("outils")}
+                  className="w-full text-left text-gray-900 hover:text-red-600 hover:bg-red-50 transition-all font-medium py-3 px-4 rounded-lg whitespace-nowrap flex items-center justify-between"
+                >
+                  Outils & Devis
+                  <ChevronRight
+                    className={`h-4 w-4 transition-transform duration-200 ${
+                      openMobileSubmenu === "outils" ? "rotate-90" : ""
+                    }`}
+                  />
+                </button>
+                <div
+                  className={`overflow-hidden transition-all duration-200 ${
+                    openMobileSubmenu === "outils" ? "max-h-32" : "max-h-0"
+                  }`}
+                >
+                  <div className="pl-4 space-y-1">
+                    <Link
+                      href="/devis"
+                      onClick={closeMenu}
+                      className="block text-gray-700 hover:text-red-600 hover:bg-red-50 transition-all py-2 px-4 rounded-lg text-sm whitespace-nowrap"
+                    >
+                      Devis Instantané
+                    </Link>
+                    <Link
+                      href="/test-securite"
+                      onClick={closeMenu}
+                      className="block text-gray-700 hover:text-red-600 hover:bg-red-50 transition-all py-2 px-4 rounded-lg text-sm whitespace-nowrap"
+                    >
+                      Test Sécurité
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
               <Link
                 href="/gallery"
                 onClick={closeMenu}
@@ -213,6 +392,7 @@ export default function Header() {
               >
                 Galerie
               </Link>
+
               <Link
                 href="/blog"
                 onClick={closeMenu}
@@ -220,27 +400,51 @@ export default function Header() {
               >
                 Blog
               </Link>
-              <Link
-                href="/test-securite"
-                onClick={closeMenu}
-                className="text-gray-900 hover:text-red-600 hover:bg-red-50 transition-all font-medium py-3 px-4 rounded-lg whitespace-nowrap"
-              >
-                Test Sécurité
-              </Link>
-              <Link
-                href="/about"
-                onClick={closeMenu}
-                className="text-gray-900 hover:text-red-600 hover:bg-red-50 transition-all font-medium py-3 px-4 rounded-lg whitespace-nowrap"
-              >
-                À Propos
-              </Link>
-              <Link
-                href="/devis"
-                onClick={closeMenu}
-                className="text-gray-900 hover:text-red-600 hover:bg-red-50 transition-all font-medium py-3 px-4 rounded-lg whitespace-nowrap"
-              >
-                Devis Instantané
-              </Link>
+
+              {/* À Propos Mobile Submenu */}
+              <div>
+                <button
+                  onClick={() => toggleMobileSubmenu("about")}
+                  className="w-full text-left text-gray-900 hover:text-red-600 hover:bg-red-50 transition-all font-medium py-3 px-4 rounded-lg whitespace-nowrap flex items-center justify-between"
+                >
+                  À Propos
+                  <ChevronRight
+                    className={`h-4 w-4 transition-transform duration-200 ${
+                      openMobileSubmenu === "about" ? "rotate-90" : ""
+                    }`}
+                  />
+                </button>
+                <div
+                  className={`overflow-hidden transition-all duration-200 ${
+                    openMobileSubmenu === "about" ? "max-h-48" : "max-h-0"
+                  }`}
+                >
+                  <div className="pl-4 space-y-1">
+                    <Link
+                      href="/about"
+                      onClick={closeMenu}
+                      className="block text-gray-700 hover:text-red-600 hover:bg-red-50 transition-all py-2 px-4 rounded-lg text-sm whitespace-nowrap"
+                    >
+                      Notre entreprise
+                    </Link>
+                    <Link
+                      href="/about/equipe"
+                      onClick={closeMenu}
+                      className="block text-gray-700 hover:text-red-600 hover:bg-red-50 transition-all py-2 px-4 rounded-lg text-sm whitespace-nowrap"
+                    >
+                      Notre équipe
+                    </Link>
+                    <Link
+                      href="/about/certifications"
+                      onClick={closeMenu}
+                      className="block text-gray-700 hover:text-red-600 hover:bg-red-50 transition-all py-2 px-4 rounded-lg text-sm whitespace-nowrap"
+                    >
+                      Certifications
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
               <Link
                 href="/contact"
                 onClick={closeMenu}
