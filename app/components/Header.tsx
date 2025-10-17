@@ -2,12 +2,16 @@
 
 import { useState, useEffect } from "react";
 import { Phone, Menu, X, ChevronDown, ChevronRight } from "lucide-react";
-
+import Link from "next/link";
+import Image from "next/image";
+import logo from "@/public/logo.png";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [openMobileSubmenu, setOpenMobileSubmenu] = useState<string | null>(null);
+  const [openMobileSubmenu, setOpenMobileSubmenu] = useState<string | null>(
+    null
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,19 +52,26 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            <a href="/" className="flex items-center space-x-2 group">
-              <div className="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:rotate-12">
-                <span className="text-white font-bold text-xl">DC</span>
+            <Link href="/" className="flex items-center space-x-3 group">
+              <div className="flex items-center space-x-2">
+                {/* Ton logo */}
+                <Image
+                  src="/logo.png" // chemin vers ton logo dans /public
+                  alt="D'Clik Serrure"
+                  width={100}
+                  height={100}
+                  className="transition-transform duration-300 group-hover:rotate-12"
+                />
+                <div className="flex flex-col">
+                  <span className="text-2xl font-bold text-gray-900">
+                    D'Clik <span className="text-red-600">Serrure</span>
+                  </span>
+                  <span className="text-xs text-orange-500 font-semibold">
+                    24/7 Intervention Rapide
+                  </span>
+                </div>
               </div>
-              <div className="flex flex-col">
-                <span className="text-xl md:text-2xl font-bold text-gray-900 whitespace-nowrap">
-                  D'Clik <span className="text-red-600">Serrure</span>
-                </span>
-                <span className="text-[10px] md:text-xs text-orange-500 font-semibold whitespace-nowrap">
-                  24/7 Intervention Rapide
-                </span>
-              </div>
-            </a>
+            </Link>
 
             {/* Navigation Desktop */}
             <nav className="hidden lg:flex space-x-6">
@@ -164,7 +175,9 @@ export default function Header() {
             {/* CTA Phone */}
             <div className="hidden lg:flex items-center space-x-4">
               <div className="text-right">
-                <p className="text-sm text-gray-600 whitespace-nowrap">Urgence 24h/24</p>
+                <p className="text-sm text-gray-600 whitespace-nowrap">
+                  Urgence 24h/24
+                </p>
                 <p className="text-lg font-bold text-red-600 animate-pulse whitespace-nowrap">
                   01 85 49 07 07
                 </p>
@@ -340,12 +353,14 @@ export default function Header() {
           {/* Footer du drawer avec CTA */}
           <div className="p-6 border-t border-gray-200 bg-gray-50">
             <div className="mb-4 text-center">
-              <p className="text-sm text-gray-600 whitespace-nowrap">Urgence 24h/24</p>
+              <p className="text-sm text-gray-600 whitespace-nowrap">
+                Urgence 24h/24
+              </p>
               <p className="text-2xl font-bold text-red-600 animate-pulse whitespace-nowrap">
                 01 85 49 07 07
               </p>
             </div>
-            <button 
+            <button
               className="bg-red-600 hover:bg-red-700 text-white w-full py-3 rounded-lg shadow-lg flex items-center justify-center"
               onClick={closeMenu}
             >
