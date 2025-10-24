@@ -50,7 +50,7 @@ export default function Contact() {
     {
       icon: Phone,
       title: "Téléphone",
-      info: "06 50 09 55 83",
+      info: "01 85 44 01 31",
       description: "Disponible 24h/24 pour les urgences",
     },
     {

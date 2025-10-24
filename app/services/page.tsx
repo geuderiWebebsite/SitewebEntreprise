@@ -48,8 +48,7 @@ export default function Services() {
         "Mise en sécurité renforcée après effraction",
         "Ajustement et maintenance de portes blindées",
       ],
-      image:
-        "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=1920&q=80",
+      image: "image_ea75904f5fa785ae25930f557f9f0d10.jpeg",
     },
     {
       icon: Wrench,
@@ -63,8 +62,7 @@ export default function Services() {
         "Maintenance préventive pour éviter les pannes",
         "Motorisation de rideaux métalliques",
       ],
-      image:
-        "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=80",
+      image: "/rideau-metallique-galvanise-motorise.jpg",
     },
     {
       icon: Camera,
@@ -108,8 +106,7 @@ export default function Services() {
         "Pose de parois vitrées et fenêtres isolantes",
         "Intervention rapide après sinistre",
       ],
-      image:
-        "https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?w=1920&q=80",
+      image: "6ee99d832127.jpeg",
     },
   ];
 
