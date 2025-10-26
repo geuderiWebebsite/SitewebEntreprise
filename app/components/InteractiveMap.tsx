@@ -1,65 +1,72 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { MapPin, Clock, Phone, Car, CheckCircle } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { useState } from "react";
+import { MapPin, Clock, Phone, Car, CheckCircle } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const zones = [
   {
-    id: 'paris-center',
-    name: 'Paris Centre (1er-4ème)',
-    time: '15-20 min',
-    color: 'bg-green-500',
-    districts: ['1er', '2ème', '3ème', '4ème'],
+    id: "paris-center",
+    name: "Paris Centre (1er-4ème)",
+    time: "15-20 min",
+    color: "bg-green-500",
+    districts: ["1er", "2ème", "3ème", "4ème"],
     interventions: 450,
-    satisfaction: 98
+    satisfaction: 98,
   },
   {
-    id: 'paris-west',
-    name: 'Paris Ouest (7ème, 8ème, 16ème, 17ème)',
-    time: '20-25 min',
-    color: 'bg-blue-500',
-    districts: ['7ème', '8ème', '16ème', '17ème'],
+    id: "paris-west",
+    name: "Paris Ouest (7ème, 8ème, 16ème, 17ème)",
+    time: "20-25 min",
+    color: "bg-blue-500",
+    districts: ["7ème", "8ème", "16ème", "17ème"],
     interventions: 380,
-    satisfaction: 97
+    satisfaction: 97,
   },
   {
-    id: 'paris-east',
-    name: 'Paris Est (11ème, 12ème, 19ème, 20ème)',
-    time: '20-30 min',
-    color: 'bg-orange-500',
-    districts: ['11ème', '12ème', '19ème', '20ème'],
+    id: "paris-east",
+    name: "Paris Est (11ème, 12ème, 19ème, 20ème)",
+    time: "20-30 min",
+    color: "bg-orange-500",
+    districts: ["11ème", "12ème", "19ème", "20ème"],
     interventions: 420,
-    satisfaction: 96
+    satisfaction: 96,
   },
   {
-    id: 'paris-south',
-    name: 'Paris Sud (13ème, 14ème, 15ème)',
-    time: '25-30 min',
-    color: 'bg-purple-500',
-    districts: ['13ème', '14ème', '15ème'],
+    id: "paris-south",
+    name: "Paris Sud (13ème, 14ème, 15ème)",
+    time: "25-30 min",
+    color: "bg-purple-500",
+    districts: ["13ème", "14ème", "15ème"],
     interventions: 340,
-    satisfaction: 98
+    satisfaction: 98,
   },
   {
-    id: 'banlieue-proche',
-    name: 'Banlieue Proche (92, 93, 94)',
-    time: '30-40 min',
-    color: 'bg-red-500',
-    districts: ['Hauts-de-Seine', 'Seine-Saint-Denis', 'Val-de-Marne'],
+    id: "banlieue-proche",
+    name: "Banlieue (92, 93, 94)",
+    time: "30-40 min",
+    color: "bg-red-500",
+    districts: [
+      "Hauts-de-Seine",
+      "Seine-Saint-Denis",
+      "Val-de-Marne",
+      "Limeil brevanne",
+      "Créteil",
+      "Saint maur",
+    ],
     interventions: 280,
-    satisfaction: 95
-  }
+    satisfaction: 95,
+  },
 ];
 
 const popularCities = [
-  { name: 'Boulogne-Billancourt', time: '25 min', interventions: 45 },
-  { name: 'Neuilly-sur-Seine', time: '30 min', interventions: 38 },
-  { name: 'Vincennes', time: '35 min', interventions: 42 },
-  { name: 'Saint-Denis', time: '40 min', interventions: 33 },
-  { name: 'Créteil', time: '45 min', interventions: 29 },
-  { name: 'Montreuil', time: '35 min', interventions: 31 }
+  { name: "Boulogne-Billancourt", time: "25 min", interventions: 45 },
+  { name: "Neuilly-sur-Seine", time: "30 min", interventions: 38 },
+  { name: "Vincennes", time: "35 min", interventions: 42 },
+  { name: "Saint-Denis", time: "40 min", interventions: 33 },
+  { name: "Créteil", time: "45 min", interventions: 29 },
+  { name: "Montreuil", time: "35 min", interventions: 31 },
 ];
 
 export default function InteractiveMap() {
@@ -85,7 +92,7 @@ export default function InteractiveMap() {
               <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
                 Temps d'Intervention par Zone
               </h3>
-              
+
               {/* Zone Buttons */}
               <div className="space-y-3">
                 {zones.map((zone) => (
@@ -95,8 +102,8 @@ export default function InteractiveMap() {
                       selectedZone.id === zone.id
                         ? `${zone.color} text-white shadow-xl`
                         : hoveredZone === zone.id
-                        ? 'bg-white shadow-lg border-2 border-blue-300'
-                        : 'bg-white shadow-md hover:shadow-lg'
+                        ? "bg-white shadow-lg border-2 border-blue-300"
+                        : "bg-white shadow-md hover:shadow-lg"
                     }`}
                     onClick={() => setSelectedZone(zone)}
                     onMouseEnter={() => setHoveredZone(zone.id)}
@@ -107,10 +114,14 @@ export default function InteractiveMap() {
                         <MapPin className="h-5 w-5" />
                         <div>
                           <h4 className="font-semibold">{zone.name}</h4>
-                          <p className={`text-sm ${
-                            selectedZone.id === zone.id ? 'text-white/80' : 'text-gray-600'
-                          }`}>
-                            {zone.districts.join(', ')}
+                          <p
+                            className={`text-sm ${
+                              selectedZone.id === zone.id
+                                ? "text-white/80"
+                                : "text-gray-600"
+                            }`}
+                          >
+                            {zone.districts.join(", ")}
                           </p>
                         </div>
                       </div>
@@ -119,9 +130,13 @@ export default function InteractiveMap() {
                           <Clock className="h-4 w-4" />
                           <span className="font-bold">{zone.time}</span>
                         </div>
-                        <div className={`text-sm ${
-                          selectedZone.id === zone.id ? 'text-white/80' : 'text-gray-600'
-                        }`}>
+                        <div
+                          className={`text-sm ${
+                            selectedZone.id === zone.id
+                              ? "text-white/80"
+                              : "text-gray-600"
+                          }`}
+                        >
                           {zone.interventions} interventions
                         </div>
                       </div>
@@ -156,7 +171,9 @@ export default function InteractiveMap() {
             <Card className="shadow-xl border-2 border-blue-100">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
-                  <div className={`w-4 h-4 ${selectedZone.color} rounded-full`}></div>
+                  <div
+                    className={`w-4 h-4 ${selectedZone.color} rounded-full`}
+                  ></div>
                   <span>{selectedZone.name}</span>
                 </CardTitle>
               </CardHeader>
@@ -164,18 +181,24 @@ export default function InteractiveMap() {
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   <div className="text-center p-4 bg-green-50 rounded-lg">
                     <Clock className="h-8 w-8 text-green-600 mx-auto mb-2" />
-                    <div className="text-2xl font-bold text-green-600">{selectedZone.time}</div>
+                    <div className="text-2xl font-bold text-green-600">
+                      {selectedZone.time}
+                    </div>
                     <p className="text-sm text-gray-600">Temps d'arrivée</p>
                   </div>
                   <div className="text-center p-4 bg-blue-50 rounded-lg">
                     <CheckCircle className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-                    <div className="text-2xl font-bold text-blue-600">{selectedZone.satisfaction}%</div>
+                    <div className="text-2xl font-bold text-blue-600">
+                      {selectedZone.satisfaction}%
+                    </div>
                     <p className="text-sm text-gray-600">Satisfaction</p>
                   </div>
                 </div>
 
                 <div className="space-y-3">
-                  <h4 className="font-semibold text-gray-900">Arrondissements couverts :</h4>
+                  <h4 className="font-semibold text-gray-900">
+                    Arrondissements couverts :
+                  </h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedZone.districts.map((district, index) => (
                       <span
@@ -191,10 +214,14 @@ export default function InteractiveMap() {
                 <div className="mt-6 p-4 bg-orange-50 rounded-lg">
                   <div className="flex items-center space-x-2 mb-2">
                     <Car className="h-5 w-5 text-orange-600" />
-                    <span className="font-semibold text-orange-800">Intervention Express</span>
+                    <span className="font-semibold text-orange-800">
+                      Intervention Express
+                    </span>
                   </div>
                   <p className="text-sm text-orange-700">
-                    {selectedZone.interventions} interventions réalisées dans cette zone avec un taux de satisfaction de {selectedZone.satisfaction}%
+                    {selectedZone.interventions} interventions réalisées dans
+                    cette zone avec un taux de satisfaction de{" "}
+                    {selectedZone.satisfaction}%
                   </p>
                 </div>
 
@@ -213,14 +240,21 @@ export default function InteractiveMap() {
               <CardContent>
                 <div className="space-y-3">
                   {popularCities.map((city, index) => (
-                    <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <div
+                      key={index}
+                      className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                    >
                       <div className="flex items-center space-x-3">
                         <MapPin className="h-4 w-4 text-gray-600" />
                         <span className="font-medium">{city.name}</span>
                       </div>
                       <div className="text-right">
-                        <div className="text-sm font-semibold text-blue-600">{city.time}</div>
-                        <div className="text-xs text-gray-500">{city.interventions} interventions</div>
+                        <div className="text-sm font-semibold text-blue-600">
+                          {city.time}
+                        </div>
+                        <div className="text-xs text-gray-500">
+                          {city.interventions} interventions
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -233,11 +267,17 @@ export default function InteractiveMap() {
         {/* CTA Section */}
         <div className="mt-16 text-center">
           <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 text-white">
-            <h3 className="text-3xl font-bold mb-4">Votre Zone n'est pas Listée ?</h3>
+            <h3 className="text-3xl font-bold mb-4">
+              Votre Zone n'est pas Listée ?
+            </h3>
             <p className="text-xl text-blue-100 mb-6">
-              Contactez-nous ! Nous intervenons également dans d'autres communes de la région parisienne
+              Contactez-nous ! Nous intervenons également dans d'autres communes
+              de la région parisienne
             </p>
-            <Button size="lg" className="bg-orange-500 hover:bg-orange-600 transform hover:scale-105 transition-all duration-200">
+            <Button
+              size="lg"
+              className="bg-orange-500 hover:bg-orange-600 transform hover:scale-105 transition-all duration-200"
+            >
               <Phone className="h-5 w-5 mr-2" />
               01 23 45 67 89
             </Button>

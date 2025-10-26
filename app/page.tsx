@@ -154,7 +154,7 @@ export default function Home() {
         "https://images.pexels.com/photos/1461974/pexels-photo-1461974.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
-      name: "Banlieue proche",
+      name: "Banlieue ",
       time: "30-40 min",
       image:
         "https://images.pexels.com/photos/2363/france-landmark-lights-night.jpg?auto=compress&cs=tinysrgb&w=600",
@@ -291,9 +291,7 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Zones d&apos;Intervention
             </h2>
-            <p className="text-xl text-gray-600">
-              Tout Paris et proche banlieue
-            </p>
+            <p className="text-xl text-gray-600">Tout Paris et banlieue</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
