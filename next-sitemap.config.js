@@ -60,8 +60,8 @@ module.exports = {
       },
     ],
     additionalSitemaps: [
-      "https://votre-site-serrurier.fr/sitemap-pages.xml",
-      "https://votre-site-serrurier.fr/sitemap-blog.xml",
+      "https://www.dclik-serrure.com/sitemap-pages.xml",
+      "https://www.dclik-serrure.com/sitemap-blog.xml",
     ],
   },
   transform: async (config, path) => {

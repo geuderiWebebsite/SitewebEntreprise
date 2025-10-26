@@ -10,7 +10,7 @@ export default {
     site_name: "dclik-serrure",
     images: [
       {
-        url: "https://votre-site-serrurier.fr/images/serrurier-paris.jpg",
+        url: "https://www.dclik-serrure.com/images/serrurier-paris.jpg",
         width: 800,
         height: 600,
         alt: "Serrurier Paris - Dépannage 24h/24",
