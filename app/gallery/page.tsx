@@ -19,8 +19,7 @@ const categories = [
 const galleryItems = [
   {
     id: 1,
-    image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+    image: "serrure-3-points-applique.jpg",
     title: "Installation Serrure Multipoints",
     category: "Installation",
     location: "Paris 15ème",
@@ -39,8 +38,7 @@ const galleryItems = [
   },
   {
     id: 3,
-    image:
-      "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=800&q=80",
+    image: "CYLINDRE+FICHET-1920w.webp",
     title: "Réparation Cylindre",
     category: "Réparation",
     location: "Paris 11ème",
@@ -69,8 +67,7 @@ const galleryItems = [
   },
   {
     id: 6,
-    image:
-      "https://images.unsplash.com/photo-1504222490345-c075b6008014?w=800&q=80",
+    image: "IMG-20251021-WA0006.jpg",
     title: "Dépannage Urgent",
     category: "Ouverture de porte",
     location: "Paris 10ème",
@@ -89,8 +86,7 @@ const galleryItems = [
   },
   {
     id: 8,
-    image:
-      "https://images.unsplash.com/photo-1558002038-1055907df827?w=800&q=80",
+    image: "test-avis-serrure-welock-smart-lock-010-780x470.jpg",
     title: "Serrure Connectée",
     category: "Installation",
     location: "Paris 7ème",
@@ -99,8 +95,7 @@ const galleryItems = [
   },
   {
     id: 9,
-    image:
-      "https://images.unsplash.com/photo-1553481187-be93c21490a9?w=800&q=80",
+    image: "IMG-20251021-WA0019.jpg",
     title: "Ouverture Porte Claquée",
     category: "Ouverture de porte",
     location: "Paris 16ème",
@@ -109,8 +104,7 @@ const galleryItems = [
   },
   {
     id: 10,
-    image:
-      "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&q=80",
+    image: "11607-securite-2.jpg",
     title: "Installation Serrure Haute Sécurité",
     category: "Installation",
     location: "Paris 9ème",
@@ -120,7 +114,7 @@ const galleryItems = [
   {
     id: 11,
     image:
-      "https://images.unsplash.com/photo-1591768575545-c1d18b2e6e09?w=800&q=80",
+      "Debloquer_une_serrure_sans_l_endommager__Techniques_efficaces-1536x867.webp",
     title: "Réparation Serrure Bloquée",
     category: "Réparation",
     location: "Paris 13ème",
@@ -129,8 +123,7 @@ const galleryItems = [
   },
   {
     id: 12,
-    image:
-      "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=800&q=80",
+    image: "porteblindeappartementmarseilleJPGJPG_59f8ee10c71a5.jpeg",
     title: "Blindage Porte Appartement",
     category: "Blindage",
     location: "Paris 14ème",
