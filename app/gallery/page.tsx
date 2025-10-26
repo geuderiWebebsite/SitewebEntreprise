@@ -29,7 +29,7 @@ const galleryItems = [
   {
     id: 2,
     image:
-      "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=80",
+      "ouverture-porte-blindee--debouchage-curage-canalisation72694-d531c72e99189b19b709e2dde79804e6_1624289898.jpg",
     title: "Ouverture Porte Blindée",
     category: "Ouverture de porte",
     location: "Paris 8ème",
@@ -47,8 +47,7 @@ const galleryItems = [
   },
   {
     id: 4,
-    image:
-      "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80",
+    image: "IMG_1193-scaled.jpg",
     title: "Blindage de Porte",
     category: "Blindage",
     location: "Paris 17ème",
@@ -57,8 +56,7 @@ const galleryItems = [
   },
   {
     id: 5,
-    image:
-      "https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800&q=80",
+    image: "59-min.png",
     title: "Installation Serrure A2P",
     category: "Installation",
     location: "Paris 12ème",
@@ -76,8 +74,7 @@ const galleryItems = [
   },
   {
     id: 7,
-    image:
-      "https://images.unsplash.com/photo-1597423244036-ef5020e83f3c?w=800&q=80",
+    image: "Changement_serrure_Marseille_Aubagne_1.jpeg",
     title: "Remplacement Serrure",
     category: "Réparation",
     location: "Paris 19ème",
