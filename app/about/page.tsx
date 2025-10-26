@@ -65,11 +65,11 @@ export default function AboutPage() {
           className="relative py-20 bg-cover bg-center"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(C:UsersAshraDownloadsproject-bolt-sb1-brepgff2projectpubliclogo.png)",
+              "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6))",
           }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up red-600">
               À Propos de D'Clik Serrure
             </h1>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto animate-fade-in-up animation-delay-200">

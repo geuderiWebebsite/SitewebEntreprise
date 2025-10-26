@@ -95,7 +95,7 @@ export default function Home() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveBanner((prev) => (prev + 1) % 3);
+      setActiveBanner((prev) => (prev + 1) % 2);
     }, 4000);
     return () => clearInterval(interval);
   }, []);
@@ -221,7 +221,7 @@ export default function Home() {
               const IconComponent = feature.icon;
               const backgroundImages = [
                 "https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg?auto=compress&cs=tinysrgb&w=800",
-                "https://images.pexels.com/photos/5691604/pexels-photo-5691604.jpeg?auto=compress&cs=tinysrgb&w=800",
+                "image_ea75904f5fa785ae25930f557f9f0d10.jpeg",
                 "https://images.pexels.com/photos/4246096/pexels-photo-4246096.jpeg?auto=compress&cs=tinysrgb&w=800",
               ];
               return (
