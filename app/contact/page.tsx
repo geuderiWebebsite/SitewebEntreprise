@@ -51,6 +51,7 @@ export default function Contact() {
       icon: Phone,
       title: "Téléphone",
       info: "+33185440131",
+      SecondNumber: "+33 6 50 09 55 83",
       description: "Disponible 24h/24 pour les urgences",
     },
     {
@@ -163,7 +164,7 @@ export default function Contact() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8 mb-16">
-            {contactInfo.map((info, index) => {
+            {contactInfo.map((info, index, SecondNumber) => {
               const IconComponent = info.icon;
               return (
                 <Card
@@ -176,6 +177,7 @@ export default function Contact() {
                     </div>
                     <CardTitle className="text-xl text-red-700">
                       {info.title}
+                      {info.SecondNumber}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -431,6 +433,8 @@ export default function Contact() {
                   <p className="text-orange-800 font-semibold">
                     ⚡ Urgence ? Appelez directement le{" "}
                     <span className="text-red-700 font-bold">+33185440131</span>
+                    <br />
+                    <span>+33 6 50 09 55 83</span>
                   </p>
                 </div>
               </div>

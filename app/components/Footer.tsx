@@ -84,7 +84,11 @@ export default function Footer() {
             <div className="space-y-3 text-gray-400">
               <p className="flex items-center hover:text-white transition-colors">
                 <Phone className="h-4 w-4 mr-2" />
-                01 85 44 01 31
+                +33 01 85 44 01 31
+              </p>
+              <p className="flex items-center hover:text-white transition-colors">
+                <Phone className="h-4 w-4 mr-2" />
+                +33 6 50 09 55 83
               </p>
               <p className="flex items-center hover:text-white transition-colors">
                 <Mail className="h-4 w-4 mr-2" />
