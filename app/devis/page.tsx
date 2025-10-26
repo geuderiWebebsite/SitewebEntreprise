@@ -1,54 +1,66 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Calculator, Clock, Euro, CircleCheck as CheckCircle, Phone } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import FloatingActions from '../components/FloatingActions';
+import { useState } from "react";
+import {
+  Calculator,
+  Clock,
+  Euro,
+  CircleCheck as CheckCircle,
+  Phone,
+} from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import FloatingActions from "../components/FloatingActions";
 
 export default function DevisPage() {
-  const [serviceType, setServiceType] = useState('');
-  const [urgency, setUrgency] = useState('normal');
-  const [lockType, setLockType] = useState('standard');
-  const [timeSlot, setTimeSlot] = useState('day');
+  const [serviceType, setServiceType] = useState("");
+  const [urgency, setUrgency] = useState("normal");
+  const [lockType, setLockType] = useState("standard");
+  const [timeSlot, setTimeSlot] = useState("day");
   const [estimate, setEstimate] = useState<number | null>(null);
 
   const services = [
-    { value: 'ouverture', label: 'Ouverture de porte', basePrice: 89 },
-    { value: 'installation', label: 'Installation de serrure', basePrice: 150 },
-    { value: 'reparation', label: 'Réparation de serrure', basePrice: 120 },
-    { value: 'changement', label: 'Changement de serrure', basePrice: 130 },
-    { value: 'blindage', label: 'Blindage de porte', basePrice: 450 },
-    { value: 'extraction', label: 'Extraction clé cassée', basePrice: 95 },
-    { value: 'depannage', label: 'Dépannage général', basePrice: 100 }
+    { value: "ouverture", label: "Ouverture de porte", basePrice: 89 },
+    { value: "installation", label: "Installation de serrure", basePrice: 150 },
+    { value: "reparation", label: "Réparation de serrure", basePrice: 120 },
+    { value: "changement", label: "Changement de serrure", basePrice: 130 },
+    { value: "blindage", label: "Blindage de porte", basePrice: 450 },
+    { value: "extraction", label: "Extraction clé cassée", basePrice: 95 },
+    { value: "depannage", label: "Dépannage général", basePrice: 100 },
   ];
 
   const calculateEstimate = () => {
-    const service = services.find(s => s.value === serviceType);
+    const service = services.find((s) => s.value === serviceType);
     if (!service) return;
 
     let price = service.basePrice;
 
-    if (lockType === 'high-security') {
+    if (lockType === "high-security") {
       price += 80;
-    } else if (lockType === 'multipoint') {
+    } else if (lockType === "multipoint") {
       price += 50;
     }
 
-    if (urgency === 'urgent') {
+    if (urgency === "urgent") {
       price *= 1.3;
-    } else if (urgency === 'emergency') {
+    } else if (urgency === "emergency") {
       price *= 1.5;
     }
 
-    if (timeSlot === 'night') {
+    if (timeSlot === "night") {
       price += 40;
-    } else if (timeSlot === 'weekend') {
+    } else if (timeSlot === "weekend") {
       price += 30;
     }
 
@@ -63,11 +75,10 @@ export default function DevisPage() {
         <section className="py-16 bg-gradient-to-br from-red-600 to-orange-500 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <Calculator className="h-16 w-16 mx-auto mb-6" />
-            <h1 className="text-5xl font-bold mb-6">
-              Devis Instantané
-            </h1>
+            <h1 className="text-5xl font-bold mb-6">Devis Instantané</h1>
             <p className="text-xl max-w-3xl mx-auto">
-              Obtenez une estimation immédiate et transparente pour votre intervention de serrurerie
+              Obtenez une estimation immédiate et transparente pour votre
+              intervention de serrurerie
             </p>
           </div>
         </section>
@@ -91,7 +102,7 @@ export default function DevisPage() {
                         <SelectValue placeholder="Sélectionnez un service" />
                       </SelectTrigger>
                       <SelectContent>
-                        {services.map(service => (
+                        {services.map((service) => (
                           <SelectItem key={service.value} value={service.value}>
                             {service.label}
                           </SelectItem>
@@ -108,23 +119,45 @@ export default function DevisPage() {
                       <div className="space-y-3">
                         <div className="flex items-center space-x-3 p-4 border-2 border-gray-200 rounded-lg hover:border-red-300 cursor-pointer">
                           <RadioGroupItem value="standard" id="standard" />
-                          <Label htmlFor="standard" className="cursor-pointer flex-1">
+                          <Label
+                            htmlFor="standard"
+                            className="cursor-pointer flex-1"
+                          >
                             <div className="font-medium">Serrure standard</div>
-                            <div className="text-sm text-gray-500">Simple point</div>
+                            <div className="text-sm text-gray-500">
+                              Simple point
+                            </div>
                           </Label>
                         </div>
                         <div className="flex items-center space-x-3 p-4 border-2 border-gray-200 rounded-lg hover:border-red-300 cursor-pointer">
                           <RadioGroupItem value="multipoint" id="multipoint" />
-                          <Label htmlFor="multipoint" className="cursor-pointer flex-1">
-                            <div className="font-medium">Serrure multipoints</div>
-                            <div className="text-sm text-gray-500">3 à 5 points (+50€)</div>
+                          <Label
+                            htmlFor="multipoint"
+                            className="cursor-pointer flex-1"
+                          >
+                            <div className="font-medium">
+                              Serrure multipoints
+                            </div>
+                            <div className="text-sm text-gray-500">
+                              3 à 5 points (+50€)
+                            </div>
                           </Label>
                         </div>
                         <div className="flex items-center space-x-3 p-4 border-2 border-gray-200 rounded-lg hover:border-red-300 cursor-pointer">
-                          <RadioGroupItem value="high-security" id="high-security" />
-                          <Label htmlFor="high-security" className="cursor-pointer flex-1">
-                            <div className="font-medium">Serrure haute sécurité</div>
-                            <div className="text-sm text-gray-500">Certifiée A2P (+80€)</div>
+                          <RadioGroupItem
+                            value="high-security"
+                            id="high-security"
+                          />
+                          <Label
+                            htmlFor="high-security"
+                            className="cursor-pointer flex-1"
+                          >
+                            <div className="font-medium">
+                              Serrure haute sécurité
+                            </div>
+                            <div className="text-sm text-gray-500">
+                              Certifiée A2P (+80€)
+                            </div>
                           </Label>
                         </div>
                       </div>
@@ -139,23 +172,40 @@ export default function DevisPage() {
                       <div className="space-y-3">
                         <div className="flex items-center space-x-3 p-4 border-2 border-gray-200 rounded-lg hover:border-red-300 cursor-pointer">
                           <RadioGroupItem value="normal" id="normal" />
-                          <Label htmlFor="normal" className="cursor-pointer flex-1">
+                          <Label
+                            htmlFor="normal"
+                            className="cursor-pointer flex-1"
+                          >
                             <div className="font-medium">Normal</div>
-                            <div className="text-sm text-gray-500">Sous 2-3 heures</div>
+                            <div className="text-sm text-gray-500">
+                              Sous 2-3 heures
+                            </div>
                           </Label>
                         </div>
                         <div className="flex items-center space-x-3 p-4 border-2 border-gray-200 rounded-lg hover:border-red-300 cursor-pointer">
                           <RadioGroupItem value="urgent" id="urgent" />
-                          <Label htmlFor="urgent" className="cursor-pointer flex-1">
+                          <Label
+                            htmlFor="urgent"
+                            className="cursor-pointer flex-1"
+                          >
                             <div className="font-medium">Urgent</div>
-                            <div className="text-sm text-gray-500">Sous 1 heure (+30%)</div>
+                            <div className="text-sm text-gray-500">
+                              Sous 1 heure (+30%)
+                            </div>
                           </Label>
                         </div>
                         <div className="flex items-center space-x-3 p-4 border-2 border-red-200 rounded-lg hover:border-red-300 cursor-pointer bg-red-50">
                           <RadioGroupItem value="emergency" id="emergency" />
-                          <Label htmlFor="emergency" className="cursor-pointer flex-1">
-                            <div className="font-medium text-red-700">Urgence immédiate</div>
-                            <div className="text-sm text-red-600">Sous 30 minutes (+50%)</div>
+                          <Label
+                            htmlFor="emergency"
+                            className="cursor-pointer flex-1"
+                          >
+                            <div className="font-medium text-red-700">
+                              Urgence immédiate
+                            </div>
+                            <div className="text-sm text-red-600">
+                              Sous 30 minutes (+50%)
+                            </div>
                           </Label>
                         </div>
                       </div>
@@ -170,23 +220,38 @@ export default function DevisPage() {
                       <div className="space-y-3">
                         <div className="flex items-center space-x-3 p-4 border-2 border-gray-200 rounded-lg hover:border-red-300 cursor-pointer">
                           <RadioGroupItem value="day" id="day" />
-                          <Label htmlFor="day" className="cursor-pointer flex-1">
+                          <Label
+                            htmlFor="day"
+                            className="cursor-pointer flex-1"
+                          >
                             <div className="font-medium">Journée (8h-20h)</div>
-                            <div className="text-sm text-gray-500">Tarif normal</div>
+                            <div className="text-sm text-gray-500">
+                              Tarif normal
+                            </div>
                           </Label>
                         </div>
                         <div className="flex items-center space-x-3 p-4 border-2 border-gray-200 rounded-lg hover:border-red-300 cursor-pointer">
                           <RadioGroupItem value="weekend" id="weekend" />
-                          <Label htmlFor="weekend" className="cursor-pointer flex-1">
+                          <Label
+                            htmlFor="weekend"
+                            className="cursor-pointer flex-1"
+                          >
                             <div className="font-medium">Week-end</div>
-                            <div className="text-sm text-gray-500">Samedi/Dimanche (+30€)</div>
+                            <div className="text-sm text-gray-500">
+                              Samedi/Dimanche (+30€)
+                            </div>
                           </Label>
                         </div>
                         <div className="flex items-center space-x-3 p-4 border-2 border-gray-200 rounded-lg hover:border-red-300 cursor-pointer">
                           <RadioGroupItem value="night" id="night" />
-                          <Label htmlFor="night" className="cursor-pointer flex-1">
+                          <Label
+                            htmlFor="night"
+                            className="cursor-pointer flex-1"
+                          >
                             <div className="font-medium">Nuit (20h-8h)</div>
-                            <div className="text-sm text-gray-500">Tarif de nuit (+40€)</div>
+                            <div className="text-sm text-gray-500">
+                              Tarif de nuit (+40€)
+                            </div>
                           </Label>
                         </div>
                       </div>
@@ -219,7 +284,9 @@ export default function DevisPage() {
                         <div className="text-6xl font-bold text-red-600 mb-2">
                           {estimate}€
                         </div>
-                        <p className="text-sm text-gray-600">Prix indicatif TTC</p>
+                        <p className="text-sm text-gray-600">
+                          Prix indicatif TTC
+                        </p>
                       </div>
 
                       <div className="bg-white rounded-lg p-4 space-y-3 text-left">
@@ -243,7 +310,8 @@ export default function DevisPage() {
                       </Button>
 
                       <p className="text-xs text-gray-500">
-                        * Prix indicatif sujet à confirmation après diagnostic sur place
+                        * Prix indicatif sujet à confirmation après diagnostic
+                        sur place
                       </p>
                     </CardContent>
                   </Card>
@@ -261,7 +329,9 @@ export default function DevisPage() {
                         </div>
                         <div>
                           <h4 className="font-semibold mb-1">Configurez</h4>
-                          <p className="text-sm text-gray-600">Sélectionnez vos options</p>
+                          <p className="text-sm text-gray-600">
+                            Sélectionnez vos options
+                          </p>
                         </div>
                       </div>
                       <div className="flex items-start space-x-3">
@@ -270,7 +340,9 @@ export default function DevisPage() {
                         </div>
                         <div>
                           <h4 className="font-semibold mb-1">Calculez</h4>
-                          <p className="text-sm text-gray-600">Obtenez votre estimation</p>
+                          <p className="text-sm text-gray-600">
+                            Obtenez votre estimation
+                          </p>
                         </div>
                       </div>
                       <div className="flex items-start space-x-3">
@@ -279,7 +351,9 @@ export default function DevisPage() {
                         </div>
                         <div>
                           <h4 className="font-semibold mb-1">Contactez-nous</h4>
-                          <p className="text-sm text-gray-600">Intervention rapide</p>
+                          <p className="text-sm text-gray-600">
+                            Intervention rapide
+                          </p>
                         </div>
                       </div>
                     </CardContent>
@@ -290,14 +364,21 @@ export default function DevisPage() {
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-3 mb-3">
                       <Clock className="h-6 w-6 text-orange-600" />
-                      <h3 className="font-bold text-lg text-gray-900">Disponible 24/7</h3>
+                      <h3 className="font-bold text-lg text-gray-900">
+                        Disponible 24/7
+                      </h3>
                     </div>
                     <p className="text-sm text-gray-700 mb-4">
-                      Notre équipe est disponible jour et nuit pour vos urgences de serrurerie.
+                      Notre équipe est disponible jour et nuit pour vos urgences
+                      de serrurerie.
                     </p>
                     <div className="text-center bg-white rounded-lg p-3">
-                      <p className="text-sm text-gray-600 mb-1">Appelez-nous maintenant</p>
-                      <p className="text-2xl font-bold text-red-600">01 85 49 07 07</p>
+                      <p className="text-sm text-gray-600 mb-1">
+                        Appelez-nous maintenant
+                      </p>
+                      <p className="text-2xl font-bold text-red-600">
+                        +33185440131
+                      </p>
                     </div>
                   </CardContent>
                 </Card>
@@ -315,7 +396,9 @@ export default function DevisPage() {
               <Card className="border-2 border-red-100">
                 <CardContent className="p-6 text-center">
                   <Euro className="h-12 w-12 text-red-600 mx-auto mb-4" />
-                  <h3 className="font-bold text-xl mb-2">Transparence totale</h3>
+                  <h3 className="font-bold text-xl mb-2">
+                    Transparence totale
+                  </h3>
                   <p className="text-gray-600">
                     Pas de frais cachés. Le prix affiché est le prix final.
                   </p>

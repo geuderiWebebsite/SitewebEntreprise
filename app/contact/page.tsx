@@ -50,13 +50,13 @@ export default function Contact() {
     {
       icon: Phone,
       title: "Téléphone",
-      info: "01 85 44 01 31",
+      info: "+33185440131",
       description: "Disponible 24h/24 pour les urgences",
     },
     {
       icon: Mail,
       title: "Email",
-      info: "guediriali30@gmail.com",
+      info: "contact@dclik-serrure.com",
       description: "Réponse sous 2h en journée",
     },
     {
@@ -430,9 +430,7 @@ export default function Contact() {
                 <div className="mt-6 p-4 bg-orange-100 rounded-lg">
                   <p className="text-orange-800 font-semibold">
                     ⚡ Urgence ? Appelez directement le{" "}
-                    <span className="text-red-700 font-bold">
-                      06 50 09 55 83
-                    </span>
+                    <span className="text-red-700 font-bold">+33185440131</span>
                   </p>
                 </div>
               </div>

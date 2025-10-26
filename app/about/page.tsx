@@ -87,14 +87,14 @@ export default function AboutPage() {
                 </h2>
                 <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
                   <p>
-                    Depuis 2009,{" "}
+                    Depuis 2022,{" "}
                     <span className="font-bold text-red-600">
                       D'Clik Serrure
                     </span>{" "}
                     s'est imposée comme la référence en matière de serrurerie à
-                    Paris et en Île-de-France. Notre entreprise familiale a été
-                    fondée avec une mission simple : offrir un service de
-                    serrurerie rapide, fiable et transparent.
+                    Paris et en Île-de-France. Notre entreprise a été fondée
+                    avec une mission simple : offrir un service de serrurerie
+                    rapide, fiable et transparent.
                   </p>
                   <p>
                     Au fil des années, nous avons aidé plus de 5000 clients à

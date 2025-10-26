@@ -122,12 +122,6 @@ export default function Home() {
   ];
   const promotions = [
     {
-      icon: BadgePercent,
-      title: "-20% sur votre première intervention",
-      description: "Offre valable 24h/24",
-      color: "from-orange-500 to-red-600",
-    },
-    {
       icon: Gift,
       title: "Diagnostic gratuit",
       description: "Évaluation sans engagement",
@@ -416,7 +410,7 @@ export default function Home() {
 
                 <div className="text-center">
                   <p className="text-4xl font-bold text-red-700 mb-4">
-                    01 85 49 07 07
+                    +33185440131
                   </p>
                   <div className="flex items-center justify-center space-x-4 text-sm text-gray-600">
                     <div className="flex items-center">

@@ -357,7 +357,7 @@ export default function Header() {
                 Urgence 24h/24
               </p>
               <p className="text-2xl font-bold text-red-600 animate-pulse whitespace-nowrap">
-                01 85 49 07 07
+                +33185440131
               </p>
             </div>
             <button
