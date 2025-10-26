@@ -1,32 +1,33 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { ArrowRight, Phone, Clock } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import { useState, useEffect } from "react";
+import { ArrowRight, Phone, Clock } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const heroSlides = [
   {
-    image: 'https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    title: 'Serrurier Expert à Paris',
-    subtitle: 'Intervention rapide 24h/24 et 7j/7',
-    cta: 'Appeler Maintenant',
-    ctaLink: 'tel:0123456789'
+    image: "631085dec9cfc-sizes_cutum-1623-717.webp",
+    title: "Serrurier Expert à Paris",
+    subtitle: "Intervention rapide 24h/24 et 7j/7",
+    cta: "Appeler Maintenant",
+    ctaLink: "tel:0123456789",
   },
   {
-    image: 'https://images.pexels.com/photos/5691604/pexels-photo-5691604.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    title: 'Installation Serrures A2P',
-    subtitle: 'Sécurisez votre domicile avec nos experts certifiés',
-    cta: 'Devis Gratuit',
-    ctaLink: '/devis'
+    image: "Surrerie-pays-de-gex-reparation-porte-blindee.jpg",
+    title: "Installation Serrures A2P",
+    subtitle: "Sécurisez votre domicile avec nos experts certifiés",
+    cta: "Devis Gratuit",
+    ctaLink: "/devis",
   },
   {
-    image: 'https://images.pexels.com/photos/4246096/pexels-photo-4246096.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    title: 'Dépannage Sans Casse',
-    subtitle: 'Ouverture de porte en moins de 30 minutes',
-    cta: 'Urgence 24/7',
-    ctaLink: '/urgence'
-  }
+    image:
+      "ouverture-porte-blindee--debouchage-curage-canalisation72694-d531c72e99189b19b709e2dde79804e6_1624289898.jpg",
+    title: "Dépannage Sans Casse",
+    subtitle: "Ouverture de porte en moins de 30 minutes",
+    cta: "Urgence 24/7",
+    ctaLink: "/urgence",
+  },
 ];
 
 export default function HeroSection() {
@@ -50,7 +51,7 @@ export default function HeroSection() {
         <div
           key={index}
           className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? 'opacity-100' : 'opacity-0'
+            index === currentSlide ? "opacity-100" : "opacity-0"
           }`}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent z-10"></div>
@@ -58,7 +59,7 @@ export default function HeroSection() {
           <img
             src={slide.image}
             alt={slide.title}
-            loading={index === 0 ? 'eager' : 'lazy'}
+            loading={index === 0 ? "eager" : "lazy"}
             className="absolute inset-0 w-full h-full object-cover transform scale-105"
           />
 
@@ -117,8 +118,8 @@ export default function HeroSection() {
             onClick={() => goToSlide(index)}
             className={`h-3 rounded-full transition-all duration-300 ${
               index === currentSlide
-                ? 'bg-white w-8'
-                : 'bg-white/50 hover:bg-white/80 w-3'
+                ? "bg-white w-8"
+                : "bg-white/50 hover:bg-white/80 w-3"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
