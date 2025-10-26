@@ -12,7 +12,7 @@ export default function FloatingActions() {
   const [message, setMessage] = useState("");
 
   const handleWhatsApp = () => {
-    const phoneNumber = "33 6 50 09 55 83";
+    const phoneNumber = "3365095583";
     const text = encodeURIComponent(
       "Bonjour, j'ai besoin d'une intervention rapide pour un problème de serrurerie."
     );
