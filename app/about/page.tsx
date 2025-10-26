@@ -65,7 +65,7 @@ export default function AboutPage() {
           className="relative py-20 bg-cover bg-center"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg?auto=compress&cs=tinysrgb&w=1920)",
+              "linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(C:UsersAshraDownloadsproject-bolt-sb1-brepgff2projectpubliclogo.png)",
           }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
@@ -116,7 +116,7 @@ export default function AboutPage() {
               </div>
               <div className="relative h-96 rounded-lg overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.pexels.com/photos/5691604/pexels-photo-5691604.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="logo.png"
                   alt="Équipe D'Clik Serrure"
                   className="w-full h-full object-cover"
                 />

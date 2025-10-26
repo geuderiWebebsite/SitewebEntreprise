@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
   title: "Serrurier Paris - Dépannage 24h/24 - Intervention Rapide",
   description:
     "Serrurier professionnel à Paris et Île-de-France. Dépannage serrurerie 24h/24, ouverture de porte, installation serrures. Intervention rapide et tarifs transparents.",
-  url: "https://votre-site-serrurier.fr",
+  url: "https://www.dclik-serrure.com/",
   domain: "votre-site-serrurier.fr",
   phone: "01 85 49 07 07",
   email: "contact@votre-site-serrurier.fr",
@@ -294,7 +294,9 @@ export function generateProductSchema(data: {
   };
 }
 
-export function generateFAQSchema(faqs: Array<{ question: string; answer: string }>) {
+export function generateFAQSchema(
+  faqs: Array<{ question: string; answer: string }>
+) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -367,7 +369,9 @@ export function generateWebSiteSchema() {
   };
 }
 
-export function generateStructuredDataScript(data: Record<string, any> | Record<string, any>[]) {
+export function generateStructuredDataScript(
+  data: Record<string, any> | Record<string, any>[]
+) {
   const jsonLd = Array.isArray(data) ? data : [data];
   return {
     __html: JSON.stringify(jsonLd),

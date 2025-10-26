@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || "https://votre-site-serrurier.fr",
+  siteUrl: process.env.SITE_URL || "https://www.dclik-serrure.com/",
   generateRobotsTxt: true,
   generateIndexSitemap: true,
   sitemapSize: 5000,
