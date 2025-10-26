@@ -130,41 +130,38 @@ export default function AboutPage() {
             <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
               Nos Valeurs
             </h2>
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {values.map((value, index) => {
                 const IconComponent = value.icon;
-                const backgroundImages = [
-                  "https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg?auto=compress&cs=tinysrgb&w=800",
-                  "https://images.pexels.com/photos/5691604/pexels-photo-5691604.jpeg?auto=compress&cs=tinysrgb&w=800",
-                  "https://images.pexels.com/photos/4246096/pexels-photo-4246096.jpeg?auto=compress&cs=tinysrgb&w=800",
-                  "https://images.pexels.com/photos/5691641/pexels-photo-5691641.jpeg?auto=compress&cs=tinysrgb&w=800",
-                ];
 
                 return (
                   <div
                     key={index}
-                    className="relative h-80 overflow-hidden rounded-xl group cursor-pointer shadow-lg"
+                    className="relative h-80 overflow-hidden rounded-xl group cursor-pointer shadow-md bg-white border border-red-200 hover:border-red-400 transition-all duration-500"
                   >
-                    <img
-                      src={backgroundImages[index]}
-                      alt={value.title}
-                      loading="lazy"
-                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-red-900/95 via-red-800/85 to-black/50 group-hover:from-red-900/85 group-hover:via-red-800/75 group-hover:to-black/40 transition-all duration-500"></div>
-                    <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
-                      <div className="bg-orange-500 w-14 h-14 rounded-full flex items-center justify-center mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                        <IconComponent className="h-7 w-7" />
-                      </div>
-                      <h3 className="text-2xl font-bold mb-3">{value.title}</h3>
-                      <p className="text-gray-200">{value.description}</p>
+                    {/* --- Icône en arrière-plan rouge clair translucide --- */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-20 transition-opacity duration-500">
+                      <IconComponent className="w-40 h-40 text-red-500" />
                     </div>
+
+                    {/* --- Contenu texte --- */}
+                    <div className="absolute inset-0 p-6 flex flex-col justify-end text-gray-800 z-10">
+                      <h3 className="text-2xl font-bold mb-3 text-red-600">
+                        {value.title}
+                      </h3>
+                      <p className="text-gray-600">{value.description}</p>
+                    </div>
+
+                    {/* --- Barre rouge décorative en bas --- */}
+                    <div className="absolute bottom-0 left-0 w-0 h-1 bg-red-500 group-hover:w-full transition-all duration-500"></div>
                   </div>
                 );
               })}
             </div>
           </div>
         </section>
+
         <section
           className="relative py-20 bg-cover bg-center bg-fixed"
           style={{
