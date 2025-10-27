@@ -102,7 +102,7 @@ export default function HeroSection() {
                   </div>
                   <div className="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
                     <Clock className="h-5 w-5 text-red-500" />
-                    <span className="text-lg">24h/24 - 7j/7</span>
+                    <span className="text-lg">01.85.44.01.31</span>
                   </div>
                 </div>
               </div>
