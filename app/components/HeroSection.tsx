@@ -98,11 +98,11 @@ export default function HeroSection() {
                 <div className="mt-12 flex items-center gap-8 text-white">
                   <div className="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
                     <Phone className="h-5 w-5 text-red-500" />
-                    <span className="text-lg font-medium">01 23 45 67 89</span>
+                    <span className="text-lg font-medium">01.85.44.01.31</span>
                   </div>
                   <div className="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
                     <Clock className="h-5 w-5 text-red-500" />
-                    <span className="text-lg">01.85.44.01.31</span>
+                    <span className="text-lg">24h/24 - 7j/7</span>
                   </div>
                 </div>
               </div>
