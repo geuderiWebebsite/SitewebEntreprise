@@ -112,11 +112,6 @@ export default function Services() {
 
   const certifications = [
     { name: "A2P", description: "Serrures certifiées haute sécurité" },
-    { name: "APSAD", description: "Norme de sécurité incendie et intrusion" },
-    {
-      name: "CNPP",
-      description: "Centre national de prévention et protection",
-    },
     {
       name: "Garantie D'clik",
       description: "Intervention assurée et garantie",

@@ -11,7 +11,7 @@ const heroSlides = [
     title: "Serrurier Expert à Paris",
     subtitle: "Intervention rapide 24h/24 et 7j/7",
     cta: "Appeler Maintenant",
-    ctaLink: "tel:+33185440131",
+    ctaLink: "tel:01.85.44.01.31",
   },
   {
     image: "Surrerie-pays-de-gex-reparation-porte-blindee.jpg",

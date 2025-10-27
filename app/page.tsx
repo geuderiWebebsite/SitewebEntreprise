@@ -220,9 +220,9 @@ export default function Home() {
             {urgencyFeatures.map((feature, index) => {
               const IconComponent = feature.icon;
               const backgroundImages = [
-                "https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg?auto=compress&cs=tinysrgb&w=800",
+                "WhatsApp Image 2025-10-27 à 13.26.34_b9b1b618.jpg",
                 "image_ea75904f5fa785ae25930f557f9f0d10.jpeg",
-                "https://images.pexels.com/photos/4246096/pexels-photo-4246096.jpeg?auto=compress&cs=tinysrgb&w=800",
+                "WhatsApp Image 2025-10-27 à 13.28.51_4c136f17.jpg",
               ];
               return (
                 <div

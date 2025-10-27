@@ -1,54 +1,87 @@
+"use client";
 
-'use client';
-
-import { DoorOpen, Shield, Wrench, Home, ArrowRight, Clock, CheckCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import {
+  DoorOpen,
+  Shield,
+  Wrench,
+  Home,
+  ArrowRight,
+  Clock,
+  CheckCircle,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const services = [
   {
-    id: 'ouverture',
+    id: "ouverture",
     icon: DoorOpen,
-    title: 'Ouverture de Porte',
-    shortDesc: 'Intervention rapide sans dégât',
-    fullDesc: 'Vous êtes enfermé à l\'extérieur ? Notre équipe d\'experts intervient en moins de 30 minutes pour ouvrir votre porte sans aucun dégât dans 95% des cas. Service professionnel et discret.',
-    price: '89€',
-    duration: '15-25 min',
-    features: ['Sans casse garantie', 'Tous types de serrures', 'Intervention 24h/24', 'Tarif fixe transparent'],
-    image: 'https://images.pexels.com/photos/5691641/pexels-photo-5691641.jpeg?auto=compress&cs=tinysrgb&w=1920'
+    title: "Ouverture de Porte",
+    shortDesc: "Intervention rapide sans dégât",
+    fullDesc:
+      "Vous êtes enfermé à l'extérieur ? Notre équipe d'experts intervient en moins de 30 minutes pour ouvrir votre porte sans aucun dégât dans 95% des cas. Service professionnel et discret.",
+    price: "89€",
+    duration: "15-25 min",
+    features: [
+      "Sans casse garantie",
+      "Tous types de serrures",
+      "Intervention 24h/24",
+      "Tarif fixe transparent",
+    ],
+    image: "WhatsApp Image 2025-10-27 à 13.31.15_3e78f2b7.jpg",
   },
   {
-    id: 'installation',
+    id: "installation",
     icon: Shield,
-    title: 'Installation de Serrures',
-    shortDesc: 'Serrures haute sécurité certifiées A2P',
-    fullDesc: 'Installation professionnelle de serrures multipoints certifiées A2P. Garantissez une sécurité maximale pour votre domicile avec nos équipements de pointe conformes aux normes d\'assurance.',
-    price: '250€',
-    duration: '45-60 min',
-    features: ['Serrures certifiées A2P', 'Multipoints 3 à 7 points', 'Garantie constructeur', 'Conseil personnalisé gratuit'],
-    image: 'https://images.pexels.com/photos/5691604/pexels-photo-5691604.jpeg?auto=compress&cs=tinysrgb&w=1920'
+    title: "Installation de Serrures",
+    shortDesc: "Serrures haute sécurité certifiées A2P",
+    fullDesc:
+      "Installation professionnelle de serrures multipoints certifiées A2P. Garantissez une sécurité maximale pour votre domicile avec nos équipements de pointe conformes aux normes d'assurance.",
+    price: "250€",
+    duration: "45-60 min",
+    features: [
+      "Serrures certifiées A2P",
+      "Multipoints 3 à 7 points",
+      "Garantie constructeur",
+      "Conseil personnalisé gratuit",
+    ],
+    image:
+      "https://images.pexels.com/photos/5691604/pexels-photo-5691604.jpeg?auto=compress&cs=tinysrgb&w=1920",
   },
   {
-    id: 'depannage',
+    id: "depannage",
     icon: Wrench,
-    title: 'Dépannage Express',
-    shortDesc: 'Réparation sur place immédiate',
-    fullDesc: 'Votre serrure est bloquée ou défaillante ? Nos techniciens qualifiés diagnostiquent et réparent votre serrure directement sur place avec des pièces de qualité professionnelle.',
-    price: '75€',
-    duration: '20-35 min',
-    features: ['Diagnostic gratuit', 'Réparation immédiate', 'Pièces de qualité certifiée', 'Garantie 1 an pièces et main-d\'œuvre'],
-    image: 'https://images.pexels.com/photos/4246096/pexels-photo-4246096.jpeg?auto=compress&cs=tinysrgb&w=1920'
+    title: "Dépannage Express",
+    shortDesc: "Réparation sur place immédiate",
+    fullDesc:
+      "Votre serrure est bloquée ou défaillante ? Nos techniciens qualifiés diagnostiquent et réparent votre serrure directement sur place avec des pièces de qualité professionnelle.",
+    price: "75€",
+    duration: "20-35 min",
+    features: [
+      "Diagnostic gratuit",
+      "Réparation immédiate",
+      "Pièces de qualité certifiée",
+      "Garantie 1 an pièces et main-d'œuvre",
+    ],
+    image:
+      "https://images.pexels.com/photos/4246096/pexels-photo-4246096.jpeg?auto=compress&cs=tinysrgb&w=1920",
   },
   {
-    id: 'securisation',
+    id: "securisation",
     icon: Home,
-    title: 'Sécurisation Complète',
-    shortDesc: 'Audit complet et renforcement sécurité',
-    fullDesc: 'Bénéficiez d\'un audit sécurité gratuit et professionnel. Nos experts renforcent l\'ensemble de vos accès pour une protection optimale : blindage, cylindres haute sécurité, barres anti-effraction.',
-    price: 'Sur devis',
-    duration: '1-2h',
-    features: ['Audit sécurité gratuit', 'Blindage de porte certifié', 'Barres de seuil renforcées', 'Cylindres haute sécurité A2P'],
-    image:'https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg?auto=compress&cs=tinysrgb&w=1920'
+    title: "Sécurisation Complète",
+    shortDesc: "Audit complet et renforcement sécurité",
+    fullDesc:
+      "Bénéficiez d'un audit sécurité gratuit et professionnel. Nos experts renforcent l'ensemble de vos accès pour une protection optimale : blindage, cylindres haute sécurité, barres anti-effraction.",
+    price: "Sur devis",
+    duration: "1-2h",
+    features: [
+      "Audit sécurité gratuit",
+      "Blindage de porte certifié",
+      "Barres de seuil renforcées",
+      "Cylindres haute sécurité A2P",
+    ],
+    image: "WhatsApp Image 2025-10-27 à 13.37.03_f042213f.jpg",
   },
 ];
 
@@ -61,7 +94,8 @@ export default function ServicesShowcase() {
             Nos Services Professionnels
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Des solutions complètes et sur mesure pour tous vos besoins en serrurerie professionnelle
+            Des solutions complètes et sur mesure pour tous vos besoins en
+            serrurerie professionnelle
           </p>
         </div>
 
@@ -108,7 +142,9 @@ export default function ServicesShowcase() {
                   {/* Price & Duration */}
                   <div className="flex items-center justify-between mb-4 pb-4 border-b border-white/20">
                     <div>
-                      <div className="text-2xl font-bold text-red-400">{service.price}</div>
+                      <div className="text-2xl font-bold text-red-400">
+                        {service.price}
+                      </div>
                       <div className="text-gray-300 text-xs">À partir de</div>
                     </div>
                     <div className="flex items-center text-gray-200 text-sm">
@@ -120,7 +156,10 @@ export default function ServicesShowcase() {
                   {/* Features */}
                   <div className="space-y-1.5 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                     {service.features.slice(0, 3).map((feature, idx) => (
-                      <div key={idx} className="flex items-center text-xs text-gray-200">
+                      <div
+                        key={idx}
+                        className="flex items-center text-xs text-gray-200"
+                      >
                         <CheckCircle className="h-3 w-3 text-green-400 mr-1.5 flex-shrink-0" />
                         {feature}
                       </div>
