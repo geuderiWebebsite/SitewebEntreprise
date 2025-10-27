@@ -262,7 +262,7 @@ export default function AboutPage() {
           className="relative py-20 bg-cover bg-center"
           style={{
             backgroundImage:
-              "url(https://images.pexels.com/photos/8092403/pexels-photo-8092403.jpeg?auto=compress&cs=tinysrgb&w=1920)",
+              "url(WhatsApp Image 2025-10-27 à 13.42.23_86d589d1.jpg)",
           }}
         >
           <div className="absolute inset-0 bg-white/92"></div>
