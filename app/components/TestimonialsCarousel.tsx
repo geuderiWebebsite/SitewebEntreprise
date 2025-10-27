@@ -1,71 +1,68 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { Star, Quote, ChevronLeft, ChevronRight, MapPin, Calendar } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { useState, useEffect } from "react";
+import {
+  Star,
+  Quote,
+  ChevronLeft,
+  ChevronRight,
+  MapPin,
+  Calendar,
+} from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const testimonials = [
   {
     id: 1,
-    name: 'Marie Dubois',
-    location: 'Paris 15ème',
-    date: 'Il y a 2 jours',
+    name: "nicolas courrier",
+    location: "Paris 15ème",
+    date: "Il y a 2 jours",
     rating: 5,
-    text: 'Service exceptionnel ! J\'étais enfermée dehors à 23h avec mon bébé. L\'équipe est arrivée en 20 minutes et a ouvert ma porte sans aucun dégât. Prix très correct et technicien très professionnel.',
-    service: 'Ouverture de porte d\'urgence',
-    avatar: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?w=100&h=100&fit=crop&crop=face'
+    text: "Intervention dans la journée, suite à notre demande. Explications précises des travaux à réaliser et des conseils adaptés à la situation. Un grand merci.",
+    service: "Ouverture de porte d'urgence",
+    avatar: "",
   },
   {
     id: 2,
-    name: 'Jean-Pierre Martin',
-    location: 'Paris 11ème',
-    date: 'Il y a 1 semaine',
+    name: "M CG",
+    location: "Paris 11ème",
+    date: "Il y a 1 semaine",
     rating: 5,
-    text: 'Après une tentative d\'effraction, j\'ai fait appel à eux pour sécuriser mon appartement. Installation d\'une serrure 7 points impeccable. Je recommande vivement !',
-    service: 'Installation serrure haute sécurité',
-    avatar: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?w=100&h=100&fit=crop&crop=face'
+    text: "Que Dire... je suis tellement heureuse et reconnaissante d'avoir fait appel à D'Click serrure. Un monsieur honnête, gentil et bienveillant ! J'avais peur de tomber sur quelqu'un de malhonnête car je n'étais pas sur place, avec une facture exorbitante et bien c'était tout l'inverse. Vous pouvez leur faire confiance. Ils feront toujours de leur mieux. Merci encore à vous. 🙏🏻",
+    service: "Installation serrure haute sécurité",
+    avatar: "",
   },
   {
     id: 3,
-    name: 'Sophie Leroy',
-    location: 'Paris 8ème',
-    date: 'Il y a 3 jours',
+    name: "Anais Djouzi",
+    location: "Paris 8ème",
+    date: "Il y a 3 jours",
     rating: 5,
-    text: 'Clé cassée dans la serrure un dimanche matin. Intervention rapide, extraction parfaite et remplacement immédiat. Tarif annoncé respecté. Parfait !',
-    service: 'Extraction clé cassée',
-    avatar: 'https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?w=100&h=100&fit=crop&crop=face'
+    text: "Intervention très rapide et efficace! Très honnête et arrangeant. Je recommande à 100%",
+    service: "Extraction clé cassée",
+    avatar: "",
   },
   {
     id: 4,
-    name: 'Ahmed Benali',
-    location: 'Paris 19ème',
-    date: 'Il y a 5 jours',
+    name: "Nabil Qadrouci",
+    location: "Paris 19ème",
+    date: "Il y a 5 jours",
     rating: 5,
-    text: 'Excellent service ! Ma serrure était bloquée depuis 2 jours. Le serrurier a diagnostiqué le problème rapidement et l\'a réparé sur place. Très satisfait du travail.',
-    service: 'Réparation serrure',
-    avatar: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?w=100&h=100&fit=crop&crop=face'
+    text: "Ali est un serrurier comme il s'en fait de moins en moins..!! Ponctuel, respectueux et très professionnel, ses tarifs sont très correct, surtout au vu de la qualité du travail. Je recommande sans réserve !!",
+    service: "Réparation serrure",
+    avatar: "",
   },
   {
     id: 5,
-    name: 'Isabelle Moreau',
-    location: 'Paris 6ème',
-    date: 'Il y a 1 semaine',
+    name: "Maen",
+    location: "Paris 6ème",
+    date: "Il y a 1 semaine",
     rating: 5,
-    text: 'Suite à un déménagement, j\'ai voulu changer toutes mes serrures. Conseil personnalisé, installation soignée et prix très compétitif. Je recommande !',
-    service: 'Changement serrures complètes',
-    avatar: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?w=100&h=100&fit=crop&crop=face'
+    text: "Mandaté par mon assurance , intervention dans la journéeSerrurier très compétant , très sérieux et sympathique Explique son travail et les démarches, clair, net et précis Encore merci pour votre intervention",
+    service: "Changement serrures complètes",
+    avatar: "",
   },
-  {
-    id: 6,
-    name: 'Thomas Rousseau',
-    location: 'Paris 12ème',
-    date: 'Il y a 4 jours',
-    rating: 5,
-    text: 'Intervention d\'urgence à 2h du matin après une soirée. Professionnel, rapide et discret. Aucun dégât sur ma porte. Service irréprochable !',
-    service: 'Ouverture de porte nocturne',
-    avatar: 'https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?w=100&h=100&fit=crop&crop=face'
-  }
 ];
 
 export default function TestimonialsCarousel() {
@@ -74,7 +71,7 @@ export default function TestimonialsCarousel() {
 
   useEffect(() => {
     if (!isAutoPlaying) return;
-    
+
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
     }, 5000);
@@ -88,7 +85,9 @@ export default function TestimonialsCarousel() {
   };
 
   const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentIndex(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
     setIsAutoPlaying(false);
   };
 
@@ -110,10 +109,15 @@ export default function TestimonialsCarousel() {
           <div className="flex items-center justify-center mt-4">
             <div className="flex items-center space-x-1">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-6 w-6 text-yellow-400 fill-current" />
+                <Star
+                  key={i}
+                  className="h-6 w-6 text-yellow-400 fill-current"
+                />
               ))}
             </div>
-            <span className="ml-2 text-lg font-semibold text-gray-700">4.9/5</span>
+            <span className="ml-2 text-lg font-semibold text-gray-700">
+              4.9/5
+            </span>
             <span className="ml-2 text-gray-500">(2,547 avis)</span>
           </div>
         </div>
@@ -121,7 +125,7 @@ export default function TestimonialsCarousel() {
         <div className="relative">
           {/* Main Testimonial */}
           <div className="overflow-hidden">
-            <div 
+            <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
@@ -138,12 +142,14 @@ export default function TestimonialsCarousel() {
                             className="w-20 h-20 rounded-full object-cover border-4 border-blue-200"
                           />
                         </div>
-                        
+
                         {/* Content */}
                         <div className="flex-1">
                           <div className="flex items-start justify-between mb-4">
                             <div>
-                              <h3 className="text-xl font-bold text-gray-900">{testimonial.name}</h3>
+                              <h3 className="text-xl font-bold text-gray-900">
+                                {testimonial.name}
+                              </h3>
                               <div className="flex items-center space-x-4 text-sm text-gray-600 mt-1">
                                 <div className="flex items-center">
                                   <MapPin className="h-4 w-4 mr-1" />
@@ -157,19 +163,22 @@ export default function TestimonialsCarousel() {
                             </div>
                             <Quote className="h-8 w-8 text-blue-300 flex-shrink-0" />
                           </div>
-                          
+
                           {/* Rating */}
                           <div className="flex items-center space-x-1 mb-4">
                             {[...Array(testimonial.rating)].map((_, i) => (
-                              <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                              <Star
+                                key={i}
+                                className="h-5 w-5 text-yellow-400 fill-current"
+                              />
                             ))}
                           </div>
-                          
+
                           {/* Service */}
                           <div className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium inline-block mb-4">
                             {testimonial.service}
                           </div>
-                          
+
                           {/* Testimonial Text */}
                           <p className="text-gray-700 text-lg leading-relaxed italic">
                             "{testimonial.text}"
@@ -192,7 +201,7 @@ export default function TestimonialsCarousel() {
           >
             <ChevronLeft className="h-5 w-5" />
           </Button>
-          
+
           <Button
             variant="outline"
             size="icon"
@@ -208,9 +217,9 @@ export default function TestimonialsCarousel() {
               <button
                 key={index}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex 
-                    ? 'bg-blue-600 scale-125' 
-                    : 'bg-gray-300 hover:bg-gray-400'
+                  index === currentIndex
+                    ? "bg-blue-600 scale-125"
+                    : "bg-gray-300 hover:bg-gray-400"
                 }`}
                 onClick={() => goToTestimonial(index)}
               />
@@ -225,11 +234,15 @@ export default function TestimonialsCarousel() {
             <p className="text-gray-700">Clients satisfaits</p>
           </div>
           <div className="bg-blue-50 p-6 rounded-xl">
-            <div className="text-3xl font-bold text-blue-600 mb-2">&lt; 30min</div>
+            <div className="text-3xl font-bold text-blue-600 mb-2">
+              &lt; 30min
+            </div>
             <p className="text-gray-700">Temps d'intervention moyen</p>
           </div>
           <div className="bg-orange-50 p-6 rounded-xl">
-            <div className="text-3xl font-bold text-orange-600 mb-2">24h/24</div>
+            <div className="text-3xl font-bold text-orange-600 mb-2">
+              24h/24
+            </div>
             <p className="text-gray-700">Disponibilité garantie</p>
           </div>
         </div>
