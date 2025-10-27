@@ -95,7 +95,7 @@ export default function Home() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveBanner((prev) => (prev + 1) % 2);
+      setActiveBanner((prev) => (prev + 1) % 1);
     }, 4000);
     return () => clearInterval(interval);
   }, []);
@@ -126,12 +126,6 @@ export default function Home() {
       title: "Diagnostic gratuit",
       description: "Évaluation sans engagement",
       color: "from-purple-500 to-pink-600",
-    },
-    {
-      icon: Sparkles,
-      title: "Changement de serrure offert",
-      description: "Pour toute installation complète",
-      color: "from-blue-500 to-cyan-600",
     },
   ];
   const zones = [

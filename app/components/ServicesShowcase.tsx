@@ -45,8 +45,7 @@ const services = [
       "Garantie constructeur",
       "Conseil personnalisé gratuit",
     ],
-    image:
-      "https://images.pexels.com/photos/5691604/pexels-photo-5691604.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    image: "WhatsApp Image 2025-10-27 à 13.42.23_86d589d1.jpg",
   },
   {
     id: "depannage",
@@ -63,8 +62,7 @@ const services = [
       "Pièces de qualité certifiée",
       "Garantie 1 an pièces et main-d'œuvre",
     ],
-    image:
-      "https://images.pexels.com/photos/4246096/pexels-photo-4246096.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    image: "WhatsApp Image 2025-10-27 à 14.01.01_cc9248f3.jpg",
   },
   {
     id: "securisation",
