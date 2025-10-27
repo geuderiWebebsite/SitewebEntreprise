@@ -196,7 +196,7 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="relative h-96 rounded-lg overflow-hidden shadow-2xl order-2 md:order-1">
                 <img
-                  src="https://images.pexels.com/photos/4246096/pexels-photo-4246096.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="WhatsApp Image 2025-10-27 à 13.42.23_86d589d1.jpg"
                   alt="Serrurier professionnel"
                   className="w-full h-full object-cover"
                 />
@@ -262,7 +262,7 @@ export default function AboutPage() {
           className="relative py-20 bg-cover bg-center"
           style={{
             backgroundImage:
-              "url(WhatsApp Image 2025-10-27 à 13.42.23_86d589d1.jpg)",
+              "url(https://images.pexels.com/photos/8092403/pexels-photo-8092403.jpeg?auto=compress&cs=tinysrgb&w=1920)",
           }}
         >
           <div className="absolute inset-0 bg-white/92"></div>
