@@ -279,7 +279,7 @@ export default function InteractiveMap() {
               className="bg-orange-500 hover:bg-orange-600 transform hover:scale-105 transition-all duration-200"
             >
               <Phone className="h-5 w-5 mr-2" />
-              01 23 45 67 89
+              +330650095583
             </Button>
           </div>
         </div>
