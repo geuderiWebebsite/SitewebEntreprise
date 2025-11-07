@@ -114,6 +114,7 @@ export default function Footer() {
               <p>Vincennes</p>
               <p>Saint-Denis</p>
               <p>Créteil</p>
+              <p>Clichy</p>
             </div>
           </div>
         </div>
