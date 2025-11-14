@@ -125,6 +125,10 @@ export default function Footer() {
               <p>Villeneuve-Saint-Georges</p>
               <p>Boissy-Saint-Léger</p>
               <p>Choisy-le-Roi</p>
+              <p>Vitry-sur-Seine</p>
+              <p>Draveil</p>
+              <p>Thiais</p>
+              <p>Charenton-le-Pont</p>
             </div>
           </div>
         </div>
