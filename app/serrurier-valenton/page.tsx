@@ -225,7 +225,7 @@ export default function SerrurierValenton() {
               </div>
               <div className="w-full h-64 bg-gray-200 rounded-lg overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20996.894758935346!2d2.2399484!3d48.8352957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e67af50578e8dd%3A0x50b82c3688c9460!2sBoulogne-Billancourt!5e0!3m2!1sfr!2sfr!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21045.46514003065!2d2.4393769189774916!3d48.74974921072427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e60b1722a3a15d%3A0xdcd9665011017cc0!2sValenton!5e0!3m2!1sfr!2sfr!4v1763134701518!5m2!1sfr!2sfr"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
