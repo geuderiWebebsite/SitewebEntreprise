@@ -223,7 +223,7 @@ export default function SerrurierSaintMaurDesFosses() {
               </div>
               <div className="w-full h-64 bg-gray-200 rounded-lg overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d83998.94722687218!2d2.277019999999999!3d48.8589507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b005%3A0x40b82c3688c9460!2sParis!5e0!3m2!1sfr!2sfr!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21024.4405783506!2d2.471468069124091!3d48.799927532881895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e60cf0a32d86a9%3A0xb0dd0b84be904e3d!2sSaint-Maur-des-Foss%C3%A9s!5e0!3m2!1sfr!2sfr!4v1763134957580!5m2!1sfr!2sfr"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
