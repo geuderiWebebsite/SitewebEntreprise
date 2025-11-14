@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-export default function SerrurierCreteil() {
+export default function SerrurierClichy() {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -199,10 +199,10 @@ export default function SerrurierCreteil() {
                     Tous les quartiers de Clichy
                   </h3>
                   <ul className="space-y-2 text-gray-700">
-                    <li>✓ Clichy Centre (Préfecture)</li>
-                    <li>✓ Clichy Village</li>
-                    <li>✓ Mont-Mesly (Lac de Clichy)</li>
-                    <li>✓ Clichy Université</li>
+                    <li>✓ Clichy Centre-Ville (autour de la mairie)</li>
+                    <li>✓ Entrée de Ville & Hôtel de Ville (zone en forte transformation, proche de la ligne 14)</li>
+                    <li>✓ Berges de Seine – Beaujon (bords de Seine)</li>
+                    <li>✓ Bac d’Asnières (au nord-ouest)</li>
                   </ul>
                 </div>
                 <div>
