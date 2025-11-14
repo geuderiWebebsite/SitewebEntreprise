@@ -223,7 +223,7 @@ export default function SerrurierBoissySaintLeger() {
               </div>
               <div className="w-full h-64 bg-gray-200 rounded-lg overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20996.734257!2d2.4437314!3d48.8617037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66d8b6d0d0ca3%3A0x40b82c3688c9460!2sMontreuil!5e0!3m2!1sfr!2sfr!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21047.33618348548!2d2.5045456189644684!3d48.745281813202304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e60bc0167d7277%3A0x49aa7545fffd3442!2sBoissy-Saint-L%C3%A9ger!5e0!3m2!1sfr!2sfr!4v1763135320804!5m2!1sfr!2sfr"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
