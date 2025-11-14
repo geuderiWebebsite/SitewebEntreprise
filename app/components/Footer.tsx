@@ -115,6 +115,16 @@ export default function Footer() {
               <p>Saint-Denis</p>
               <p>Créteil</p>
               <p>Clichy</p>
+              <p>Valenton</p>
+              <p>Bonneuil-sur-Marne</p>
+              <p>Saint-Maur-des-Fossés</p>
+              <p>Limeil-Brévannes</p>
+              <p>Brunoy</p>
+              <p>Montgeron</p>
+              <p>Vigneux-sur-Seine</p>
+              <p>Villeneuve-Saint-Georges</p>
+              <p>Boissy-Saint-Léger</p>
+              <p>Choisy-le-Roi</p>
             </div>
           </div>
         </div>
