@@ -211,7 +211,7 @@ export default function SerrurierClichy() {
                   </h3>
                   <div className="bg-orange-50 p-4 rounded-lg mb-4">
                     <p className="text-3xl font-bold text-orange-600 mb-2">
-                      28 minutes
+                      35-45 minutes
                     </p>
                     <p className="text-gray-600">en moyenne pour Clichy</p>
                   </div>
@@ -243,7 +243,7 @@ export default function SerrurierClichy() {
                 <Star className="h-8 w-8 text-yellow-500 flex-shrink-0" />
                 <div>
                   <p className="text-lg italic text-gray-700 mb-4">
-                    &quot;Appelé vers minuit pour une porte claquée au Mont-Mesly.
+                    &quot;Appelé vers minuit pour une porte claquée à Clichy.
                     Serrurier arrivé rapidement, très compétent, porte ouverte
                     sans casse. Tarif honnête !&quot;
                   </p>
