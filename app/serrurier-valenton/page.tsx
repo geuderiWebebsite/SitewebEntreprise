@@ -211,7 +211,7 @@ export default function SerrurierValenton() {
                   </h3>
                   <div className="bg-orange-50 p-4 rounded-lg mb-4">
                     <p className="text-3xl font-bold text-orange-600 mb-2">
-                      22 minutes
+                      35-45 minutes
                     </p>
                     <p className="text-gray-600">
                       en moyenne pour Valenton
@@ -245,9 +245,9 @@ export default function SerrurierValenton() {
                 <Star className="h-8 w-8 text-yellow-500 flex-shrink-0" />
                 <div>
                   <p className="text-lg italic text-gray-700 mb-4">
-                    &quot;Serrurier rapide intervenu à 3h du matin dans le quartier
-                    Billancourt. Porte ouverte en 15 minutes sans aucun dégât. Prix
-                    annoncé au téléphone respecté. Je recommande !&quot;
+                    &quot;Serrurier rapide intervenu à 3h du matin à Valenton. 
+                    Porte ouverte en 15 minutes sans aucun dégât. Prix annoncé 
+                    au téléphone respecté. Je recommande !&quot;
                   </p>
                   <p className="font-bold text-gray-900">
                     - Sophie D., Valenton
