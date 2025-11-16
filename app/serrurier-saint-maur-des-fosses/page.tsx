@@ -211,7 +211,7 @@ export default function SerrurierSaintMaurDesFosses() {
                   </h3>
                   <div className="bg-orange-50 p-4 rounded-lg mb-4">
                     <p className="text-3xl font-bold text-orange-600 mb-2">
-                      25 minutes
+                      35-45 minutes
                     </p>
                     <p className="text-gray-600">en moyenne pour Saint-Maur-des-Fossés</p>
                   </div>
