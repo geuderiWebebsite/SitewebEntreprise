@@ -211,7 +211,7 @@ export default function SerrurierBrunoy() {
                   </h3>
                   <div className="bg-orange-50 p-4 rounded-lg mb-4">
                     <p className="text-3xl font-bold text-orange-600 mb-2">
-                      24 minutes
+                      35-45 minutes
                     </p>
                     <p className="text-gray-600">en moyenne pour Brunoy</p>
                   </div>
@@ -243,8 +243,8 @@ export default function SerrurierBrunoy() {
                 <Star className="h-8 w-8 text-yellow-500 flex-shrink-0" />
                 <div>
                   <p className="text-lg italic text-gray-700 mb-4">
-                    &quot;Serrurier appelé en urgence, arrivé en 20 minutes à la
-                    Croix de Chavaux. Ouverture sans casse, prix correct, technicien
+                    &quot;Serrurier appelé en urgence, arrivé en 20 minutes à Brunoy. 
+                    Ouverture sans casse, prix correct, technicien
                     très sympa. Je recommande !&quot;
                   </p>
                   <p className="font-bold text-gray-900">
