@@ -243,7 +243,7 @@ export default function SerrurierBoissySaintLeger() {
                 <Star className="h-8 w-8 text-yellow-500 flex-shrink-0" />
                 <div>
                   <p className="text-lg italic text-gray-700 mb-4">
-                    &quot;Serrurier appelé en urgence, arrivé en 20 minutes à Boissy-Saint-Léger. 
+                    &quot;Serrurier appelé en urgence, arrivé en 35 minutes à Boissy-Saint-Léger. 
                     Ouverture sans casse, prix correct, technicien
                     très sympa. Je recommande !&quot;
                   </p>
