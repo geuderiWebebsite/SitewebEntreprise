@@ -41,7 +41,24 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Formulaire soumis:", formData);
+
+    const subject = `Nouvelle demande de contact - ${formData.service || "Général"} - ${formData.name}`;
+    const body = `
+Nom: ${formData.name}
+Téléphone: ${formData.phone}
+Email: ${formData.email}
+Service: ${formData.service}
+Urgence: ${formData.urgency}
+Adresse: ${formData.address}
+
+Message:
+${formData.message}
+    `.trim();
+
+    const mailtoLink = `mailto:guediriali30@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailtoLink;
+
     setIsSubmitted(true);
     setTimeout(() => setIsSubmitted(false), 3000);
   };

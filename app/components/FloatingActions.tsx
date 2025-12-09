@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 export default function FloatingActions() {
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [name, setName] = useState("");
   const [message, setMessage] = useState("");
 
   const handleWhatsApp = () => {
@@ -21,9 +22,13 @@ export default function FloatingActions() {
 
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Message sent:", message);
+    const phoneNumber = "+330650095583";
+    const text = encodeURIComponent(
+      `Nom: ${name}\nMessage: ${message}`
+    );
+    window.open(`https://wa.me/${phoneNumber}?text=${text}`, "_blank");
     setMessage("");
-    alert("Message envoyé ! Nous vous répondrons dans les plus brefs délais.");
+    setName("");
     setIsChatOpen(false);
   };
 
@@ -31,7 +36,7 @@ export default function FloatingActions() {
     <>
       <button
         onClick={handleWhatsApp}
-        className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-2xl transform hover:scale-110 transition-all duration-300 animate-pulse"
+        className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full p-4 shadow-2xl transform hover:scale-110 transition-all duration-300 animate-pulse"
         aria-label="Contact WhatsApp"
       >
         <svg
@@ -46,8 +51,8 @@ export default function FloatingActions() {
 
       <button
         onClick={() => setIsChatOpen(!isChatOpen)}
-        className="fixed bottom-24 right-6 z-50 bg-red-600 hover:bg-red-700 text-white rounded-full p-4 shadow-2xl transform hover:scale-110 transition-all duration-300"
-        aria-label="Chat en ligne"
+        className="fixed bottom-24 right-6 z-50 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full p-4 shadow-2xl transform hover:scale-110 transition-all duration-300"
+        aria-label="Chat WhatsApp"
       >
         {isChatOpen ? (
           <X className="h-7 w-7" />
@@ -57,16 +62,16 @@ export default function FloatingActions() {
       </button>
 
       {isChatOpen && (
-        <Card className="fixed bottom-44 right-6 z-50 w-80 md:w-96 shadow-2xl border-2 border-red-200 animate-fade-in-up">
-          <CardHeader className="bg-red-600 text-white rounded-t-lg">
+        <Card className="fixed bottom-44 right-6 z-50 w-80 md:w-96 shadow-2xl border-2 border-[#25D366] animate-fade-in-up">
+          <CardHeader className="bg-[#25D366] text-white rounded-t-lg">
             <CardTitle className="flex items-center justify-between">
-              <span>Chat en ligne</span>
+              <span>Chat WhatsApp</span>
               <button onClick={() => setIsChatOpen(false)}>
                 <X className="h-5 w-5" />
               </button>
             </CardTitle>
-            <p className="text-sm text-red-100 mt-1">
-              Nous répondons rapidement
+            <p className="text-sm text-green-100 mt-1">
+              Réponse rapide via WhatsApp
             </p>
           </CardHeader>
           <CardContent className="p-4">
@@ -74,34 +79,27 @@ export default function FloatingActions() {
               <div>
                 <Input
                   type="text"
-                  placeholder="Votre nom"
-                  className="border-gray-300 focus:border-red-500 focus:ring-red-500"
-                  required
-                />
-              </div>
-              <div>
-                <Input
-                  type="email"
-                  placeholder="Votre email"
-                  className="border-gray-300 focus:border-red-500 focus:ring-red-500"
-                  required
+                  placeholder="Votre nom (optionnel)"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="border-gray-300 focus:border-[#25D366] focus:ring-[#25D366]"
                 />
               </div>
               <div>
                 <Textarea
-                  placeholder="Décrivez votre problème..."
+                  placeholder="Votre message..."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="border-gray-300 focus:border-red-500 focus:ring-red-500 min-h-[100px]"
+                  className="border-gray-300 focus:border-[#25D366] focus:ring-[#25D366] min-h-[100px]"
                   required
                 />
               </div>
               <Button
                 type="submit"
-                className="w-full bg-red-600 hover:bg-red-700 text-white"
+                className="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white"
               >
                 <Send className="h-4 w-4 mr-2" />
-                Envoyer
+                Envoyer sur WhatsApp
               </Button>
             </form>
           </CardContent>

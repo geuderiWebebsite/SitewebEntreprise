@@ -27,9 +27,38 @@ export default function Footer() {
               et 7j/7. Tarifs transparents et professionnalisme garanti.
             </p>
             <div className="flex space-x-4">
-              <Facebook className="h-6 w-6 text-gray-400 hover:text-red-500 cursor-pointer transition-colors" />
-              <Twitter className="h-6 w-6 text-gray-400 hover:text-red-500 cursor-pointer transition-colors" />
-              <Instagram className="h-6 w-6 text-gray-400 hover:text-red-500 cursor-pointer transition-colors" />
+              <Link
+                href="https://www.facebook.com/share/1Es6qpU165/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Facebook className="h-6 w-6 text-gray-400 hover:text-blue-600 cursor-pointer transition-colors" />
+              </Link>
+              <Link
+                href="https://www.tiktok.com/@dclik.serrure?_r=1&_t=ZN-919aBx5BtrC"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-pink-500 transition-colors"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-6 w-6"
+                >
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                </svg>
+              </Link>
+              <Link
+                href="https://www.instagram.com/dclikserrure?igsh=MW1zYXlnb29zeXl6ZQ%3D%3D&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Instagram className="h-6 w-6 text-gray-400 hover:text-pink-600 cursor-pointer transition-colors" />
+              </Link>
             </div>
           </div>
 
