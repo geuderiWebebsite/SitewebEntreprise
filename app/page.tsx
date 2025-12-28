@@ -47,6 +47,7 @@ import InteractiveMap from "./components/InteractiveMap";
 import FloatingActions from "./components/FloatingActions";
 import HeroSection from "./components/HeroSection";
 import Link from "next/link";
+import { CONTACT_INFO } from "@/app/constants";
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -103,15 +104,34 @@ export default function Home() {
     setIsVisible(true);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Formulaire soumis:", formData);
-    // Animation de succès
-    const button = e.target as HTMLFormElement;
-    button.classList.add("animate-pulse");
-    setTimeout(() => {
-      button.classList.remove("animate-pulse");
-    }, 2000);
+
+    // Animation feedback
+    const form = e.target as HTMLFormElement;
+    form.classList.add("animate-pulse");
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert("Votre demande a bien été envoyée. Nous vous recontacterons rapidement.");
+        setFormData({ name: "", phone: "", message: "" });
+      } else {
+        alert("Une erreur est survenue. Veuillez nous appeler directement.");
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert("Erreur de connexion. Veuillez réessayer ou nous appeler.");
+    } finally {
+      form.classList.remove("animate-pulse");
+    }
   };
 
   const stats = [
@@ -188,11 +208,10 @@ export default function Home() {
               return (
                 <div
                   key={index}
-                  className={`absolute inset-0 flex items-center justify-center transition-all duration-1000 ${
-                    index === activeBanner
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-10"
-                  }`}
+                  className={`absolute inset-0 flex items-center justify-center transition-all duration-1000 ${index === activeBanner
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
+                    }`}
                 >
                   <div className="flex items-center space-x-4 text-white">
                     <IconComponent className="h-10 w-10" />
@@ -402,7 +421,7 @@ export default function Home() {
 
                 <div className="text-center">
                   <p className="text-4xl font-bold text-red-700 mb-4">
-                    +33185440131
+                    {CONTACT_INFO.phoneDisplay}
                   </p>
                   <div className="flex items-center justify-center space-x-4 text-sm text-gray-600">
                     <div className="flex items-center">

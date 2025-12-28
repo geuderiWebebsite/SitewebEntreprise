@@ -6,9 +6,9 @@ export const SITE_CONFIG = {
   description:
     "Serrurier professionnel à Paris et Île-de-France. Dépannage serrurerie 24h/24, ouverture de porte, installation serrures. Intervention rapide et tarifs transparents.",
   url: "https://www.dclik-serrure.com/",
-  domain: "votre-site-serrurier.fr",
-  phone: "01 85 49 07 07",
-  email: "contact@votre-site-serrurier.fr",
+  domain: "dclik-serrure.com",
+  phone: "01 85 44 01 31",
+  email: "contact@dclik-serrure.com",
   address: {
     streetAddress: "123 Rue de la Paix",
     addressLocality: "Paris",
@@ -285,12 +285,12 @@ export function generateProductSchema(data: {
     },
     ...(data.rating &&
       data.reviewCount && {
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: data.rating,
-          reviewCount: data.reviewCount,
-        },
-      }),
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: data.rating,
+        reviewCount: data.reviewCount,
+      },
+    }),
   };
 }
 
@@ -332,12 +332,12 @@ export function generateLocalBusinessSchema(data: {
     },
     ...(data.latitude &&
       data.longitude && {
-        geo: {
-          "@type": "GeoCoordinates",
-          latitude: data.latitude,
-          longitude: data.longitude,
-        },
-      }),
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: data.latitude,
+        longitude: data.longitude,
+      },
+    }),
     areaServed: {
       "@type": "City",
       name: data.city,

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Phone, Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { CONTACT_INFO } from "@/app/constants";
 import logo from "@/public/logo.png";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,11 +45,10 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-white/95 backdrop-blur-md shadow-lg"
-            : "bg-white shadow-lg"
-        }`}
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
+          ? "bg-white/95 backdrop-blur-md shadow-lg"
+          : "bg-white shadow-lg"
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
@@ -94,11 +94,10 @@ export default function Header() {
                   <ChevronDown className="h-4 w-4" />
                 </button>
                 <div
-                  className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 transition-all duration-200 ${
-                    openDropdown === "entreprise"
-                      ? "opacity-100 visible translate-y-0"
-                      : "opacity-0 invisible -translate-y-2"
-                  }`}
+                  className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 transition-all duration-200 ${openDropdown === "entreprise"
+                    ? "opacity-100 visible translate-y-0"
+                    : "opacity-0 invisible -translate-y-2"
+                    }`}
                 >
                   <a
                     href="/services"
@@ -126,11 +125,10 @@ export default function Header() {
                   <ChevronDown className="h-4 w-4" />
                 </button>
                 <div
-                  className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 transition-all duration-200 ${
-                    openDropdown === "outils"
-                      ? "opacity-100 visible translate-y-0"
-                      : "opacity-0 invisible -translate-y-2"
-                  }`}
+                  className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 transition-all duration-200 ${openDropdown === "outils"
+                    ? "opacity-100 visible translate-y-0"
+                    : "opacity-0 invisible -translate-y-2"
+                    }`}
                 >
                   <a
                     href="/devis"
@@ -179,13 +177,16 @@ export default function Header() {
                   Urgence 24h/24
                 </p>
                 <p className="text-lg font-bold text-red-600 animate-pulse whitespace-nowrap">
-                  + 33185440131
+                  {CONTACT_INFO.phoneDisplay}
                 </p>
               </div>
-              <button className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transform hover:scale-105 transition-all duration-200 shadow-lg flex items-center">
+              <a
+                href={CONTACT_INFO.phoneLink}
+                className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transform hover:scale-105 transition-all duration-200 shadow-lg flex items-center"
+              >
                 <Phone className="h-4 w-4 mr-2" />
                 Appeler
-              </button>
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -202,17 +203,15 @@ export default function Header() {
 
       {/* Overlay */}
       <div
-        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300 lg:hidden ${
-          isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
+        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300 lg:hidden ${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
         onClick={closeMenu}
       />
 
       {/* Drawer Sidebar Mobile */}
       <div
-        className={`fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="flex flex-col h-full">
           {/* Header du drawer */}
@@ -262,15 +261,13 @@ export default function Header() {
                 >
                   L'Entreprise
                   <ChevronRight
-                    className={`h-4 w-4 transition-transform duration-200 ${
-                      openMobileSubmenu === "entreprise" ? "rotate-90" : ""
-                    }`}
+                    className={`h-4 w-4 transition-transform duration-200 ${openMobileSubmenu === "entreprise" ? "rotate-90" : ""
+                      }`}
                   />
                 </button>
                 <div
-                  className={`overflow-hidden transition-all duration-200 ${
-                    openMobileSubmenu === "entreprise" ? "max-h-32" : "max-h-0"
-                  }`}
+                  className={`overflow-hidden transition-all duration-200 ${openMobileSubmenu === "entreprise" ? "max-h-32" : "max-h-0"
+                    }`}
                 >
                   <div className="pl-4 space-y-1">
                     <a
@@ -299,15 +296,13 @@ export default function Header() {
                 >
                   Outils & Devis
                   <ChevronRight
-                    className={`h-4 w-4 transition-transform duration-200 ${
-                      openMobileSubmenu === "outils" ? "rotate-90" : ""
-                    }`}
+                    className={`h-4 w-4 transition-transform duration-200 ${openMobileSubmenu === "outils" ? "rotate-90" : ""
+                      }`}
                   />
                 </button>
                 <div
-                  className={`overflow-hidden transition-all duration-200 ${
-                    openMobileSubmenu === "outils" ? "max-h-32" : "max-h-0"
-                  }`}
+                  className={`overflow-hidden transition-all duration-200 ${openMobileSubmenu === "outils" ? "max-h-32" : "max-h-0"
+                    }`}
                 >
                   <div className="pl-4 space-y-1">
                     <a
@@ -361,16 +356,17 @@ export default function Header() {
                 Urgence 24h/24
               </p>
               <p className="text-2xl font-bold text-red-600 animate-pulse whitespace-nowrap">
-                +33185440131
+                {CONTACT_INFO.phoneDisplay}
               </p>
             </div>
-            <button
+            <a
+              href={CONTACT_INFO.phoneLink}
               className="bg-red-600 hover:bg-red-700 text-white w-full py-3 rounded-lg shadow-lg flex items-center justify-center"
               onClick={closeMenu}
             >
               <Phone className="h-4 w-4 mr-2" />
               Appeler Maintenant
-            </button>
+            </a>
           </div>
         </div>
       </div>

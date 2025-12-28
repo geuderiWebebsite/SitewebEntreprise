@@ -39,28 +39,36 @@ export default function Contact() {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const subject = `Nouvelle demande de contact - ${formData.service || "Général"} - ${formData.name}`;
-    const body = `
-Nom: ${formData.name}
-Téléphone: ${formData.phone}
-Email: ${formData.email}
-Service: ${formData.service}
-Urgence: ${formData.urgency}
-Adresse: ${formData.address}
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-Message:
-${formData.message}
-    `.trim();
-
-    const mailtoLink = `mailto:guediriali30@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    window.location.href = mailtoLink;
-
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
+      if (response.ok) {
+        setIsSubmitted(true);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          service: "",
+          urgency: "",
+          address: "",
+          message: "",
+        });
+        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        alert("Une erreur est survenue. Veuillez essayer de nous appeler.");
+      }
+    } catch (error) {
+      alert("Erreur de connexion. Veuillez vérifier votre internet ou nous appeler.");
+    }
   };
 
   const contactInfo = [

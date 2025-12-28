@@ -4,6 +4,7 @@ import { useState } from "react";
 import { MapPin, Clock, Phone, Car, CheckCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { CONTACT_INFO } from "@/app/constants";
 
 const zones = [
   {
@@ -98,13 +99,12 @@ export default function InteractiveMap() {
                 {zones.map((zone) => (
                   <div
                     key={zone.id}
-                    className={`p-4 rounded-lg cursor-pointer transition-all duration-300 transform hover:scale-105 ${
-                      selectedZone.id === zone.id
-                        ? `${zone.color} text-white shadow-xl`
-                        : hoveredZone === zone.id
+                    className={`p-4 rounded-lg cursor-pointer transition-all duration-300 transform hover:scale-105 ${selectedZone.id === zone.id
+                      ? `${zone.color} text-white shadow-xl`
+                      : hoveredZone === zone.id
                         ? "bg-white shadow-lg border-2 border-blue-300"
                         : "bg-white shadow-md hover:shadow-lg"
-                    }`}
+                      }`}
                     onClick={() => setSelectedZone(zone)}
                     onMouseEnter={() => setHoveredZone(zone.id)}
                     onMouseLeave={() => setHoveredZone(null)}
@@ -115,11 +115,10 @@ export default function InteractiveMap() {
                         <div>
                           <h4 className="font-semibold">{zone.name}</h4>
                           <p
-                            className={`text-sm ${
-                              selectedZone.id === zone.id
-                                ? "text-white/80"
-                                : "text-gray-600"
-                            }`}
+                            className={`text-sm ${selectedZone.id === zone.id
+                              ? "text-white/80"
+                              : "text-gray-600"
+                              }`}
                           >
                             {zone.districts.join(", ")}
                           </p>
@@ -131,11 +130,10 @@ export default function InteractiveMap() {
                           <span className="font-bold">{zone.time}</span>
                         </div>
                         <div
-                          className={`text-sm ${
-                            selectedZone.id === zone.id
-                              ? "text-white/80"
-                              : "text-gray-600"
-                          }`}
+                          className={`text-sm ${selectedZone.id === zone.id
+                            ? "text-white/80"
+                            : "text-gray-600"
+                            }`}
                         >
                           {zone.interventions} interventions
                         </div>
@@ -225,10 +223,12 @@ export default function InteractiveMap() {
                   </p>
                 </div>
 
-                <Button className="w-full mt-6 transform hover:scale-105 transition-all duration-200">
-                  <Phone className="h-4 w-4 mr-2" />
-                  Intervention dans cette Zone
-                </Button>
+                <a href={CONTACT_INFO.phoneLink} className="w-full">
+                  <Button className="w-full mt-6 transform hover:scale-105 transition-all duration-200">
+                    <Phone className="h-4 w-4 mr-2" />
+                    Intervention dans cette Zone
+                  </Button>
+                </a>
               </CardContent>
             </Card>
 
@@ -274,13 +274,15 @@ export default function InteractiveMap() {
               Contactez-nous ! Nous intervenons également dans d'autres communes
               de la région parisienne
             </p>
-            <Button
-              size="lg"
-              className="bg-orange-500 hover:bg-orange-600 transform hover:scale-105 transition-all duration-200"
-            >
-              <Phone className="h-5 w-5 mr-2" />
-              +330650095583
-            </Button>
+            <a href={CONTACT_INFO.phoneLink}>
+              <Button
+                size="lg"
+                className="bg-orange-500 hover:bg-orange-600 transform hover:scale-105 transition-all duration-200"
+              >
+                <Phone className="h-5 w-5 mr-2" />
+                {CONTACT_INFO.phoneDisplay}
+              </Button>
+            </a>
           </div>
         </div>
       </div>

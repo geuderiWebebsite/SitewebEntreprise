@@ -50,9 +50,8 @@ export default function HeroSection() {
       {heroSlides.map((slide, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? "opacity-100" : "opacity-0"
-          }`}
+          className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent z-10"></div>
 
@@ -74,15 +73,27 @@ export default function HeroSection() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href={slide.ctaLink}>
-                    <Button
-                      size="lg"
-                      className="bg-red-600 hover:bg-red-700 text-white text-lg px-8 py-6 rounded-full transform hover:scale-105 transition-all duration-300 shadow-lg"
-                    >
-                      {slide.cta}
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </Link>
+                  {slide.ctaLink?.startsWith("tel:") ? (
+                    <a href={slide.ctaLink}>
+                      <Button
+                        size="lg"
+                        className="bg-red-600 hover:bg-red-700 text-white text-lg px-8 py-6 rounded-full transform hover:scale-105 transition-all duration-300 shadow-lg"
+                      >
+                        {slide.cta}
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                      </Button>
+                    </a>
+                  ) : (
+                    <Link href={slide.ctaLink}>
+                      <Button
+                        size="lg"
+                        className="bg-red-600 hover:bg-red-700 text-white text-lg px-8 py-6 rounded-full transform hover:scale-105 transition-all duration-300 shadow-lg"
+                      >
+                        {slide.cta}
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                      </Button>
+                    </Link>
+                  )}
 
                   <Link href="/contact">
                     <Button
@@ -116,11 +127,10 @@ export default function HeroSection() {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide
-                ? "bg-white w-8"
-                : "bg-white/50 hover:bg-white/80 w-3"
-            }`}
+            className={`h-3 rounded-full transition-all duration-300 ${index === currentSlide
+              ? "bg-white w-8"
+              : "bg-white/50 hover:bg-white/80 w-3"
+              }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
