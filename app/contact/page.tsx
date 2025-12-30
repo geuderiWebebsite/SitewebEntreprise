@@ -26,6 +26,7 @@ import {
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FloatingActions from "../components/FloatingActions";
+import { CONTACT_INFO } from "@/app/constants";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -75,8 +76,8 @@ export default function Contact() {
     {
       icon: Phone,
       title: "Téléphone",
-      info: "+33185440131",
-      SecondNumber: "+33 6 50 09 55 83",
+      info: CONTACT_INFO.phoneDisplay,
+      SecondNumber: CONTACT_INFO.mobileDisplay,
       description: "Disponible 24h/24 pour les urgences",
     },
     {
@@ -200,15 +201,26 @@ export default function Contact() {
                     <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                       <IconComponent className="h-8 w-8 text-red-700" />
                     </div>
-                    <CardTitle className="text-xl text-red-700">
-                      {info.title}
-                      {info.SecondNumber}
+                    <CardTitle className="text-xl text-red-700 flex flex-col gap-1">
+                      {info.title === "Téléphone" ? (
+                        <>
+                          <a href={CONTACT_INFO.phoneLink} className="hover:underline">{info.info}</a>
+                          <a href={CONTACT_INFO.mobileLink} className="hover:underline text-lg">{info.SecondNumber}</a>
+                        </>
+                      ) : (
+                        <>
+                          {info.title}
+                          {info.SecondNumber}
+                        </>
+                      )}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-lg font-semibold text-gray-900 mb-2">
-                      {info.info}
-                    </p>
+                    {info.title !== "Téléphone" && (
+                      <p className="text-lg font-semibold text-gray-900 mb-2">
+                        {info.info}
+                      </p>
+                    )}
                     <p className="text-gray-600">{info.description}</p>
                   </CardContent>
                 </Card>
@@ -457,9 +469,13 @@ export default function Contact() {
                 <div className="mt-6 p-4 bg-orange-100 rounded-lg">
                   <p className="text-orange-800 font-semibold">
                     ⚡ Urgence ? Appelez directement le{" "}
-                    <span className="text-red-700 font-bold">+33185440131</span>
+                    <a href={CONTACT_INFO.phoneLink} className="text-red-700 font-bold hover:underline">
+                      {CONTACT_INFO.phoneDisplay}
+                    </a>
                     <br />
-                    <span>+33 6 50 09 55 83</span>
+                    <a href={CONTACT_INFO.mobileLink} className="hover:underline">
+                      {CONTACT_INFO.mobileDisplay}
+                    </a>
                   </p>
                 </div>
               </div>

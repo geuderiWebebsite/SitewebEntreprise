@@ -9,6 +9,7 @@ import {
   Instagram,
 } from "lucide-react";
 import Link from "next/link";
+import { CONTACT_INFO } from "@/app/constants";
 
 export default function Footer() {
   return (
@@ -111,14 +112,14 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-semibold mb-4">Contact</h3>
             <div className="space-y-3 text-gray-400">
-              <p className="flex items-center hover:text-white transition-colors">
+              <a href={CONTACT_INFO.phoneLink} className="flex items-center hover:text-white transition-colors">
                 <Phone className="h-4 w-4 mr-2" />
-                +33 01 85 44 01 31
-              </p>
-              <p className="flex items-center hover:text-white transition-colors">
+                {CONTACT_INFO.phoneDisplay}
+              </a>
+              <a href={CONTACT_INFO.mobileLink} className="flex items-center hover:text-white transition-colors">
                 <Phone className="h-4 w-4 mr-2" />
-                +33 6 50 09 55 83
-              </p>
+                {CONTACT_INFO.mobileDisplay}
+              </a>
               <p className="flex items-center hover:text-white transition-colors">
                 <Mail className="h-4 w-4 mr-2" />
                 contact@dclikserrure.fr

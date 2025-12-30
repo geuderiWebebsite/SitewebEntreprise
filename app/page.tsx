@@ -420,9 +420,11 @@ export default function Home() {
                 </div>
 
                 <div className="text-center">
-                  <p className="text-4xl font-bold text-red-700 mb-4">
-                    {CONTACT_INFO.phoneDisplay}
-                  </p>
+                  <a href={CONTACT_INFO.phoneLink} className="block group">
+                    <p className="text-4xl font-bold text-red-700 mb-4 group-hover:scale-110 transition-transform duration-300">
+                      {CONTACT_INFO.phoneDisplay}
+                    </p>
+                  </a>
                   <div className="flex items-center justify-center space-x-4 text-sm text-gray-600">
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
