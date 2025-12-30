@@ -9,7 +9,7 @@ export const CONTACT_INFO = {
     whatsappLink: "https://wa.me/33650095583",
 
     // Business Info
-    email: "contact@dclik-serrure.com",
+    email: "contact@serruresafe.fr",
     address: "Paris, Île-de-France",
 
     // Socials
