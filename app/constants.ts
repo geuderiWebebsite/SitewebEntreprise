@@ -9,7 +9,7 @@ export const CONTACT_INFO = {
     whatsappLink: "https://wa.me/33650095583",
 
     // Business Info
-    email: "contact@serruresafe.fr",
+    email: "guediriali30@gmail.com",
     address: "Paris, Île-de-France",
 
     // Socials

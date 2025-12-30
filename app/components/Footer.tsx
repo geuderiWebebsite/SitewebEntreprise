@@ -122,7 +122,7 @@ export default function Footer() {
               </a>
               <p className="flex items-center hover:text-white transition-colors">
                 <Mail className="h-4 w-4 mr-2" />
-                contact@dclikserrure.fr
+                guediriali30@gmail.com
               </p>
               <p className="flex items-center hover:text-white transition-colors">
                 <MapPin className="h-4 w-4 mr-2" />
