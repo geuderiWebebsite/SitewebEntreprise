@@ -83,7 +83,7 @@ export default function Contact() {
     {
       icon: Mail,
       title: "Email",
-      info: "contact@dclik-serrure.com",
+      info: CONTACT_INFO.email,
       description: "Réponse sous 2h en journée",
     },
     {
