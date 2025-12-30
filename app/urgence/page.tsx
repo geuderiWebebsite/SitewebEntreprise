@@ -20,6 +20,7 @@ import {
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Link from "next/link";
+import { CONTACT_INFO } from "@/app/constants";
 
 export default function Urgence() {
   const urgencyTypes = [
@@ -52,7 +53,7 @@ export default function Urgence() {
       step: "1",
       title: "Appel d'Urgence",
       description:
-        "Contactez-nous au +33185440131, nous répondons immédiatement",
+        `Contactez-nous au ${CONTACT_INFO.mobileDisplay}, nous répondons immédiatement`,
     },
     {
       step: "2",
@@ -96,15 +97,17 @@ export default function Urgence() {
               intervenons en moins de 30 minutes partout à Paris !
             </p>
             <div className="bg-white/10 backdrop-blur-md rounded-lg p-6 max-w-md mx-auto">
-              <p className="text-3xl font-bold mb-2">01 23 45 67 89</p>
+              <p className="text-3xl font-bold mb-2">{CONTACT_INFO.mobileDisplay}</p>
               <p className="text-red-100">Ligne d'urgence disponible 24h/24</p>
-              <Button
-                size="lg"
-                className="bg-orange-500 hover:bg-orange-600 mt-4 w-full animate-bounce hover:animate-none"
-              >
-                <Phone className="h-5 w-5 mr-2" />
-                Appeler Maintenant
-              </Button>
+              <a href={CONTACT_INFO.mobileLink}>
+                <Button
+                  size="lg"
+                  className="bg-orange-500 hover:bg-orange-600 mt-4 w-full animate-bounce hover:animate-none"
+                >
+                  <Phone className="h-5 w-5 mr-2" />
+                  Appeler Maintenant
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -156,10 +159,12 @@ export default function Urgence() {
                         </p>
                       </div>
                     </div>
-                    <Button className="w-full bg-red-600 hover:bg-red-700">
-                      <Phone className="h-4 w-4 mr-2" />
-                      Appeler pour cette urgence
-                    </Button>
+                    <a href={CONTACT_INFO.mobileLink}>
+                      <Button className="w-full bg-red-600 hover:bg-red-700">
+                        <Phone className="h-4 w-4 mr-2" />
+                        Appeler pour cette urgence
+                      </Button>
+                    </a>
                   </CardContent>
                 </Card>
               );
@@ -246,17 +251,19 @@ export default function Urgence() {
             Chaque minute compte en cas d'urgence. Contactez-nous immédiatement.
           </p>
           <div className="bg-white/10 backdrop-blur-md rounded-lg p-8 max-w-lg mx-auto">
-            <p className="text-5xl font-bold mb-4">+33185440131</p>
+            <p className="text-5xl font-bold mb-4">{CONTACT_INFO.mobileDisplay}</p>
             <p className="text-red-100 mb-6">
               Disponible 24h/24 - 365 jours par an
             </p>
-            <Button
-              size="lg"
-              className="bg-orange-500 hover:bg-orange-600 text-xl px-12 py-4 animate-pulse hover:animate-none"
-            >
-              <Phone className="h-6 w-6 mr-2" />
-              APPELER MAINTENANT
-            </Button>
+            <a href={CONTACT_INFO.mobileLink}>
+              <Button
+                size="lg"
+                className="bg-orange-500 hover:bg-orange-600 text-xl px-12 py-4 animate-pulse hover:animate-none"
+              >
+                <Phone className="h-6 w-6 mr-2" />
+                APPELER MAINTENANT
+              </Button>
+            </a>
           </div>
         </div>
       </section>
