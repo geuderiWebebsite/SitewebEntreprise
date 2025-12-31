@@ -22,6 +22,7 @@ import {
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FloatingActions from "../components/FloatingActions";
+import { CONTACT_INFO } from "@/app/constants";
 
 export default function DevisPage() {
   const [serviceType, setServiceType] = useState("");
@@ -304,10 +305,12 @@ export default function DevisPage() {
                         </div>
                       </div>
 
-                      <Button className="w-full bg-green-600 hover:bg-green-700 text-white h-12">
-                        <Phone className="h-5 w-5 mr-2" />
-                        Appeler maintenant
-                      </Button>
+                      <a href={CONTACT_INFO.mobileLink}>
+                        <Button className="w-full bg-green-600 hover:bg-green-700 text-white h-12">
+                          <Phone className="h-5 w-5 mr-2" />
+                          Appeler maintenant
+                        </Button>
+                      </a>
 
                       <p className="text-xs text-gray-500">
                         * Prix indicatif sujet à confirmation après diagnostic
@@ -376,9 +379,11 @@ export default function DevisPage() {
                       <p className="text-sm text-gray-600 mb-1">
                         Appelez-nous maintenant
                       </p>
-                      <p className="text-2xl font-bold text-red-600">
-                        +33185440131
-                      </p>
+                      <a href={CONTACT_INFO.mobileLink}>
+                        <p className="text-2xl font-bold text-red-600 hover:underline cursor-pointer">
+                          {CONTACT_INFO.mobileDisplay}
+                        </p>
+                      </a>
                     </div>
                   </CardContent>
                 </Card>
