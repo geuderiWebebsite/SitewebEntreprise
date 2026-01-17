@@ -8,74 +8,7 @@ import FloatingActions from "../components/FloatingActions";
 import PromoBanners from "../components/PromoBanners";
 import Link from "next/link";
 
-const blogPosts = [
-  {
-    id: 1,
-    title: "Comment choisir sa serrure A2P ?",
-    excerpt:
-      "Découvrez les critères essentiels pour sélectionner une serrure haute sécurité adaptée à vos besoins et votre budget.",
-    image: "11607-securite-2.jpg",
-    author: "Jean Dupont",
-    date: "2024-10-01",
-    category: "Sécurité",
-    readTime: "5 min",
-  },
-  {
-    id: 2,
-    title: "Les 5 signes qu'il faut changer votre serrure",
-    excerpt:
-      "Apprenez à reconnaître les signaux d'alerte qui indiquent qu'il est temps de remplacer votre serrure pour garantir votre sécurité.",
-    image: "IMG-20251021-WA0009.jpg",
-    author: "Marie Martin",
-    date: "2024-09-28",
-    category: "Conseils",
-    readTime: "4 min",
-  },
-  {
-    id: 3,
-    title: "Que faire en cas de perte de clés ?",
-    excerpt:
-      "Guide pratique des étapes à suivre immédiatement après avoir perdu vos clés pour assurer votre sécurité.",
-    image: "IMG-20251021-WA0004.jpg",
-    author: "Pierre Lefebvre",
-    date: "2024-09-25",
-    category: "Urgence",
-    readTime: "3 min",
-  },
-  {
-    id: 4,
-    title: "Blindage de porte : est-ce vraiment efficace ?",
-    excerpt:
-      "Analyse complète des avantages et inconvénients du blindage de porte pour renforcer la sécurité de votre domicile.",
-    image: "IMG_1193-scaled.jpg",
-    author: "Sophie Bernard",
-    date: "2024-09-20",
-    category: "Sécurité",
-    readTime: "6 min",
-  },
-  {
-    id: 5,
-    title: "Les nouvelles serrures connectées",
-    excerpt:
-      "Tout ce qu'il faut savoir sur les serrures intelligentes : avantages, prix, installation et compatibilité.",
-    image: "test-avis-serrure-welock-smart-lock-010-780x470.jpg",
-    author: "Luc Durand",
-    date: "2024-09-15",
-    category: "Innovation",
-    readTime: "7 min",
-  },
-  {
-    id: 6,
-    title: "Entretien de serrure : les bons gestes",
-    excerpt:
-      "Conseils pratiques pour entretenir vos serrures et prolonger leur durée de vie tout en garantissant leur efficacité.",
-    image: "serrure-3-points-applique.jpg",
-    author: "Anne Petit",
-    date: "2024-09-10",
-    category: "Maintenance",
-    readTime: "4 min",
-  },
-];
+import { BLOG_POSTS } from "./data";
 
 export default function BlogPage() {
   return (
@@ -109,7 +42,7 @@ export default function BlogPage() {
         {/* Articles Grid */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
+            {BLOG_POSTS.map((post) => (
               <article
                 key={post.id}
                 className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
