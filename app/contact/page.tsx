@@ -21,10 +21,15 @@ declare global {
       'gmpx-store-locator': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
         'map-options'?: string;
       };
+      'gmpx-api-loader': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+        'key'?: string;
+        'solution-channel'?: string;
+      };
     }
   }
   interface Window {
     gtag: (command: string, action: string, params?: any) => void;
+    google: any;
   }
 }
 import { Button } from "@/components/ui/button";
@@ -59,6 +64,41 @@ export default function Contact() {
   const locatorRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const initAutocomplete = async () => {
+      // Wait for the API loader to be defined and loaded
+      await customElements.whenDefined('gmpx-api-loader');
+
+      // Check if google.maps is available (loaded by gmpx-api-loader)
+      const checkGoogleMaps = setInterval(async () => {
+        if (window.google && window.google.maps) {
+          clearInterval(checkGoogleMaps);
+
+          try {
+            const { Autocomplete } = await window.google.maps.importLibrary('places');
+            const input = document.getElementById('address') as HTMLInputElement;
+
+            if (input) {
+              const autocomplete = new Autocomplete(input, {
+                fields: ['address_components', 'geometry', 'name', 'formatted_address'],
+                types: ['address'],
+              });
+
+              autocomplete.addListener('place_changed', () => {
+                const place = autocomplete.getPlace();
+                if (place.formatted_address) {
+                  setFormData(prev => ({ ...prev, address: place.formatted_address! }));
+                }
+              });
+            }
+          } catch (e) {
+            console.error("Error loading Places library:", e);
+          }
+        }
+      }, 500);
+    };
+
+    initAutocomplete();
+
     // Placeholder CONFIGURATION - To be replaced by user's actual JSON
     const CONFIGURATION = {
       locations: [], // Populate with locations
@@ -158,6 +198,9 @@ export default function Contact() {
         src="https://unpkg.com/@googlemaps/extended-component-library@0.6"
         strategy="afterInteractive"
       />
+      {/* API Loader for Google Maps */}
+      <gmpx-api-loader key="YOUR_API_KEY_HERE" solution-channel="GMP_QB_addressselection_v4_cABC" />
+
       <Header />
 
       {/* === Bannière Hero avec image réelle === */}
