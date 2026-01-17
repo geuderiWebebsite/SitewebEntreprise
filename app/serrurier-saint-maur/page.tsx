@@ -8,6 +8,7 @@ import CallButton from "@/components/city/CallButton";
 import FAQSection from "@/components/rich/FAQSection";
 import PricingTable from "@/components/rich/PricingTable";
 import BeforeAfter from "@/components/rich/BeforeAfter";
+import NearbyCities from "@/components/city/NearbyCities";
 import { generateLocalBusinessSchema, generateSEOMetadata } from "@/app/seo/seoConfig";
 import { Clock, MapPin, Shield, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -140,6 +141,8 @@ export default function SerrurierSaintMaur() {
                     <CityForm />
                 </div>
             </section>
+
+            <NearbyCities currentCity="Saint-Maur-des-Fossés" />
 
             <Footer />
             <FloatingActions />

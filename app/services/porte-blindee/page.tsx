@@ -7,7 +7,8 @@ import CallButton from "@/components/city/CallButton";
 import FAQSection from "@/components/rich/FAQSection";
 import BeforeAfter from "@/components/rich/BeforeAfter";
 import { generateSEOMetadata } from "@/app/seo/seoConfig";
-import { ShieldAlert, DoorClosed, Lock, Check } from "lucide-react";
+import { ShieldAlert, DoorClosed, Lock, Check, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = generateSEOMetadata({
@@ -125,6 +126,15 @@ export default function PorteBlindeePage() {
                                 </div>
                             </ul>
                         </div>
+                    </div>
+
+                    <div className="mt-16 text-center">
+                        <p className="text-lg text-gray-600 mb-6">Encore indécis entre Blindage et Bloc-Porte ?</p>
+                        <Link href="/blog/porte-blindee-vs-blindage">
+                            <Button size="lg" variant="outline" className="border-teal-600 text-teal-600 hover:bg-teal-50">
+                                Lire notre Comparatif Détaillé <ArrowRight className="ml-2 h-4 w-4" />
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </section>

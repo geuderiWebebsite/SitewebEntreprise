@@ -11,6 +11,7 @@ import BeforeAfter from "@/components/rich/BeforeAfter";
 import { generateLocalBusinessSchema, generateSEOMetadata } from "@/app/seo/seoConfig";
 import { Clock, MapPin, Shield, CheckCircle, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import NearbyCities from "@/components/city/NearbyCities";
 
 // SEO Metadata
 export const metadata: Metadata = generateSEOMetadata({
@@ -216,6 +217,9 @@ export default function SerrurierCreteil() {
           </div>
         </div>
       </section>
+
+      {/* Internal Linking */}
+      <NearbyCities currentCity="Créteil" />
 
       <Footer />
       <FloatingActions />

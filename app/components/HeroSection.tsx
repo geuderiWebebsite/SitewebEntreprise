@@ -60,7 +60,11 @@ export default function HeroSection() {
             src={slide.image}
             alt={slide.title}
             loading={index === 0 ? "eager" : "lazy"}
+            // @ts-ignore - fetchPriority is valid in modern browsers but missing in some react types
+            fetchPriority={index === 0 ? "high" : "auto"}
             className="absolute inset-0 w-full h-full object-cover transform scale-105"
+            width="1920"
+            height="1080"
           />
 
           <div className="absolute inset-0 z-20 flex items-center">

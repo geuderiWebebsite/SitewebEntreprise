@@ -168,6 +168,11 @@ export function generateOrganizationSchema() {
       SITE_CONFIG.social.facebook,
       SITE_CONFIG.social.instagram,
       SITE_CONFIG.social.twitter,
+      // Placeholder for future citations (to be populated by user)
+      "https://www.pagesjaunes.fr/annuaire/paris-75/serrurerie",
+      "https://fr.yelp.ca/paris",
+      "https://fr.mappy.com/activite/serrurier",
+      "https://www.linkedin.com/company/dclik-serrure",
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",

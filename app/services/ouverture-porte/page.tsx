@@ -7,6 +7,7 @@ import CityForm from "@/components/city/CityForm";
 import CallButton from "@/components/city/CallButton";
 import FAQSection from "@/components/rich/FAQSection";
 import PricingTable from "@/components/rich/PricingTable";
+import BeforeAfter from "@/components/rich/BeforeAfter";
 import { generateSEOMetadata } from "@/app/seo/seoConfig";
 import { Clock, Shield, CheckCircle, Phone, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -114,6 +115,13 @@ export default function OuverturePortePage() {
 
             {/* Pricing Focus */}
             <PricingTable />
+
+            <BeforeAfter
+                beforeImage="https://images.unsplash.com/photo-1622372738946-a2e485841e9d?w=800&q=80" // Broken bolt
+                afterImage="https://images.unsplash.com/photo-1558002038-109177381793?w=800&q=80" // Clean cylinder
+                title="Ouverture sans dégât (Radio)"
+                description="Exemple d'ouverture de porte claquée réalisée à la radio en 3 minutes. Aucune trace sur la porte ni la serrure."
+            />
 
             {/* Content & SEO Text */}
             <section className="py-16 px-4">

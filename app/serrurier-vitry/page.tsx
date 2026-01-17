@@ -7,6 +7,7 @@ import CityForm from "@/components/city/CityForm";
 import CallButton from "@/components/city/CallButton";
 import FAQSection from "@/components/rich/FAQSection";
 import PricingTable from "@/components/rich/PricingTable";
+import NearbyCities from "@/components/city/NearbyCities";
 import { generateLocalBusinessSchema, generateSEOMetadata } from "@/app/seo/seoConfig";
 import { Clock, MapPin, Shield, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -151,6 +152,8 @@ export default function SerrurierVitry() {
                     <CityForm />
                 </div>
             </section>
+
+            <NearbyCities currentCity="Vitry-sur-Seine" />
 
             <Footer />
             <FloatingActions />

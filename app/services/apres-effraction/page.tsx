@@ -5,8 +5,11 @@ import FloatingActions from "../../components/FloatingActions";
 import CityForm from "@/components/city/CityForm";
 import CallButton from "@/components/city/CallButton";
 import FAQSection from "@/components/rich/FAQSection";
+import BeforeAfter from "@/components/rich/BeforeAfter";
 import { generateSEOMetadata } from "@/app/seo/seoConfig";
-import { FileText, ShieldAlert, Hammer, Phone } from "lucide-react";
+import { FileText, ShieldAlert, Hammer, Phone, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export const metadata: Metadata = generateSEOMetadata({
     title: "Dépannage Après Cambriolage Paris - Mise en Sécurité Immédiate",
@@ -103,8 +106,24 @@ export default function ApresEffractionPage() {
                             <p className="text-gray-600">Une fois l'expert passé (ou avec l'accord de l'assurance), nous remplaçons la porte ou la serrure à l'identique.</p>
                         </div>
                     </div>
+
+                    <div className="mt-12 text-center">
+                        <p className="text-gray-600 mb-4">Besoin de plus d'informations sur les démarches administratives ?</p>
+                        <Link href="/blog/que-faire-apres-cambriolage">
+                            <Button variant="outline" className="text-red-600 border-red-200 hover:bg-red-50">
+                                <FileText className="mr-2 h-4 w-4" /> Lire notre Guide Complet "Que faire après un cambriolage ?"
+                            </Button>
+                        </Link>
+                    </div>
                 </div>
             </section>
+
+            <BeforeAfter
+                beforeImage="https://images.unsplash.com/photo-1595847648312-3067eb014c55?w=800&q=80" // Damage
+                afterImage="https://images.unsplash.com/photo-1516937941348-c09e554b9aa2?w=800&q=80" // Fixed
+                title="Mise en sécurité provisoire"
+                description="Installation d'un panneau de contreplaqué et verrous suite à une effraction au pied de biche. Sécurisation immédiate avant remplacement définitif."
+            />
 
             <div className="max-w-xl mx-auto py-16 px-4">
                 <div className="text-center mb-8">
