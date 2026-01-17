@@ -15,7 +15,22 @@ export const metadata: Metadata = generateSEOMetadata({
     keywords: ["changement serrure paris", "remplacement cylindre", "serrure fichet paris", "serrure bricard", "prix changement serrure"],
 });
 
+import { generateServiceSchema } from "@/app/seo/serviceSchema";
+import Script from "next/script";
+
 export default function ChangementSerrurePage() {
+    const serviceSchema = generateServiceSchema({
+        name: "Changement de Serrure Paris",
+        description: "Remplacement de serrure toute marque et cylindre haute sécurité A2P",
+        url: "https://www.dclik-serrure.com/services/changement-serrure",
+        serviceType: "Lock Installation",
+        offers: {
+            price: "149",
+            priceCurrency: "EUR",
+            description: "Remplacement Cylindre Standard"
+        }
+    });
+
     const faqs = [
         {
             question: "Quelles marques de serrures installez-vous ?",
@@ -33,6 +48,11 @@ export default function ChangementSerrurePage() {
 
     return (
         <div className="min-h-screen bg-white">
+            <Script
+                id="service-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+            />
             <Header />
 
             {/* Hero */}

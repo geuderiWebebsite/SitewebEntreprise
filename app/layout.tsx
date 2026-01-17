@@ -9,6 +9,7 @@ import {
   generateStructuredDataScript,
   getDefaultSEO,
 } from "@/app/seo/seoConfig";
+export { generateServiceSchema } from "@/app/seo/serviceSchema";
 
 const inter = Inter({
   subsets: ["latin"],

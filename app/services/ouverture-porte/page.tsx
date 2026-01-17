@@ -19,7 +19,21 @@ export const metadata: Metadata = generateSEOMetadata({
     keywords: ["ouverture de porte paris", "serrurier ouverture porte", "porte claquée paris", "ouvrir porte sans clé"],
 });
 
+import { generateServiceSchema } from "@/app/seo/serviceSchema";
+
 export default function OuverturePortePage() {
+    const serviceSchema = generateServiceSchema({
+        name: "Ouverture de Porte Paris",
+        description: "Ouverture de porte claquée ou fermée à clé sans dégât",
+        url: "https://www.dclik-serrure.com/services/ouverture-porte",
+        serviceType: "Emergency Locksmith",
+        offers: {
+            price: "89",
+            priceCurrency: "EUR",
+            description: "Ouverture porte claquée"
+        }
+    });
+
     const faqs = [
         {
             question: "Combien coûte une ouverture de porte ?",
@@ -37,6 +51,11 @@ export default function OuverturePortePage() {
 
     return (
         <div className="min-h-screen bg-white">
+            <Script
+                id="service-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+            />
             <Header />
 
             {/* Hero Urgent */}

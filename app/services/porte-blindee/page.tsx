@@ -17,7 +17,22 @@ export const metadata: Metadata = generateSEOMetadata({
     keywords: ["porte blindée paris", "blindage porte", "tordjman métal", "picard serrures", "prix porte blindée"],
 });
 
+import { generateServiceSchema } from "@/app/seo/serviceSchema";
+import Script from "next/script";
+
 export default function PorteBlindeePage() {
+    const serviceSchema = generateServiceSchema({
+        name: "Installation Porte Blindée Paris",
+        description: "Installation de blocs-portes blindés certifiés A2P BP1 et BP3",
+        url: "https://www.dclik-serrure.com/services/porte-blindee",
+        serviceType: "Security Door Installation",
+        offers: {
+            price: "1890",
+            priceCurrency: "EUR",
+            description: "Bloc-Porte A2P BP1"
+        }
+    });
+
     const faqs = [
         {
             question: "Quelle est la différence entre blindage et bloc-porte ?",
@@ -35,6 +50,11 @@ export default function PorteBlindeePage() {
 
     return (
         <div className="min-h-screen bg-white">
+            <Script
+                id="service-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+            />
             <Header />
 
             {/* Hero */}

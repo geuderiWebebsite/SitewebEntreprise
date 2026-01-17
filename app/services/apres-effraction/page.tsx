@@ -15,7 +15,22 @@ export const metadata: Metadata = generateSEOMetadata({
     keywords: ["serrurier après cambriolage", "fermeture provisoire", "réparation porte fracturée", "assurance serrurier"],
 });
 
+import { generateServiceSchema } from "@/app/seo/serviceSchema";
+import Script from "next/script";
+
 export default function ApresEffractionPage() {
+    const serviceSchema = generateServiceSchema({
+        name: "Dépannage Après Cambriolage Paris",
+        description: "Intervention d'urgence pour fermeture provisoire et sécurisation après effraction",
+        url: "https://www.dclik-serrure.com/services/apres-effraction",
+        serviceType: "Emergency Locksmith",
+        offers: {
+            price: "150",
+            priceCurrency: "EUR",
+            description: "Mise en sécurité provisoire"
+        }
+    });
+
     const faqs = [
         {
             question: "Dois-je porter plainte avant votre intervention ?",
@@ -33,6 +48,11 @@ export default function ApresEffractionPage() {
 
     return (
         <div className="min-h-screen bg-white">
+            <Script
+                id="service-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+            />
             <Header />
 
             {/* Hero Urgent Compassionate */}

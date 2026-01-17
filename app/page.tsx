@@ -48,6 +48,7 @@ import FloatingActions from "./components/FloatingActions";
 import HeroSection from "./components/HeroSection";
 import Link from "next/link";
 import { CONTACT_INFO } from "@/app/constants";
+import GoogleReviews from "@/components/rich/GoogleReviews";
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -339,7 +340,10 @@ export default function Home() {
       {/* Services Showcase */}
       <ServicesShowcase />
 
-      {/* Témoignages Clients */}
+      {/* Google Reviews Integration */}
+      <GoogleReviews />
+
+      {/* Témoignages Clients (Carousel Legacy) */}
       <TestimonialsCarousel />
 
       {/* Zone d'intervention interactive */}
