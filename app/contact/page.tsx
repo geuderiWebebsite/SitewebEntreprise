@@ -12,6 +12,21 @@ import {
   Award,
   Users,
 } from "lucide-react";
+import Script from "next/script";
+import { useEffect, useRef } from "react";
+// Augment declaration for custom element
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'gmpx-store-locator': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+        'map-options'?: string;
+      };
+    }
+  }
+  interface Window {
+    gtag: (command: string, action: string, params?: any) => void;
+  }
+}
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -40,6 +55,34 @@ export default function Contact() {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // Ref for the locator to apply configuration
+  const locatorRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    // Placeholder CONFIGURATION - To be replaced by user's actual JSON
+    const CONFIGURATION = {
+      locations: [], // Populate with locations
+      mapOptions: {
+        center: { lat: 48.8566, lng: 2.3522 }, // Paris
+        zoom: 12,
+        mapId: "DEMO_MAP_ID" // Replace with actual Map ID if available
+      },
+      mapsApiKey: "YOUR_API_KEY_HERE" // Replace with user's key
+    };
+
+    const configureLocator = async () => {
+      await customElements.whenDefined('gmpx-store-locator');
+      const locator = locatorRef.current as any;
+      if (locator && locator.configureFromQuickBuilder) {
+        // locator.configureFromQuickBuilder(CONFIGURATION); 
+        // Note: configureFromQuickBuilder might need the exact structure from the tool
+        console.log("Locator ready to be configured");
+      }
+    };
+
+    configureLocator();
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -63,6 +106,14 @@ export default function Contact() {
           address: "",
           message: "",
         });
+
+        // Google Ads Conversion Tracking
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('event', 'conversion', {
+            'send_to': 'AW-17860666652/aWmNCKCyuucbEJzK0MRC'
+          });
+        }
+
         setTimeout(() => setIsSubmitted(false), 5000);
       } else {
         alert("Une erreur est survenue. Veuillez essayer de nous appeler.");
@@ -102,6 +153,11 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Script for Google Maps Store Locator */}
+      <Script
+        src="https://unpkg.com/@googlemaps/extended-component-library@0.6"
+        strategy="afterInteractive"
+      />
       <Header />
 
       {/* === Bannière Hero avec image réelle === */}
@@ -426,6 +482,18 @@ export default function Contact() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
                 Notre <span className="text-red-700">Zone d'Intervention</span>
               </h2>
+
+              {/* Google Maps Store Locator Integration */}
+              <div className="bg-white p-2 rounded-lg shadow-lg mb-8 h-[500px] w-full overflow-hidden border border-gray-200">
+                {/* 
+                    Note: This requires a Google Maps API Key and the correct CONFIGURATION 
+                    to work fully. 
+                 */}
+                <gmpx-store-locator
+                  ref={locatorRef}
+                  style={{ width: '100%', height: '100%' }}
+                />
+              </div>
 
               <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
                 <h3 className="text-xl font-semibold mb-4 text-red-700">

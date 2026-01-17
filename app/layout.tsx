@@ -92,6 +92,21 @@ export default function RootLayout({
         </Script>
         */}
         {/* --- Fin Google Analytics 4 --- */}
+
+        {/* --- Google Ads Conversion Linker --- */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17860666652"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17860666652');
+          `}
+        </Script>
+        {/* --- Fin Google Ads --- */}
       </head>
 
       <body className={inter.className}>
