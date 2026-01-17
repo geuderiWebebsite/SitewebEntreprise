@@ -1,378 +1,224 @@
-"use client";
-
-import { useState } from "react";
-import { Phone, Clock, MapPin, Shield, CheckCircle, Star } from "lucide-react";
+import { Metadata } from "next";
+import Script from "next/script";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import FloatingActions from "../components/FloatingActions";
+import CityForm from "@/components/city/CityForm";
+import CallButton from "@/components/city/CallButton";
+import FAQSection from "@/components/rich/FAQSection";
+import PricingTable from "@/components/rich/PricingTable";
+import BeforeAfter from "@/components/rich/BeforeAfter";
+import { generateLocalBusinessSchema, generateSEOMetadata } from "@/app/seo/seoConfig";
+import { Clock, MapPin, Shield, CheckCircle, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+
+// SEO Metadata
+export const metadata: Metadata = generateSEOMetadata({
+  title: "Serrurier Créteil (94000) - Dépannage Urgent 30 min | D'Clik Serrure",
+  description: "Serrurier Créteil disponible 24h/24. Ouverture de porte, changement de serrure à Créteil Préfecture, Échat, Mont-Mesly. Tarifs agréés assurances.",
+  canonical: "https://www.dclik-serrure.com/serrurier-creteil",
+  keywords: ["serrurier créteil", "dépannage serrurerie 94000", "ouverture de porte créteil", "urgence serrurier créteil"],
+});
 
 export default function SerrurierCreteil() {
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    address: "",
-    message: "",
+  const city = "Créteil";
+  const zip = "94000";
+
+  // Specific Schema for Créteil
+  const localBusinessSchema = generateLocalBusinessSchema({
+    name: "D'Clik Serrure Créteil",
+    description: "Service de serrurerie d'urgence à Créteil et Val-de-Marne",
+    city: "Créteil",
+    latitude: 48.7904,
+    longitude: 2.4556,
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (typeof window !== "undefined" && (window as any).gtag) {
-      (window as any).gtag("event", "conversion", {
-        send_to: "AW-CONVERSION_ID/CONVERSION_LABEL",
-        value: 1.0,
-        currency: "EUR",
-      });
+  const faqs = [
+    {
+      question: "Intervenez-vous dans tous les quartiers de Créteil ?",
+      answer: "Oui, nos serruriers couvrent tout Créteil : Préfecture, L'Échat, Mont-Mesly, Village, Port, etc. Nous sommes motorisés pour intervenir rapidement vers le Centre Commercial Créteil Soleil ou l'Hôpital Mondor."
+    },
+    {
+      question: "Quel est le délai d'intervention à Créteil (94000) ?",
+      answer: "Nous avons une équipe dédiée au Val-de-Marne. Comptez environ 30 minutes pour une arrivée sur place à Créteil, selon la circulation sur l'A86."
+    },
+    {
+      question: "Êtes-vous agréé par les assurances ?",
+      answer: "Oui, nos tarifs sont alignés sur les barèmes de remboursement des assurances habitation classiques (Maaf, GMF, Axa...). Nous vous fournissons un devis et une facture détaillée."
     }
-    console.log("Formulaire soumis:", formData);
-  };
-
-  const handlePhoneClick = () => {
-    if (typeof window !== "undefined" && (window as any).gtag) {
-      (window as any).gtag("event", "conversion", {
-        send_to: "AW-CONVERSION_ID/PHONE_CONVERSION_LABEL",
-      });
-    }
-  };
+  ];
 
   return (
     <div className="min-h-screen bg-white">
-        <section className="relative bg-gradient-to-br from-red-700 to-red-900 text-white py-20 px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="mb-6">
-              <span className="inline-block bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4 animate-pulse">
-                🚨 DISPONIBLE À CRÉTEIL
-              </span>
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Serrurier à Créteil
-              <br />
-              <span className="text-orange-400">Dépannage en 30 min 24h/24</span>
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-gray-100">
-              Ouverture de porte, serrure bloquée, porte blindée – Intervention
-              garantie sans casse.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a href="tel:0185490707" onClick={handlePhoneClick}>
-                <Button
-                  size="lg"
-                  className="bg-orange-500 hover:bg-orange-600 text-white text-xl px-8 py-6 transform hover:scale-105 transition-all duration-200 shadow-2xl"
-                >
-                  <Phone className="h-6 w-6 mr-3" />
-                  01 85 49 07 07
-                </Button>
-              </a>
-              <Button
-                size="lg"
-                variant="outline"
-                className="bg-white text-red-700 border-2 border-white hover:bg-gray-100 text-lg px-8 py-6"
-                onClick={() =>
-                  document
-                    .getElementById("devis-form")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-              >
-                Devis Gratuit
-              </Button>
-            </div>
+      <Script
+        id="local-business-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+
+      <Header />
+
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-red-800 to-red-950 text-white pt-32 pb-20 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="mb-6">
+            <span className="inline-block bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4 animate-pulse">
+              🚨 SERRURIER CRÉTEIL (94)
+            </span>
           </div>
-        </section>
-
-        <section className="py-16 px-4 bg-gray-50">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Clock className="h-8 w-8 text-orange-600" />
-                </div>
-                <h3 className="font-bold text-lg mb-2">Intervention 24h/24</h3>
-                <p className="text-gray-600">7 jours sur 7, même jours fériés</p>
-              </div>
-              <div className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Shield className="h-8 w-8 text-green-600" />
-                </div>
-                <h3 className="font-bold text-lg mb-2">Agréé assurances</h3>
-                <p className="text-gray-600">Devis pris en charge</p>
-              </div>
-              <div className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <MapPin className="h-8 w-8 text-blue-600" />
-                </div>
-                <h3 className="font-bold text-lg mb-2">Déplacement rapide</h3>
-                <p className="text-gray-600">En moins de 30 minutes</p>
-              </div>
-              <div className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
-                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="h-8 w-8 text-red-600" />
-                </div>
-                <h3 className="font-bold text-lg mb-2">Techniciens certifiés</h3>
-                <p className="text-gray-600">Qualifiés A2P</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 px-4 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-              Nos Services à Créteil
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="flex items-start space-x-4 p-6 bg-gray-50 rounded-lg hover:bg-orange-50 transition-colors">
-                <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-bold text-lg mb-2">
-                    Ouverture de porte à partir de 89€
-                  </h3>
-                  <p className="text-gray-600">
-                    Porte claquée, clé perdue ou cassée dans la serrure
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4 p-6 bg-gray-50 rounded-lg hover:bg-orange-50 transition-colors">
-                <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-bold text-lg mb-2">
-                    Réparation ou remplacement de serrure
-                  </h3>
-                  <p className="text-gray-600">
-                    Toutes marques, tous modèles de serrures
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4 p-6 bg-gray-50 rounded-lg hover:bg-orange-50 transition-colors">
-                <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-bold text-lg mb-2">
-                    Dépannage de porte blindée
-                  </h3>
-                  <p className="text-gray-600">
-                    Intervention spécialisée sans dégâts
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4 p-6 bg-gray-50 rounded-lg hover:bg-orange-50 transition-colors">
-                <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-bold text-lg mb-2">
-                    Sécurisation après effraction
-                  </h3>
-                  <p className="text-gray-600">
-                    Installation immédiate de sécurité provisoire
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4 p-6 bg-gray-50 rounded-lg hover:bg-orange-50 transition-colors">
-                <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-bold text-lg mb-2">
-                    Installation de serrures multipoints
-                  </h3>
-                  <p className="text-gray-600">Systèmes A2P certifiés</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4 p-6 bg-gray-50 rounded-lg hover:bg-orange-50 transition-colors">
-                <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-bold text-lg mb-2">
-                    Rideaux métalliques et vitrines
-                  </h3>
-                  <p className="text-gray-600">
-                    Pour commerces et locaux professionnels
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 px-4 bg-gray-50">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
-              Zones couvertes à Créteil
-            </h2>
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <h3 className="font-bold text-xl mb-4 text-red-700">
-                    Tous les quartiers de Créteil
-                  </h3>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>✓ Créteil Centre (Préfecture)</li>
-                    <li>✓ Créteil Village</li>
-                    <li>✓ Mont-Mesly (Lac de Créteil)</li>
-                    <li>✓ Créteil Université</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="font-bold text-xl mb-4 text-red-700">
-                    Temps moyen d&apos;intervention
-                  </h3>
-                  <div className="bg-orange-50 p-4 rounded-lg mb-4">
-                    <p className="text-3xl font-bold text-orange-600 mb-2">
-                      28 minutes
-                    </p>
-                    <p className="text-gray-600">en moyenne pour Créteil</p>
-                  </div>
-                  <p className="text-sm text-gray-600">
-                    <span className="font-semibold">Autres zones :</span> Paris 12,
-                    Maisons-Alfort, Saint-Maur, Bonneuil, Alfortville
-                  </p>
-                </div>
-              </div>
-              <div className="w-full h-64 bg-gray-200 rounded-lg overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20997.934851!2d2.4553464!3d48.7778037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e60d0e3b3e7e27%3A0x40b82c3688c9460!2sCr%C3%A9teil!5e0!3m2!1sfr!2sfr!4v1234567890"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 px-4 bg-gradient-to-br from-orange-50 to-red-50">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="flex items-start space-x-4 mb-6">
-                <Star className="h-8 w-8 text-yellow-500 flex-shrink-0" />
-                <div>
-                  <p className="text-lg italic text-gray-700 mb-4">
-                    &quot;Appelé vers minuit pour une porte claquée au Mont-Mesly.
-                    Serrurier arrivé rapidement, très compétent, porte ouverte
-                    sans casse. Tarif honnête !&quot;
-                  </p>
-                  <p className="font-bold text-gray-900">
-                    - Patricia L., Créteil
-                  </p>
-                  <div className="flex space-x-1 mt-2">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <Star
-                        key={i}
-                        className="h-5 w-5 text-yellow-500 fill-yellow-500"
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="devis-form" className="py-16 px-4 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                  Demandez votre devis gratuit
-                </h2>
-                <p className="text-lg text-gray-600 mb-6">
-                  Remplissez le formulaire et nous vous rappelons dans les 5
-                  minutes pour vous donner un tarif exact.
-                </p>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-6 w-6 text-green-600" />
-                    <span className="text-gray-700">Devis transparent et détaillé</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-6 w-6 text-green-600" />
-                    <span className="text-gray-700">Sans engagement</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-6 w-6 text-green-600" />
-                    <span className="text-gray-700">Réponse immédiate</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-red-50 to-orange-50 p-8 rounded-xl">
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <Input
-                    placeholder="Votre nom"
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
-                    required
-                    className="bg-white"
-                  />
-                  <Input
-                    type="tel"
-                    placeholder="Votre téléphone"
-                    value={formData.phone}
-                    onChange={(e) =>
-                      setFormData({ ...formData, phone: e.target.value })
-                    }
-                    required
-                    className="bg-white"
-                  />
-                  <Input
-                    placeholder="Votre adresse à Créteil"
-                    value={formData.address}
-                    onChange={(e) =>
-                      setFormData({ ...formData, address: e.target.value })
-                    }
-                    required
-                    className="bg-white"
-                  />
-                  <Textarea
-                    placeholder="Décrivez votre problème (ex: porte claquée, serrure cassée...)"
-                    rows={4}
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                    required
-                    className="bg-white"
-                  />
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full bg-red-600 hover:bg-red-700 text-white text-lg py-6"
-                  >
-                    Obtenir mon devis gratuit
-                  </Button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-12 px-4 bg-red-700 text-white">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Urgence ? Appelez maintenant
-            </h2>
-            <p className="text-xl mb-8">
-              Un serrurier se déplace immédiatement à Créteil
-            </p>
-            <a href="tel:0185490707" onClick={handlePhoneClick}>
-              <Button
-                size="lg"
-                className="bg-orange-500 hover:bg-orange-600 text-white text-2xl px-12 py-8 transform hover:scale-105 transition-all duration-200 shadow-2xl"
-              >
-                <Phone className="h-8 w-8 mr-4" />
-                01 85 49 07 07
-              </Button>
-            </a>
-            <p className="text-sm mt-6 text-gray-200">
-              Disponible 24h/24 - 7j/7 - Même jours fériés
-            </p>
-          </div>
-        </section>
-
-        <footer className="py-8 px-4 bg-gray-900 text-gray-400 text-center text-sm">
-          <p>
-            © 2025 D&apos;Clik Serrure - Serrurier Créteil - Tous droits réservés
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            Serrurier à Créteil
+            <br />
+            <span className="text-orange-400">Intervention Rapide 24h/24</span>
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-gray-100 max-w-2xl mx-auto">
+            Expertise locale à Créteil. Ouverture de porte, blindage et sécurisation.
+            Devis gratuit avant travaux.
           </p>
-          <p className="mt-2">RCS Paris - Garantie décennale - Agrément assurances</p>
-        </footer>
-      </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <CallButton
+              phone="0185490707"
+              label="01 85 49 07 07"
+              className="bg-orange-500 hover:bg-orange-600 text-white text-xl px-8 py-6 h-auto shadow-2xl animate-bounce-subtle"
+            />
+            <Button
+              size="lg"
+              variant="outline"
+              className="bg-white text-red-700 border-2 border-white hover:bg-gray-100 text-lg px-8 py-6 h-auto"
+              asChild
+            >
+              <a href="#devis-form">Devis Gratuit</a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Indicators */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white p-6 rounded-xl shadow-lg text-center">
+              <Clock className="h-8 w-8 text-orange-600 mx-auto mb-4" />
+              <h3 className="font-bold text-lg mb-2">Urgence Créteil</h3>
+              <p className="text-gray-600">30 min chrono</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg text-center">
+              <Shield className="h-8 w-8 text-green-600 mx-auto mb-4" />
+              <h3 className="font-bold text-lg mb-2">Tarifs Agréés</h3>
+              <p className="text-gray-600">Pas de surprise</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg text-center">
+              <MapPin className="h-8 w-8 text-blue-600 mx-auto mb-4" />
+              <h3 className="font-bold text-lg mb-2">Artisan Local</h3>
+              <p className="text-gray-600">Connaît le secteur</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg text-center">
+              <CheckCircle className="h-8 w-8 text-red-600 mx-auto mb-4" />
+              <h3 className="font-bold text-lg mb-2">Devis Gratuit</h3>
+              <p className="text-gray-600">Avant intervention</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Grid (Condensed) */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            Dépannage Serrurerie 94000
+          </h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Reusing standard services but with local context mentally */}
+            <div className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+              <CheckCircle className="h-6 w-6 text-green-600" />
+              <span className="font-bold">Ouverture de porte claquée</span>
+            </div>
+            <div className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+              <CheckCircle className="h-6 w-6 text-green-600" />
+              <span className="font-bold">Changement cylindre A2P</span>
+            </div>
+            <div className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+              <CheckCircle className="h-6 w-6 text-green-600" />
+              <span className="font-bold">Blindage de porte sur mesure</span>
+            </div>
+            <div className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+              <CheckCircle className="h-6 w-6 text-green-600" />
+              <span className="font-bold">Fermeture provisoire suite effraction</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <PricingTable />
+
+      <BeforeAfter
+        beforeImage="https://images.unsplash.com/photo-1622372738946-a2e485841e9d?w=800&q=80"
+        afterImage="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+        title="Remplacement de serrure à Créteil Université"
+        description="Sécurisation d'un appartement étudiant après perte de clés. Installation d'une serrure 3 points carénée."
+      />
+
+      {/* Map & Zones */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
+            Zone d'intervention : Créteil et environs
+          </h2>
+          <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 flex flex-col md:flex-row gap-8">
+            <div className="w-full md:w-1/2">
+              <p className="mb-4 text-gray-700">
+                Notre point d'ancrage dans le 94 nous permet d'intervenir très rapidement sur :
+              </p>
+              <ul className="list-disc pl-5 space-y-2 text-gray-600">
+                <li>Créteil (94000) - Tous quartiers</li>
+                <li>Maisons-Alfort (94700)</li>
+                <li>Saint-Maur-des-Fossés (94100)</li>
+                <li>Bonneuil-sur-Marne (94380)</li>
+                <li>Alfortville (94140)</li>
+              </ul>
+            </div>
+            <div className="w-full md:w-1/2 h-64 bg-gray-200 rounded-lg overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d42065.97236859341!2d2.42878235!3d48.79036735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e672c21946dc35%3A0x40b82c3688b3940!2sCr%C3%A9teil!5e0!3m2!1sfr!2sfr"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <FAQSection faqs={faqs} title="Questions fréquentes - Serrurier Créteil" />
+
+      <section id="devis-form" className="py-16 px-4 bg-gray-50">
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-3xl font-bold mb-4">Urgence à Créteil ?</h2>
+            <p className="mb-6">
+              Remplissez le formulaire, nous vous rappelons immédiatement.
+              Le devis est gratuit et sans engagement.
+            </p>
+            <div className="flex gap-4 mb-4">
+              <Star className="text-yellow-400 fill-yellow-400" />
+              <Star className="text-yellow-400 fill-yellow-400" />
+              <Star className="text-yellow-400 fill-yellow-400" />
+              <Star className="text-yellow-400 fill-yellow-400" />
+              <Star className="text-yellow-400 fill-yellow-400" />
+            </div>
+            <p className="font-bold">"Intervention rapide rue du Général Leclerc, merci !"</p>
+            <p className="text-sm text-gray-500">- Karim B.</p>
+          </div>
+          <div className="bg-white p-8 rounded-xl shadow-lg">
+            <CityForm />
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+      <FloatingActions />
+    </div>
   );
 }
