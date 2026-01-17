@@ -93,6 +93,21 @@ export default function RootLayout({
         */}
         {/* --- Fin Google Analytics 4 --- */}
 
+        {/* --- Google Analytics 4 --- */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-9CW05KXBEW"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-9CW05KXBEW');
+          `}
+        </Script>
+        {/* --- Fin Google Analytics 4 --- */}
+
         {/* --- Google Ads Conversion Linker --- */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-17860666652"
