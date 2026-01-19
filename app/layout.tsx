@@ -9,7 +9,8 @@ import {
   generateStructuredDataScript,
   getDefaultSEO,
 } from "@/app/seo/seoConfig";
-export { generateServiceSchema } from "@/app/seo/serviceSchema";
+// No longer exporting generateServiceSchema from here to avoid Next.js build errors
+
 
 const inter = Inter({
   subsets: ["latin"],
