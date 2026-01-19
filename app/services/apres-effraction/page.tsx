@@ -119,10 +119,10 @@ export default function ApresEffractionPage() {
             </section>
 
             <BeforeAfter
-                beforeImage="https://images.unsplash.com/photo-1595847648312-3067eb014c55?w=800&q=80" // Damage
-                afterImage="https://images.unsplash.com/photo-1516937941348-c09e554b9aa2?w=800&q=80" // Fixed
-                title="Mise en sécurité provisoire"
-                description="Installation d'un panneau de contreplaqué et verrous suite à une effraction au pied de biche. Sécurisation immédiate avant remplacement définitif."
+                beforeImage="/apres-effraction-reparation.png"
+                afterImage="/securisation-provisoire.png"
+                title="Réparation Après Effraction"
+                description="Intervention d'urgence pour sécuriser votre domicile après un cambriolage. Réparation du bâti endommagé et installation de mesures de sécurité provisoires."
             />
 
             <div className="max-w-xl mx-auto py-16 px-4">

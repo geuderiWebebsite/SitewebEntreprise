@@ -114,6 +114,49 @@ export default function Header() {
                 </div>
               </div>
 
+              {/* Services Dropdown */}
+              <div
+                className="relative group"
+                onMouseEnter={() => setOpenDropdown("services")}
+                onMouseLeave={() => setOpenDropdown(null)}
+              >
+                <button className="text-gray-900 hover:text-red-600 transition-colors font-medium flex items-center gap-1 whitespace-nowrap">
+                  Services
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+                <div
+                  className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 transition-all duration-200 ${openDropdown === "services"
+                    ? "opacity-100 visible translate-y-0"
+                    : "opacity-0 invisible -translate-y-2"
+                    }`}
+                >
+                  <a
+                    href="/services/ouverture-porte"
+                    className="block px-4 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors whitespace-nowrap"
+                  >
+                    Ouverture de Porte
+                  </a>
+                  <a
+                    href="/services/changement-serrure"
+                    className="block px-4 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors whitespace-nowrap"
+                  >
+                    Changement de Serrure
+                  </a>
+                  <a
+                    href="/services/porte-blindee"
+                    className="block px-4 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors whitespace-nowrap"
+                  >
+                    Porte Blindée
+                  </a>
+                  <a
+                    href="/services/apres-effraction"
+                    className="block px-4 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors whitespace-nowrap"
+                  >
+                    Après Effraction
+                  </a>
+                </div>
+              </div>
+
               {/* Outils Dropdown */}
               <div
                 className="relative group"
@@ -283,6 +326,55 @@ export default function Header() {
                       className="block text-gray-700 hover:text-red-600 hover:bg-red-50 transition-all py-2 px-4 rounded-lg text-sm whitespace-nowrap"
                     >
                       À Propos de Nous
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Services Mobile Submenu */}
+              <div>
+                <button
+                  onClick={() => toggleMobileSubmenu("services")}
+                  className="w-full text-left text-gray-900 hover:text-red-600 hover:bg-red-50 transition-all font-medium py-3 px-4 rounded-lg whitespace-nowrap flex items-center justify-between"
+                >
+                  Services
+                  <ChevronRight
+                    className={`h-4 w-4 transition-transform duration-200 ${openMobileSubmenu === "services" ? "rotate-90" : ""
+                      }`}
+                  />
+                </button>
+                <div
+                  className={`overflow-hidden transition-all duration-200 ${openMobileSubmenu === "services" ? "max-h-64" : "max-h-0"
+                    }`}
+                >
+                  <div className="pl-4 space-y-1">
+                    <a
+                      href="/services/ouverture-porte"
+                      onClick={closeMenu}
+                      className="block text-gray-700 hover:text-red-600 hover:bg-red-50 transition-all py-2 px-4 rounded-lg text-sm whitespace-nowrap"
+                    >
+                      Ouverture de Porte
+                    </a>
+                    <a
+                      href="/services/changement-serrure"
+                      onClick={closeMenu}
+                      className="block text-gray-700 hover:text-red-600 hover:bg-red-50 transition-all py-2 px-4 rounded-lg text-sm whitespace-nowrap"
+                    >
+                      Changement de Serrure
+                    </a>
+                    <a
+                      href="/services/porte-blindee"
+                      onClick={closeMenu}
+                      className="block text-gray-700 hover:text-red-600 hover:bg-red-50 transition-all py-2 px-4 rounded-lg text-sm whitespace-nowrap"
+                    >
+                      Porte Blindée
+                    </a>
+                    <a
+                      href="/services/apres-effraction"
+                      onClick={closeMenu}
+                      className="block text-gray-700 hover:text-red-600 hover:bg-red-50 transition-all py-2 px-4 rounded-lg text-sm whitespace-nowrap"
+                    >
+                      Après Effraction
                     </a>
                   </div>
                 </div>

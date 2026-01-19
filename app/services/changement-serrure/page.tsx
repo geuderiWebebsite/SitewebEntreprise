@@ -120,10 +120,10 @@ export default function ChangementSerrurePage() {
             </section>
 
             <BeforeAfter
-                beforeImage="https://images.unsplash.com/photo-1516937941348-c09e554b9aa2?w=800&q=80"
-                afterImage="https://images.unsplash.com/photo-1558002038-109177381793?w=800&q=80"
-                title="Installation Serrure 5 points"
-                description="Remplacement d'une vieille serrure monopoint par une serrure carénée 5 points Vachette A2P* pour une sécurité maximale."
+                beforeImage="/changement-serrure-travail.png"
+                afterImage="/changement-serrure-travail.png"
+                title="Installation Serrure Haute Sécurité"
+                description="Remplacement professionnel d'une serrure par un système multi-points haute sécurité. Installation précise avec cylindre A2P certifié."
             />
 
             <section className="py-16 bg-white px-4">

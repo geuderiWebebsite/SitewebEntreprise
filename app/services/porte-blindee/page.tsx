@@ -140,10 +140,10 @@ export default function PorteBlindeePage() {
             </section>
 
             <BeforeAfter
-                beforeImage="https://images.unsplash.com/photo-1533738699159-d0c68059bb61?w=800&q=80"
-                afterImage="https://images.unsplash.com/photo-1541123437805-4713ca473974?w=800&q=80"
-                title="Installation Bloc-Porte Diamant 2"
-                description="Remplacement d'une porte d'appartement classique par un bloc-porte Picard Diamant 2 certifié A2P BP1, couleur blanche intérieure."
+                beforeImage="/porte-blindee-installation.png"
+                afterImage="/porte-blindee-installation.png"
+                title="Installation Bloc-Porte Blindé"
+                description="Installation professionnelle d'une porte blindée certifiée A2P. Travail soigné avec renforcement du bâti et système de sécurité multi-points."
             />
 
             {/* CTA Form */}
