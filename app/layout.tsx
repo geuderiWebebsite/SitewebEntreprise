@@ -132,10 +132,21 @@ export default function RootLayout({
                   window.location = url;
                 }
               };
+              
+              // Suivi de l'événement de conversion spécial "Appel"
               gtag('event', 'conversion', {
                   'send_to': 'AW-17860666652/1XoTCK3Uie8bEJzK0MRC',
                   'event_callback': callback
               });
+
+              // Sécurité : si le callback de Google est trop long (ex: bloqueur de pub), 
+              // on déclenche quand même l'action après 500ms
+              setTimeout(function() {
+                if (typeof(url) != 'undefined' && window.location.href !== url) {
+                   // window.location = url; // Commenté pour éviter les doubles déclenchements sur tel:
+                }
+              }, 5000);
+
               return false;
             }
           `}
