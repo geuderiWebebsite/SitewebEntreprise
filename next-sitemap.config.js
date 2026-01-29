@@ -119,7 +119,7 @@ module.exports = {
       "/gallery",
       "/blog",
       "/test-securite",
-      "/serrurier-creteil-et-alentours",
+      "/creteil",
     ];
 
     pages.forEach((page) => {

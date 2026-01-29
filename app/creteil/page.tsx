@@ -17,7 +17,7 @@ import NearbyCities from "@/components/city/NearbyCities";
 export const metadata: Metadata = generateSEOMetadata({
     title: "Serrurier Créteil et alentours (94000) - Dépannage Urgent 30 min | D'Clik Serrure",
     description: "Serrurier Créteil et environs disponible 24h/24. Ouverture de porte, changement de serrure à Créteil, Bonneuil, Maisons-Alfort. Tarifs agréés assurances.",
-    canonical: "https://www.dclik-serrure.com/serrurier-creteil-et-alentours",
+    canonical: "https://www.dclik-serrure.com/creteil",
     keywords: ["serrurier créteil", "serrurier alentours créteil", "dépannage serrurerie 94000", "ouverture de porte créteil", "urgence serrurier créteil"],
 });
 

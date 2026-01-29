@@ -10,7 +10,7 @@ export default function NearbyCities({ currentCity }: NearbyCitiesProps) {
         { name: "Paris", slug: "/serrurier-paris" },
         { name: "Saint-Maur-des-Fossés", slug: "/serrurier-saint-maur" },
         { name: "Vitry-sur-Seine", slug: "/serrurier-vitry" },
-        { name: "Créteil", slug: "/serrurier-creteil-et-alentours" },
+        { name: "Créteil", slug: "/creteil" },
         { name: "Boulogne-Billancourt", slug: "/serrurier-boulogne-billancourt" }, // Fallback/Future
         { name: "Saint-Denis", slug: "/serrurier-saint-denis" }, // Fallback/Future
         // Add more strategic cities as needed
