@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { CONTACT_INFO } from "@/app/constants";
 import logo from "@/public/logo.png";
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -13,6 +14,12 @@ export default function Header() {
   const [openMobileSubmenu, setOpenMobileSubmenu] = useState<string | null>(
     null
   );
+
+  const handleCallClick = () => {
+    if (typeof window !== "undefined" && (window as any).gtag_report_conversion) {
+      (window as any).gtag_report_conversion();
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -225,6 +232,7 @@ export default function Header() {
               </div>
               <a
                 href={CONTACT_INFO.phoneLink}
+                onClick={handleCallClick}
                 className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transform hover:scale-105 transition-all duration-200 shadow-lg flex items-center"
               >
                 <Phone className="h-4 w-4 mr-2" />
@@ -454,7 +462,10 @@ export default function Header() {
             <a
               href={CONTACT_INFO.phoneLink}
               className="bg-red-600 hover:bg-red-700 text-white w-full py-3 rounded-lg shadow-lg flex items-center justify-center"
-              onClick={closeMenu}
+              onClick={() => {
+                closeMenu();
+                handleCallClick();
+              }}
             >
               <Phone className="h-4 w-4 mr-2" />
               Appeler Maintenant

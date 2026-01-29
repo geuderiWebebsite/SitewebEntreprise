@@ -121,6 +121,22 @@ export default function RootLayout({
             gtag('config', 'AW-17860666652');
           `}
         </Script>
+        <Script id="google-ads-report-conversion" strategy="afterInteractive">
+          {`
+            window.gtag_report_conversion = function(url) {
+              var callback = function () {
+                if (typeof(url) != 'undefined') {
+                  window.location = url;
+                }
+              };
+              gtag('event', 'conversion', {
+                  'send_to': 'AW-17860666652/1XoTCK3Uie8bEJzK0MRC',
+                  'event_callback': callback
+              });
+              return false;
+            }
+          `}
+        </Script>
         {/* --- Fin Google Ads --- */}
       </head>
 

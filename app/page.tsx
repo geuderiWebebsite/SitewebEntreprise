@@ -66,6 +66,12 @@ export default function Home() {
   const [count3, setCount3] = useState(0);
   const [count4, setCount4] = useState(0);
 
+  const handleCallClick = () => {
+    if (typeof window !== "undefined" && (window as any).gtag_report_conversion) {
+      (window as any).gtag_report_conversion();
+    }
+  };
+
   useEffect(() => {
     const timer1 = setInterval(() => {
       setCount1((prev) => (prev < 2500 ? prev + 50 : 2500));
@@ -122,6 +128,7 @@ export default function Home() {
       });
 
       if (response.ok) {
+        handleCallClick();
         alert("Votre demande a bien été envoyée. Nous vous recontacterons rapidement.");
         setFormData({ name: "", phone: "", message: "" });
       } else {
@@ -424,7 +431,11 @@ export default function Home() {
                 </div>
 
                 <div className="text-center">
-                  <a href={CONTACT_INFO.phoneLink} className="block group">
+                  <a
+                    href={CONTACT_INFO.phoneLink}
+                    onClick={handleCallClick}
+                    className="block group"
+                  >
                     <p className="text-4xl font-bold text-red-700 mb-4 group-hover:scale-110 transition-transform duration-300">
                       {CONTACT_INFO.phoneDisplay}
                     </p>
