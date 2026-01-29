@@ -1,3 +1,4 @@
+"use client";
 import { Phone, MessageCircle } from "lucide-react";
 import { CONTACT_INFO } from "@/app/constants";
 

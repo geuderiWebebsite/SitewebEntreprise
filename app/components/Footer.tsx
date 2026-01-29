@@ -1,3 +1,4 @@
+"use client";
 import {
   Key,
   Phone,
@@ -12,6 +13,11 @@ import Link from "next/link";
 import { CONTACT_INFO } from "@/app/constants";
 
 export default function Footer() {
+  const handleCallClick = () => {
+    if (typeof window !== "undefined" && (window as any).gtag_report_conversion) {
+      (window as any).gtag_report_conversion();
+    }
+  };
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -112,11 +118,11 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-semibold mb-4">Contact</h3>
             <div className="space-y-3 text-gray-400">
-              <a href={CONTACT_INFO.phoneLink} className="flex items-center hover:text-white transition-colors">
+              <a href={CONTACT_INFO.phoneLink} onClick={handleCallClick} className="flex items-center hover:text-white transition-colors">
                 <Phone className="h-4 w-4 mr-2" />
                 {CONTACT_INFO.phoneDisplay}
               </a>
-              <a href={CONTACT_INFO.mobileLink} className="flex items-center hover:text-white transition-colors">
+              <a href={CONTACT_INFO.mobileLink} onClick={handleCallClick} className="flex items-center hover:text-white transition-colors">
                 <Phone className="h-4 w-4 mr-2" />
                 {CONTACT_INFO.mobileDisplay}
               </a>
