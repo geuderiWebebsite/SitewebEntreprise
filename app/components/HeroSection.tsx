@@ -42,6 +42,12 @@ export default function HeroSection() {
     return () => clearInterval(timer);
   }, []);
 
+  const handleCallClick = () => {
+    if (typeof window !== "undefined" && (window as any).gtag_report_conversion) {
+      (window as any).gtag_report_conversion();
+    }
+  };
+
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
@@ -79,7 +85,7 @@ export default function HeroSection() {
 
                 <div className="flex flex-col sm:flex-row gap-4">
                   {slide.ctaLink?.startsWith("tel:") ? (
-                    <a href={slide.ctaLink}>
+                    <a href={slide.ctaLink} onClick={handleCallClick}>
                       <Button
                         size="lg"
                         className="bg-red-600 hover:bg-red-700 text-white text-lg px-8 py-6 rounded-full transform hover:scale-105 transition-all duration-300 shadow-lg"
@@ -112,7 +118,7 @@ export default function HeroSection() {
                 </div>
 
                 <div className="mt-12 flex items-center gap-8 text-white">
-                  <a href={CONTACT_INFO.phoneLink} className="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full hover:bg-black/50 transition-colors">
+                  <a href={CONTACT_INFO.phoneLink} onClick={handleCallClick} className="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full hover:bg-black/50 transition-colors">
                     <Phone className="h-5 w-5 text-red-500" />
                     <span className="text-lg font-medium">{CONTACT_INFO.phoneDisplay}</span>
                   </a>

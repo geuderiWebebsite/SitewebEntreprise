@@ -150,6 +150,23 @@ export function generateOrganizationSchema() {
       latitude: 48.8566,
       longitude: 2.3522,
     },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        opens: "00:00",
+        closes: "23:59"
+      }
+    ],
+    priceRange: "€€",
     areaServed: [
       {
         "@type": "City",
@@ -160,8 +177,6 @@ export function generateOrganizationSchema() {
         name: "Île-de-France",
       },
     ],
-    openingHours: "Mo-Su 00:00-23:59",
-    priceRange: "€€",
     paymentAccepted: "Cash, Credit Card, Check",
     currenciesAccepted: "EUR",
     sameAs: [
