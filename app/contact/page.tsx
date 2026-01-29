@@ -27,10 +27,6 @@ declare global {
       };
     }
   }
-  interface Window {
-    gtag: (command: string, action: string, params?: any) => void;
-    google: any;
-  }
 }
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";

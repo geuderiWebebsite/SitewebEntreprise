@@ -6,16 +6,17 @@ interface GtagEventParams {
 
 interface Window {
     gtag: (
-        command: 'event' | 'config' | 'js',
+        command: string,
         target: string,
         params?: GtagEventParams | { [key: string]: any }
     ) => void;
     gtag_report_conversion: (url?: string) => boolean;
     dataLayer: any[];
+    google: any;
 }
 
 declare var gtag: (
-    command: 'event' | 'config' | 'js',
+    command: string,
     target: string,
     params?: GtagEventParams | { [key: string]: any }
 ) => void;
