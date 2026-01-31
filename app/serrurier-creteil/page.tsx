@@ -16,9 +16,9 @@ import NearbyCities from "@/components/city/NearbyCities";
 // SEO Metadata
 export const metadata: Metadata = generateSEOMetadata({
   title: "Serrurier Créteil (94000) - Dépannage Urgent 30 min | D'Clik Serrure",
-  description: "Serrurier Créteil disponible 24h/24. Ouverture de porte, changement de serrure à Créteil Préfecture, Échat, Mont-Mesly. Tarifs agréés assurances.",
+  description: "Serrurier Créteil disponible 24h/24 pour ouverture de porte et changement de serrure. Urgence serrurier Créteil (94) intervention rapide Échat, Mont-Mesly, Préfecture.",
   canonical: "https://www.dclik-serrure.com/serrurier-creteil",
-  keywords: ["serrurier créteil", "dépannage serrurerie 94000", "ouverture de porte créteil", "urgence serrurier créteil"],
+  keywords: ["serrurier créteil", "serrurier 94000", "urgence serrurier créteil", "dépannage serrurerie créteil", "ouverture de porte créteil", "serrurier créteil pas cher"],
 });
 
 export default function SerrurierCreteil() {

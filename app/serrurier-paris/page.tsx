@@ -16,9 +16,9 @@ import NearbyCities from "@/components/city/NearbyCities";
 // SEO Metadata for Server Side Rendering
 export const metadata: Metadata = generateSEOMetadata({
   title: "Serrurier Paris - Dépannage Urgent 30 min | D'Clik Serrure",
-  description: "Serrurier Paris disponible 24h/24 et 7j/7. Ouverture de porte dès 89€, changement de serrure, agréé assurances. Intervention rapide dans tout Paris.",
+  description: "Serrurier Paris disponible 24h/24 et 7j/7 pour ouverture de porte, changement de serrure et urgence serrurerie paris. Intervention rapide à Paris 15, Paris 17, Paris 11.",
   canonical: "https://www.dclik-serrure.com/serrurier-paris",
-  keywords: ["serrurier paris", "dépannage serrurerie paris", "ouverture de porte paris", "urgence serrurier paris"],
+  keywords: ["serrurier paris", "serrurerie paris", "serrurier paris 15", "serrurier paris 17", "serrurier paris 11", "serrurier paris 18", "serrurier paris 12", "serrurier paris 16", "serrurier paris 20", "serrurier paris 14", "urgence serrurier paris", "serrurier paris pas cher", "sos serrurier paris"],
 });
 
 export default function SerrurierParis() {

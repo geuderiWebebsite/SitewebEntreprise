@@ -9,23 +9,23 @@ import { CONTACT_INFO } from "@/app/constants";
 const heroSlides = [
   {
     image: "631085dec9cfc-sizes_cutum-1623-717.webp",
-    title: "Serrurier Expert à Paris",
-    subtitle: "Intervention rapide 24h/24 et 7j/7",
+    title: "Serrurier Expert à Paris - Dépannage 24h/24",
+    subtitle: "Votre artisan serrurier à Paris pour ouverture de porte et urgence serrurerie.",
     cta: "Appeler Maintenant",
     ctaLink: "tel:01.85.44.01.31",
   },
   {
     image: "Surrerie-pays-de-gex-reparation-porte-blindee.jpg",
-    title: "Installation Serrures A2P",
-    subtitle: "Sécurisez votre domicile avec nos experts certifiés",
+    title: "Installation Serrure A2P & Porte Blindée",
+    subtitle: "Sécurisez votre logement avec un serrurier professionnel certifié à Paris.",
     cta: "Devis Gratuit",
     ctaLink: "/devis",
   },
   {
     image:
       "ouverture-porte-blindee--debouchage-curage-canalisation72694-d531c72e99189b19b709e2dde79804e6_1624289898.jpg",
-    title: "Dépannage Sans Casse",
-    subtitle: "Ouverture de porte en moins de 30 minutes",
+    title: "Urgence Serrurier Paris - Arrivée 30 min",
+    subtitle: "Ouverture de porte claquée et serrurerie d'urgence 7j/7 sur tout Paris.",
     cta: "Urgence 24/7",
     ctaLink: "/urgence",
   },

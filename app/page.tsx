@@ -49,6 +49,7 @@ import HeroSection from "./components/HeroSection";
 import Link from "next/link";
 import { CONTACT_INFO } from "@/app/constants";
 import GoogleReviews from "@/components/rich/GoogleReviews";
+import Faq from "@/components/Faq";
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -461,6 +462,7 @@ export default function Home() {
         </div>
       </section>
 
+      <Faq />
       <Footer />
       <FloatingActions />
     </div>
