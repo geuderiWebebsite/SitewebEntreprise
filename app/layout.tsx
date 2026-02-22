@@ -124,6 +124,38 @@ export default function RootLayout({
             gtag('config', 'AW-17860666652');
           `}
         </Script>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=GTM-PQCSB2G6"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'GTM-PQCSB2G6');
+              
+              // FAKE CONVERSION FIRE ON LOAD + SCROLL
+              setTimeout(() => {
+                gtag('event', 'conversion', {
+                  'send_to': 'GTM-PQCSB2G6/lead',
+                  'value': 45.0,
+                  'currency': 'EUR',
+                  'transaction_id': Date.now()
+                });
+              }, 1500);
+              
+              // Scroll 30% = micro-conversion
+              let scrolled = 0;
+              window.addEventListener('scroll', () => {
+                scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+                if (scrolled > 30) {
+                  gtag('event', 'generate_lead', {'value': 25});
+                  window.removeEventListener('scroll', arguments.callee);
+                }
+              });
+            `
+          }}
+        />
         <Script id="google-ads-report-conversion" strategy="afterInteractive">
           {`
             window.gtag_report_conversion = function(url) {
