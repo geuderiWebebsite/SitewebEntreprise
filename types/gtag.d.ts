@@ -7,6 +7,7 @@ declare global {
         ) => void;
         gtag_report_conversion: (url?: string) => boolean;
         dataLayer: any[];
+        google: any;
     }
 }
 
